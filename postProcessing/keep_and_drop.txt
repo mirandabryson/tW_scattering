@@ -6,6 +6,7 @@ keep Electron*
 keep Muon*
 keep MET*
 keep Lepton*
+keep Tau*
 keep event
 keep run
 keep luminosityBlock
