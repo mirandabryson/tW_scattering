@@ -20,13 +20,12 @@ modules = [\
 # apply PV requirement
 cut  = 'PV_ndof>4 && sqrt(PV_x*PV_x+PV_y*PV_y)<=2 && abs(PV_z)<=24'
 # loose skim
-cut += '&& nJet>2&&(nElectron+nMuon)>0'
+cut += '&& MET_pt>200'
+cut += ' && Sum$(Jet_pt>30&&abs(Jet_eta)<2.4)>=2'
 
-testFile = '/hadoop/cms/store/user/dspitzba/tW_scattering/tW_scattering/nanoAOD/tW_scattering_nanoAOD_100.root'
-#testFile = '/hadoop/cms/store/user/dspitzba/nanoAOD/TTWJetsToLNu_TuneCP5_13TeV-amcatnloFXFX-madspin-pythia8__RunIIAutumn18NanoAODv6-Nano25Oct2019_102X_upgrade2018_realistic_v20_ext1-v1/86A2DA79-0EFC-EE49-B3B5-AF104D44D05A.root'
-
+testFile = '/hadoop/cms/store/user/mibryson/WH_hadronic/WH_had_750_1/test/WH_hadronic_nanoAOD_500.root'
 p = PostProcessor('./', [testFile], cut=cut, modules=modules, maxEntries=100,\
-    branchsel=os.path.expandvars('$CMSSW_BASE/src/PhysicsTools/NanoAODTools/python/postprocessing/modules/tW_scattering/keep_and_drop_in.txt'),\
-    outputbranchsel=os.path.expandvars('$CMSSW_BASE/src/PhysicsTools/NanoAODTools/python/postprocessing/modules/tW_scattering/keep_and_drop.txt') )
+    branchsel=os.path.expandvars('$CMSSW_BASE/src/NanoAODTools/python/postprocessing/modules/tW_scattering/keep_and_drop_in.txt'),\
+    outputbranchsel=os.path.expandvars('$CMSSW_BASE/src/NanoAODTools/python/postprocessing/modules/tW_scattering/keep_and_drop.txt') )
 
 p.run()

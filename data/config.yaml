@@ -1,7 +1,7 @@
 meta:
-  version: 0.1.2
+  version: MBv6
   localNano: /hadoop/cms/store/user/dspitzba/nanoAOD/
-  localSkim: /hadoop/cms/store/user/mibryson/WH_hadronic/WH_had_750_1/testoutput/
+  localSkim: /hadoop/cms/store/user/mibryson/WH_hadronic/WH_had_750_1/nanoAOD
   plots: /home/users/$USER/public_html/tW_scattering/
 
 

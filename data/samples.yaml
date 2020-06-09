@@ -1,0 +1,6 @@
+/hadoop/cms/store/user/mibryson/WH_hadronic/WH_had_750_1/nanoAOD/:
+  nEvents: 53114
+  name: WH_had_750_1__nanoAOD
+  path: /hadoop/cms/store/user/mibryson/WH_hadronic/WH_had_750_1/nanoAOD/
+  sumWeight: 53114.0
+  xsec: 0.00262

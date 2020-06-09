@@ -47,7 +47,7 @@ SAMPLE_NAME=$OUTPUTNAME
 NEVENTS=-1
 
 # checkout the package
-git clone --branch $VERSION --depth 1  https://github.com/danbarto/nanoAOD-tools.git PhysicsTools/NanoAODTools
+git clone --branch $VERSION --depth 1  https://github.com/mirandabryson/nanoAOD-tools.git PhysicsTools/NanoAODTools
 
 scram b
 
@@ -83,7 +83,7 @@ modules = [\
 # apply PV requirement
 cut  = 'PV_ndof>4 && sqrt(PV_x*PV_x+PV_y*PV_y)<=2 && abs(PV_z)<=24'
 # loose skim
-cut += '&& nJet>2&&(nElectron+nMuon)>0'
+cut += '&& MET_pt>200'
 
 p = PostProcessor('./', ["$INPUTFILENAMES"], cut=cut, modules=modules,\
     branchsel='PhysicsTools/NanoAODTools/python/postprocessing/modules/tW_scattering/keep_and_drop_in.txt',\

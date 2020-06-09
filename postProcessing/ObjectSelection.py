@@ -55,6 +55,10 @@ class PhysicsObjects(Module):
         self.out.branch("Jet_crossClean",   "F", lenVar="nJet")
 
 
+        #MIRANDA'S ADD-ONS
+        self.out.branch("Tau_isVeto",       "F", lenVar="nTau")
+        #self.out.branch("Track_isVeto",     "F", lenVar="nSOMETHING")
+
         # Counter for good b-tags
         self.out.branch("nLepton",      "I")
         self.out.branch("nGoodJet",     "I")
@@ -97,6 +101,11 @@ class PhysicsObjects(Module):
     def deltaR(self, l1, l2):
         return math.sqrt(self.deltaR2(l1,l2))
 
+
+    #    if(abs(charge) >= 99 || lepp4_.E() < 0.000001) return true; //If the lepton is a dummy, bypass the Delta-R and charge cuts
+    #      if(ROOT::Math::VectorUtil::DeltaR(taus_pf_p4().at(ipf), lepp4_) < 0.4)  return false;
+    #      if(taus_pf_charge().at(ipf) * charge > 0) return false;
+    
     def analyze(self, event):
         """process event, return True (go to next module) or False (fail, go to next event)"""
         muons       = Collection(event, "Muon")
@@ -127,7 +136,7 @@ class PhysicsObjects(Module):
             if self.isTightElectron(el):
                 leptons.append({'pt':el.pt, 'eta':el.eta, 'phi':el.phi, 'pdgId':el.pdgId, 'miniIso':el.miniPFRelIso_all, 'muIndex':-1, 'elIndex':i})
 
-        
+
 
         cleanMaskV  = []
         isGoodJet   = []
@@ -154,6 +163,7 @@ class PhysicsObjects(Module):
         self.out.fillBranch("Jet_crossClean",   cleanMaskV)
         self.out.fillBranch("Jet_isGoodJet",    isGoodJet)
         self.out.fillBranch("Jet_isGoodBJet",   isGoodBJet)
+
 
         # make pandas dataframe out of list
         leptons_pd = pd.DataFrame(leptons)
