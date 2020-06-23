@@ -47,7 +47,7 @@ SAMPLE_NAME=$OUTPUTNAME
 NEVENTS=-1
 
 # checkout the package
-git clone --branch $VERSION --depth 1  https://github.com/danbarto/nanoAOD-tools.git PhysicsTools/NanoAODTools
+git clone --branch $VERSION --depth 1  https://github.com/mirandabryson/nanoAOD-tools.git PhysicsTools/NanoAODTools
 
 scram b
 

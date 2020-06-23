@@ -86,6 +86,8 @@ cut  = 'PV_ndof>4 && sqrt(PV_x*PV_x+PV_y*PV_y)<=2 && abs(PV_z)<=24'
 cut += '&& MET_pt>200'
 cut += '&& Sum\$(Jet_pt>30&&abs(Jet_eta<2.4))>=2'
 
+print(cut)
+
 p = PostProcessor('./', ["$INPUTFILENAMES"], cut=cut, modules=modules,\
     branchsel='PhysicsTools/NanoAODTools/python/postprocessing/modules/tW_scattering/keep_and_drop_in.txt',\
     outputbranchsel='PhysicsTools/NanoAODTools/python/postprocessing/modules/tW_scattering/keep_and_drop.txt' )
