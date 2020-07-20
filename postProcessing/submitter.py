@@ -8,12 +8,19 @@ from metis.Utils import do_cmd
 
 from tW_scattering.Tools.helpers import *
 
-# example
-sample = DirectorySample(dataset='TTWJetsToLNu_Autumn18v4', location='/hadoop/cms/store/user/dspitzba/nanoAOD/TTWJetsToLNu_TuneCP5_13TeV-amcatnloFXFX-madspin-pythia8__RunIIAutumn18NanoAODv6-Nano25Oct2019_102X_upgrade2018_realistic_v20_ext1-v1/')
-
 # load samples
 import yaml
 from yaml import Loader, Dumper
+
+def GetYear(filename):
+    if filename.count('Autumn18') or filename.count('Run2018'):
+        return 2018
+    elif filename.count('Fall17') or filename.count('Run2017'):
+        return 2017
+    elif filename.count('Summer16') or filename.count('Run2016'):
+        return 2016
+    else:
+        return -1
 
 data_path = os.path.expandvars('$CMSSW_BASE/src/tW_scattering/data/')
 with open(data_path+'samples.yaml') as f:
@@ -22,21 +29,21 @@ with open(data_path+'samples.yaml') as f:
 # define other stuff
 cfg = loadConfig()
 
-#metisSamples = []
-#for sample in samples.keys():   
 
 outDir = os.path.join(cfg['meta']['localSkim'], str(cfg['meta']['version']).replace('.','p'))
 
 maker_tasks = []
 merge_tasks = []
 
-#raise NotImplementedError
 
-#samples = {'/hadoop/cms/store/user/dspitzba/tW_scattering/tW_scattering/nanoAOD/': samples['/hadoop/cms/store/user/dspitzba/tW_scattering/tW_scattering/nanoAOD/']}
 
 #if True:
 for s in samples.keys():
     sample = DirectorySample(dataset = samples[s]['name'], location = samples[s]['path'])
+    
+    samplename = str(sample)
+
+    year = GetYear(samplename)
 
     tag = str(cfg['meta']['version']).replace('.','p')
     
@@ -45,7 +52,7 @@ for s in samples.keys():
             #'/hadoop/cms/store/user/dspitzba/nanoAOD/TTWJetsToLNu_TuneCP5_13TeV-amcatnloFXFX-madspin-pythia8__RunIIAutumn18NanoAODv6-Nano25Oct2019_102X_upgrade2018_realistic_v20_ext1-v1/',
         # open_dataset = True, flush = True,
         executable = "executable.sh",
-        arguments = "%s %s"%(str(cfg['meta']['version']).replace('.','p'), samples[s]['xsec']/samples[s]['sumWeight']),
+        arguments = "%s %s %d"%(str(cfg['meta']['version']).replace('.','p'), samples[s]['xsec']/samples[s]['sumWeight'], year),
         #tarfile = "merge_scripts.tar.gz",
         files_per_output = 1,
         output_dir = os.path.join(outDir, sample.get_datasetname()),

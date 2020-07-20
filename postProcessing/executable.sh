@@ -12,6 +12,7 @@ SCRAM_ARCH=$6
 
 VERSION=$7
 SUMWEIGHT=$8
+YEAR=$9
 
 OUTPUTNAME=$(echo $OUTPUTNAME | sed 's/\.root//')
 
@@ -72,18 +73,26 @@ from PhysicsTools.NanoAODTools.postprocessing.modules.tW_scattering.ObjectSelect
 from PhysicsTools.NanoAODTools.postprocessing.modules.tW_scattering.GenAnalyzer import *
 from PhysicsTools.NanoAODTools.postprocessing.modules.tW_scattering.lumiWeightProducer import *
 
+from PhysicsTools.NanoAODTools.postprocessing.modules.tW_scattering.helpers import * 
+
 #json support to be added
+
+year = "$YEAR"  
+
+selector = chooseselector(year)                                                       
+
+print(selector)
 
 modules = [\
     lumiWeightProd("$SUMWEIGHT"),
-    selector2018(),
+    selector(),
     genAnalyzer(),
     ]
 
 # apply PV requirement
 cut  = 'PV_ndof>4 && sqrt(PV_x*PV_x+PV_y*PV_y)<=2 && abs(PV_z)<=24'
 # loose skim
-cut += '&& MET_pt>200'
+cut += '&& MET_pt>150'
 cut += '&& Sum\$(Jet_pt>30&&abs(Jet_eta<2.4))>=2'
 
 print(cut)
