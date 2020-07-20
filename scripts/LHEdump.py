@@ -31,7 +31,8 @@ branchsel = None
 director  = "root://cms-xrd-global.cern.ch/" #"root://xrootd-cms.infn.it/"
 infiles   = [
   #director+'/store/mc/RunIIAutumn18NanoAODv5/DYJetsToLL_M-50_TuneCP2_13TeV-madgraphMLM-pythia8/NANOAODSIM/PUFall18Fast_Nano1June2019_lhe_102X_upgrade2018_realistic_v19-v1/250000/9A3D4107-5366-C243-915A-F4426F464D2F.root',
-  '/hadoop/cms/store/user/dspitzba/tW_scattering/tW_scattering/nanoAOD/tW_scattering_nanoAOD_100.root'
+#  '/hadoop/cms/store/user/dspitzba/tW_scattering/tW_scattering/nanoAOD/tW_scattering_nanoAOD_100.root'
+'/hadoop/cms/store/user/mibryson/WH_hadronic/WH_had_750_1/nanoAOD/MBv8/WH_had_750_1__nanoAOD/merged/WH_had_750_1__nanoAOD_1.root'
 ]
 if args.infiles:
   infiles = [args.infiles]
@@ -63,7 +64,7 @@ class LHEDumper(Module):
   
   def analyze(self,event):
     """Dump LHE information for each gen particle in given event."""
-    print "%s event %s %s"%('-'*10,event.event,'-'*50)
+    print '{} event {} {}'.format('-'*10,event.event,'-'*50)
     self.nevents += 1
     leptonic = False
     particles = Collection(event,'GenPart')
