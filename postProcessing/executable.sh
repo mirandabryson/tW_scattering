@@ -81,7 +81,6 @@ year = "$YEAR"
 
 selector = chooseselector(year)                                                       
 
-print(selector)
 
 modules = [\
     lumiWeightProd("$SUMWEIGHT"),
