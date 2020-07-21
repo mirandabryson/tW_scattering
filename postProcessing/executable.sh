@@ -85,13 +85,12 @@ selector = chooseselector(year)
 modules = [\
     lumiWeightProd("$SUMWEIGHT"),
     selector(),
-    genAnalyzer(),
     ]
 
 # apply PV requirement
 cut  = 'PV_ndof>4 && sqrt(PV_x*PV_x+PV_y*PV_y)<=2 && abs(PV_z)<=24'
 # loose skim
-cut += '&& MET_pt>150'
+cut += '&& MET_pt>200'
 cut += '&& Sum\$(Jet_pt>30&&abs(Jet_eta<2.4))>=2'
 
 print(cut)

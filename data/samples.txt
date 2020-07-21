@@ -32,3 +32,14 @@
 /hadoop/cms/store/user/mbryson/WH_hadronic/background/WJetsToLNu_HT-800To1200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8__RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/		  5.501
 /hadoop/cms/store/user/mbryson/WH_hadronic/background/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8__RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/				  50690
 /hadoop/cms/store/user/mbryson/WH_hadronic/WH_had_750_1/nanoAOD/																		  0.00262
+/hadoop/cms/store/user/mbryson/WH_hadronic/background/ZJetsToNuNu_HT-100To200_13TeV-madgraph__RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/					  280.35 
+/hadoop/cms/store/user/mbryson/WH_hadronic/background/ZJetsToNuNu_HT-100To200_13TeV-madgraph__RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1/				  280.35
+/hadoop/cms/store/user/mbryson/WH_hadronic/background/ZJetsToNuNu_HT-200To400_13TeV-madgraph__RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/					  77.67 
+/hadoop/cms/store/user/mbryson/WH_hadronic/background/ZJetsToNuNu_HT-200To400_13TeV-madgraph__RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1/				  77.67
+/hadoop/cms/store/user/mbryson/WH_hadronic/background/ZJetsToNuNu_HT-400To600_13TeV-madgraph__RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1/				  10.73
+/hadoop/cms/store/user/mbryson/WH_hadronic/background/ZJetsToNuNu_HT-400To600_13TeV-madgraph__RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/					  10.73
+/hadoop/cms/store/user/mbryson/WH_hadronic/background/ZJetsToNuNu_HT-600To800_13TeV-madgraph__RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/					  3.221
+/hadoop/cms/store/user/mbryson/WH_hadronic/background/ZJetsToNuNu_HT-800To1200_13TeV-madgraph__RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/					  1.474
+/hadoop/cms/store/user/mbryson/WH_hadronic/background/ZJetsToNuNu_HT-1200To2500_13TeV-madgraph__RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/					  0.3586 
+/hadoop/cms/store/user/mbryson/WH_hadronic/background/ZJetsToNuNu_HT-1200To2500_13TeV-madgraph__RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1/				  0.3586
+/hadoop/cms/store/user/mbryson/WH_hadronic/background/ZJetsToNuNu_HT-2500ToInf_13TeV-madgraph__RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/					  0.008203 

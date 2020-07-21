@@ -1,5 +1,5 @@
 meta:
-  version: MBv96
+  version: MBv93
   localNano: /hadoop/cms/store/user/mbryson/WH_hadronic/background/
   localSkim: /hadoop/cms/store/user/mbryson/WH_hadronic/WH_had_750_1/nanoAOD
   plots: /home/users/$USER/public_html/tW_scattering/
