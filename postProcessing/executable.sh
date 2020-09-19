@@ -12,7 +12,6 @@ SCRAM_ARCH=$6
 
 VERSION=$7
 SUMWEIGHT=$8
-YEAR=$9
 
 OUTPUTNAME=$(echo $OUTPUTNAME | sed 's/\.root//')
 
@@ -48,7 +47,7 @@ SAMPLE_NAME=$OUTPUTNAME
 NEVENTS=-1
 
 # checkout the package
-git clone --branch $VERSION --depth 1  https://github.com/mirandabryson/nanoAOD-tools.git PhysicsTools/NanoAODTools
+git clone --branch $VERSION --depth 1  https://github.com/danbarto/nanoAOD-tools.git PhysicsTools/NanoAODTools
 
 scram b
 
@@ -63,53 +62,9 @@ OUTFILE=$(python -c "print('$INPUTFILENAMES'.split('/')[-1].split('.root')[0]+'_
 
 echo $OUTFILE
 
-python << EOL
-from importlib import import_module
-from PhysicsTools.NanoAODTools.postprocessing.framework.postprocessor   import PostProcessor
-from PhysicsTools.NanoAODTools.postprocessing.framework.datamodel       import Collection
-from PhysicsTools.NanoAODTools.postprocessing.framework.eventloop       import Module
+python PhysicsTools/NanoAODTools/scripts/run_processor.py $INPUTFILENAMES $SUMWEIGHT 
 
-from PhysicsTools.NanoAODTools.postprocessing.modules.tW_scattering.ObjectSelection import *
-from PhysicsTools.NanoAODTools.postprocessing.modules.tW_scattering.GenAnalyzer import *
-from PhysicsTools.NanoAODTools.postprocessing.modules.tW_scattering.lumiWeightProducer import *
-
-from PhysicsTools.NanoAODTools.postprocessing.modules.tW_scattering.helpers import * 
-
-#json support to be added
-
-year = "$YEAR"  
-
-selector = chooseselector(year)                                                       
-
-
-modules = [\
-    lumiWeightProd("$SUMWEIGHT"),
-    selector(),
-    ]
-
-# apply PV requirement
-cut  = 'PV_ndof>4 && sqrt(PV_x*PV_x+PV_y*PV_y)<=2 && abs(PV_z)<=24'
-# loose skim
-cut += '&& MET_pt>200'
-cut += '&& Sum\$(Jet_pt>30&&abs(Jet_eta<2.4))>=2'
-
-print(cut)
-
-p = PostProcessor('./', ["$INPUTFILENAMES"], cut=cut, modules=modules,\
-    branchsel='PhysicsTools/NanoAODTools/python/postprocessing/modules/tW_scattering/keep_and_drop_in.txt',\
-    outputbranchsel='PhysicsTools/NanoAODTools/python/postprocessing/modules/tW_scattering/keep_and_drop.txt' )
-
-p.run()
-EOL
-
-#python PhysicsTools/NanoAODTools/scripts/nano_postproc.py ./ $INPUTFILENAMES \
-#    --branch-selection PhysicsTools/NanoAODTools/python/postprocessing/modules/tW_scattering/keep_and_drop.txt \
-#    --cut='nJet>0&&(nElectron+nMuon)>0' \
-#    -I PhysicsTools.NanoAODTools.postprocessing.modules.tW_scattering.ObjectSelection selector2018,\
-#       PhysicsTools.NanoAODTools.postprocessing.modules.tW_scattering.lumiWeightProducer lumiWeightProd(0.5)
-
-
-mv $OUTFILE ${OUTPUTNAME}_${IFILE}.root
+mv tree.root ${OUTPUTNAME}_${IFILE}.root
 
 # Rigorous sweeproot which checks ALL branches for ALL events.
 # If GetEntry() returns -1, then there was an I/O problem, so we will delete it
@@ -155,6 +110,7 @@ if [[ $(hostname) == "uaf"* ]]; then
         cp ${EXTRAOUT}_${IFILE}.root ${OUTPUTDIR}/${EXTRAOUT}/${EXTRAOUT}_${IFILE}.root
     fi
 else
+    echo ${OUTPUTDIR}/${OUTPUTNAME}_${IFILE}.root
     export LD_PRELOAD=/usr/lib64/gfal2-plugins//libgfal_plugin_xrootd.so # needed in cmssw versions later than 9_3_X
     gfal-copy -p -f -t 4200 --verbose file://`pwd`/${OUTPUTNAME}_${IFILE}.root gsiftp://gftp.t2.ucsd.edu${OUTPUTDIR}/${OUTPUTNAME}_${IFILE}.root --checksum ADLER32
     if [ ! -z $EXTRAOUT ]; then
@@ -166,5 +122,3 @@ fi
 echo -e "\n--- cleaning up ---\n" #                             <----- section division
 cd ../../
 rm -r $CMSSW_VERSION/
-
-

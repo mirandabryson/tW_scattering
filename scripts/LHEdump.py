@@ -31,14 +31,10 @@ branchsel = None
 director  = "root://cms-xrd-global.cern.ch/" #"root://xrootd-cms.infn.it/"
 infiles   = [
   #director+'/store/mc/RunIIAutumn18NanoAODv5/DYJetsToLL_M-50_TuneCP2_13TeV-madgraphMLM-pythia8/NANOAODSIM/PUFall18Fast_Nano1June2019_lhe_102X_upgrade2018_realistic_v19-v1/250000/9A3D4107-5366-C243-915A-F4426F464D2F.root',
-<<<<<<< HEAD
-#  '/hadoop/cms/store/user/dspitzba/tW_scattering/tW_scattering/nanoAOD/tW_scattering_nanoAOD_100.root'
-'/hadoop/cms/store/user/mibryson/WH_hadronic/WH_had_750_1/nanoAOD/MBv8/WH_had_750_1__nanoAOD/merged/WH_had_750_1__nanoAOD_1.root'
-=======
   #'/hadoop/cms/store/user/dspitzba/tW_scattering/tW_scattering/nanoAOD/tW_scattering_nanoAOD_100.root'
   #director + '/store/mc/RunIIFall17NanoAODv7/WminusH_HToBB_WToLNu_M125_13TeV_powheg_pythia8/NANOAODSIM/PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/70000/AC066AE4-C6E2-C245-9F85-D017D83507EB.root'
-  '/hadoop/cms/store/user/mibryson/WH_hadronic/WH_had_750_1/test/WH_hadronic_nanoAOD_500.root'
->>>>>>> 249ab61edeb18cdd2fda7bf36890860478fcbc2b
+  '/hadoop/cms/store/user/mbryson/WH_hadronic/WH_had_750_1/test/WH_hadronic_nanoAOD_500.root'
+  #'/hadoop/cms/store/user/dspitzba/tW_scattering/tW_scattering/nanoAOD/tW_scattering_nanoAOD_500.root'
 ]
 if args.infiles:
   infiles = [args.infiles]
@@ -67,16 +63,23 @@ class LHEDumper(Module):
   def __init__(self):
     self.nleptons = 0
     self.nevents  = 0
-  
-  def analyze(self,event):
+ 
+  def hasAncestor(self, p, ancestorPdg, genParts):
+    motherIdx = p.genPartIdxMother
+    while motherIdx>0:
+      if (abs(genParts[motherIdx].pdgId) == ancestorPdg): return True
+      motherIdx = genParts[motherIdx].genPartIdxMother
+    return False
+ 
+ def analyze(self,event):
     """Dump LHE information for each gen particle in given event."""
-    print '{} event {} {}'.format('-'*10,event.event,'-'*50)
+    print "%s event %s %s"%('-'*10,event.event,'-'*50)
     self.nevents += 1
     leptonic = False
     particles = Collection(event,'GenPart')
     #particles = Collection(event,'LHEPart')
-    print " \033[4m%7s %8s %10s %8s %8s %10s %8s %8s %8s %9s %10s %11s  \033[0m"%(
-      "index","pdgId","particle","moth","mothid", "moth part", "dR","pt","status","prompt","last copy", "hard scatter")
+    print " \033[4m%7s %8s %10s %8s %8s %10s %8s %8s %8s %9s %10s %11s %11s \033[0m"%(
+      "index","pdgId","particle","moth","mothid", "moth part", "dR","pt","status","prompt","last copy", "hard scatter", "W ancestor")
     for i, particle in enumerate(particles):
       mothidx  = particle.genPartIdxMother
       if 0<=mothidx<len(particles):
@@ -89,6 +92,7 @@ class LHEDumper(Module):
       prompt    = hasBit(particle.statusFlags,0)
       lastcopy  = hasBit(particle.statusFlags,13)
       hardprocess = hasBit(particle.statusFlags,7)
+      hasWancestor = (self.hasAncestor( particle, 24, particles) and abs(particle.pdgId)<5)
       try:
           particleName =  Particle.from_pdgid(int(particle.pdgId)).name
       except:
@@ -97,8 +101,8 @@ class LHEDumper(Module):
         motherName = Particle.from_pdgid(int(mothpid)).name if mothpid != 0 else 'initial'
       except:
           particleName = str(particle.pdgId)
-      print " %7d %8d %10s %8d %8d %10s %8.2f %8.2f %8d %9s %10s %11s"%(
-        i,particle.pdgId,particleName,mothidx,mothpid,motherName,mothdR,particle.pt,particle.status,prompt,lastcopy,hardprocess)
+      print " %7d %8d %10s %8d %8d %10s %8.2f %8.2f %8d %9s %10s %11s %11s"%(
+        i,particle.pdgId,particleName,mothidx,mothpid,motherName,mothdR,particle.pt,particle.status,prompt,lastcopy,hardprocess, hasWancestor)
       if abs(particle.pdgId) in [11,13,15]:
         leptonic = True
     if leptonic:
@@ -111,6 +115,8 @@ class LHEDumper(Module):
     print "%s done %s"%('-'*10,'-'*54)
   
 # PROCESS NANOAOD
-filterEvent = 'event==606||event==352'
+#filterEvent = 'event==606||event==352'
+#filterEvent = 'event==1'
+filterEvent = '(1)'
 processor = PostProcessor(outdir,infiles,noOut=True,cut=filterEvent,modules=[LHEDumper()],maxEntries=maxEvts)
 processor.run()
