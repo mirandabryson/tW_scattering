@@ -50,6 +50,23 @@ class WHhadProcessor(processor.ProcessorABC):
             'totalEvents':      processor.defaultdict_accumulator(int),
             'passedEvents':     processor.defaultdict_accumulator(int),
         })
+        
+        '''self._accumulator = processor.dict_accumulator({
+            "met":                          hist.Hist("Counts", dataset_axis, pt_axis),
+            "ht":                           hist.Hist("Counts", dataset_axis, pt_axis),
+            #"jet_pt":                       hist.Hist("Counts", dataset_axis, pt_axis),
+            "njets":                        hist.Hist("Counts", dataset_axis, multiplicity_axis),
+            "bjets":                        hist.Hist("Counts", dataset_axis, multiplicity_axis),
+            "min_dphi_met_j1":              hist.Hist("Counts", dataset_axis, phi_axis),
+            "min_dphi_met_j2":              hist.Hist("Counts", dataset_axis, phi_axis),
+            "min_dphi_met_j3":              hist.Hist("Counts", dataset_axis, phi_axis),
+            "min_dphi_met_j4":              hist.Hist("Counts", dataset_axis, phi_axis),
+            "dphi_j1_j2":                   hist.Hist("Counts", dataset_axis, phi_axis),
+            "dphi_fj1_fj2":                 hist.Hist("Counts", dataset_axis, phi_axis),
+            "dR_fj1_fj2":                   hist.Hist("Counts", dataset_axis, r_axis),
+            #"m_FatJet_softdrop":            hist.Hist("Counts", dataset_axis, mass_axis),
+
+        }'''
 
     #Make sure to plug in the dataset axis and the properly binned axis you created above.
     #Cool. Now let's define some properties of the processor.
@@ -255,25 +272,24 @@ class WHhadProcessor(processor.ProcessorABC):
         #element of the weight branch. This lets me bypass any issues I may come across
         #when I have arrays of different sizes than my weight branch. 
         
-        
-        #Let's fill some histograms. 
-        output['met'].fill(dataset=dataset, pt=metpt[sel].flatten(), weight=wght)
-        output['ht'].fill(dataset=dataset, pt=ht[sel].flatten(), weight=wght)
-        #output['jet_pt'].fill(dataset=dataset, pt=jetpt_sorted[sel].flatten(), weight=wght)
-        output['njets'].fill(dataset=dataset, multiplicity=njets[sel].flatten(), weight=wght)
-        output['bjets'].fill(dataset=dataset, multiplicity=nbjets[sel].flatten(), weight=wght)   
-        output['min_dphi_met_j1'].fill(dataset=dataset, phi=abs_min_dphi_met_leadjs1[sel].flatten(), weight=wght)
-        output['min_dphi_met_j2'].fill(dataset=dataset, phi=abs_min_dphi_met_leadjs2[sel].flatten(), weight=wght)
-        output['min_dphi_met_j3'].fill(dataset=dataset, phi=abs_min_dphi_met_leadjs3[sel].flatten(), weight=wght)
-        output['min_dphi_met_j4'].fill(dataset=dataset, phi=abs_min_dphi_met_leadjs4[sel].flatten(), weight=wght)
-        output['dphi_j1_j2'].fill(dataset=dataset, phi=abs_dphi_j1_j2[sel].flatten(), weight=wght)
-        output['dphi_fj1_fj2'].fill(dataset=dataset, phi=abs_dphi_fj1_fj2[sel].flatten(), weight=wght)
-        output['dR_fj1_fj2'].fill(dataset=dataset, r=dR_fj1_fj2[sel].flatten(), weight=wght)
-        #output['m_FatJet_softdrop'].fill(dataset=dataset, mass=fatjets[sel].softdrop.flatten(), weight=fj_wght)
-        #Notice I have put .flatten() next to the data I'm inputting. This makes my
-        #data arrays the appropriate format to input into histograms. 
-        
-        #Return that output, hunty!
+
+        df_out = pd.DataFrame({
+            'met':              metpt[sel].flatten(),
+            'ht':               ht[sel].flatten(),
+            'njets':            njets[sel].flatten(),
+            'bjets':            nbjets[sel].flatten(),
+            'min_dphi_met_j1':  abs_min_dphi_met_leadjs1[sel].flatten(),
+            'min_dphi_met_j2':  abs_min_dphi_met_leadjs2[sel].flatten(),
+            'min_dphi_met_j3':  abs_min_dphi_met_leadjs3[sel].flatten(),
+            'min_dphi_met_j4':  abs_min_dphi_met_leadjs4[sel].flatten()#,
+            #'dphi_j1_j2':       abs_dphi_j1_j2[sel].flatten(),
+            #'dphi_fj1_fj2':     abs_dphi_fj1_fj2[sel].flatten(),
+            #'dR_fj1_fj2':       dR_fj1_fj2[sel].flatten(),
+            #'signal':           signal_label,
+            #'weight':           df['weight'][sel]
+        })
+        df_out.to_hdf('data_X.h5', key='df', format='table', mode='a', append=True)
+
         return output
 
     #Remember this bad boy and we're done with this block of code!
@@ -291,15 +307,15 @@ df_out = {
     'min_dphi_met_j1':    [],
     'min_dphi_met_j2':    [],
     'min_dphi_met_j3':    [],
-    'min_dphi_met_j4':    [],
-    'weight':   [],
-    'signal':   [],
+    'min_dphi_met_j4':    []#,
+    #'weight':   [],
+    #'signal':   [],
 }
 #df_out = {'spectator_pt': []}
 
 
 small = False
-overwrite = False
+overwrite = True
 
 # load the config and the cache
 cfg = loadConfig()
@@ -321,19 +337,19 @@ if overwrite:
 
     output = processor.run_uproot_job(fileset,
                                       treename='Events',
-                                      processor_instance=analysisProcessor(),
+                                      processor_instance=WHhadProcessor(),
                                       executor=processor.futures_executor,
                                       executor_args={'workers': workers, 'function_args': {'flatten': False}},
                                       chunksize=500000,
                                      )
     
-    check = output['passedEvents']['all'] == len(pd.read_hdf('data/data_X.h5'))
-    print ("Analyzed events:", output['totalEvents']['all'])
-    print ("Check passed:", check)
+    #check = output['passedEvents']['all'] == len(pd.read_hdf('data/data_X.h5'))
+    #print ("Analyzed events:", output['totalEvents']['all'])
+    #print ("Check passed:", check)
 
 test = pd.read_hdf('data/data_X.h5')
 
-print ("Got %s events for signal (WH)."%len(test[test['signal']==1]))
-print ("Got %s events for background (ttbar/ttW/ttZ)."%len(test[test['signal']==0]))
+#print ("Got %s events for signal (WH)."%len(test[test['signal']==1]))
+#print ("Got %s events for background (ttbar/ttW/ttZ)."%len(test[test['signal']==0]))
 
 #len(test[test['signal']==1])

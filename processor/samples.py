@@ -6,9 +6,11 @@ cfg = loadConfig()
 
 version = cfg['meta']['version']
 tag = version.replace('.','p')
-tag = '0p1p5'
+#tag = '0p1p5'
+tag = '0p1p20'
 
-data_path = os.path.join(cfg['meta']['localSkim'], tag)
+#data_path = os.path.join(cfg['meta']['localSkim'], tag)
+data_path = os.path.join("/hadoop/cms/store/user/ksalyer/allHadTest/", tag)
 
 # All samples
 groups = {
@@ -60,22 +62,30 @@ groups_3l = {
     'DY':            ['/DYJetsToLL']
 }
 
+# WH All Had samples for DNN
+groups_WH = {
+    'WH':            ['/WH[-_]'],
+    'TTW/TTZ':       ['/TTZToLLNuNu[-_]', '/TTWJets[-_]','/TT[T,W,Z][T,W,Z][-_]'],
+    'ttbar':         ['/TTJets_SingleLept', '/TTJets_DiLept'],
+}
+
 
 samples = glob.glob(data_path + '/*')
-fileset = { group: [] for group in groups.keys() }
-fileset_1l = { group: [] for group in groups_1l.keys() }
-fileset_2l = { group: [] for group in groups_2l.keys() }
-fileset_2lOS = { group: [] for group in groups_2lOS.keys() }
-fileset_3l = { group: [] for group in groups_3l.keys() }
+fileset = { group: [] for group in groups_WH.keys() }
+#fileset = { group: [] for group in groups.keys() }
+#fileset_1l = { group: [] for group in groups_1l.keys() }
+#fileset_2l = { group: [] for group in groups_2l.keys() }
+#fileset_2lOS = { group: [] for group in groups_2lOS.keys() }
+#fileset_3l = { group: [] for group in groups_3l.keys() }
 
 for sample in samples:
 
-    for group in groups.keys():
-        for process in groups[group]:
+    for group in groups_WH.keys():
+        for process in groups_WH[group]:
             if re.search(process, sample):
                 fileset[group] += glob.glob(sample+'/*.root')
 
-    for group in groups_1l.keys():
+    '''for group in groups_1l.keys():
         for process in groups_1l[group]:
             if re.search(process, sample):
                 fileset_1l[group] += glob.glob(sample+'/*.root')
@@ -93,7 +103,7 @@ for sample in samples:
     for group in groups_3l.keys():
         for process in groups_3l[group]:
             if re.search(process, sample):
-                fileset_3l[group] += glob.glob(sample+'/*.root')
+                fileset_3l[group] += glob.glob(sample+'/*.root')'''
 
 fileset_small = { sample: fileset[sample][:2] for sample in fileset.keys() }
 
