@@ -47,8 +47,8 @@ class WHhadProcessor(processor.ProcessorABC):
             'ttbar':            processor.defaultdict_accumulator(int),
             'TTW/TTZ':          processor.defaultdict_accumulator(int),
             'WH':               processor.defaultdict_accumulator(int),
-            'totalEvents':      processor.defaultdict_accumulator(int),
-            'passedEvents':     processor.defaultdict_accumulator(int),
+            #'totalEvents':      processor.defaultdict_accumulator(int),
+            #'passedEvents':     processor.defaultdict_accumulator(int),
         })
         
         '''self._accumulator = processor.dict_accumulator({
@@ -266,12 +266,7 @@ class WHhadProcessor(processor.ProcessorABC):
               
     
         #Let's make sure we weight our events properly.
-        wght = df['weight'][sel] * 137
-        fj_wght = ((fatjets[sel].pt>0)*df['weight'][sel].flatten()) * 137
-        #Since the weight will be the same for the entire dataset, I call the first 
-        #element of the weight branch. This lets me bypass any issues I may come across
-        #when I have arrays of different sizes than my weight branch. 
-        
+        wght = df['weight'][sel] * 137        
 
         df_out = pd.DataFrame({
             'met':              metpt[sel].flatten(),
@@ -288,7 +283,7 @@ class WHhadProcessor(processor.ProcessorABC):
             #'signal':           signal_label,
             #'weight':           df['weight'][sel]
         })
-        df_out.to_hdf('data_X.h5', key='df', format='table', mode='a', append=True)
+        df_out.to_hdf('data/data_X.h5', key='df', format='table', mode='a', append=True)
 
         return output
 
@@ -323,7 +318,7 @@ cfg = loadConfig()
 from processor.samples import fileset, fileset_small#, fileset_2l, fileset_SS
 
 if small:
-    fileset = {'WH': fileset['WH'][:2], 'ttbar':fileset['ttbar'][:2]} # {'tW_scattering': fileset_small['tW_scattering']}
+    fileset = {'WH': fileset['WH'][:2]}#, 'ttbar':fileset['ttbar'][:2]} # {'tW_scattering': fileset_small['tW_scattering']}
     workers = 4
 else:
     fileset = {'WH': fileset['WH'], 'TTW/TTZ': fileset['TTW/TTZ'], 'ttbar':fileset['ttbar']}
