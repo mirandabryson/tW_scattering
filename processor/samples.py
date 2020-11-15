@@ -16,7 +16,9 @@ data_path = os.path.join("/hadoop/cms/store/user/ksalyer/allHadTest/", tag)
 groups = {
     'tW_scattering': ['/tW_scattering[-_]'],
     'TTX':           ['/TTZToLLNuNu[-_]', '/ST_tWll[-_]', '/ST_tWnunu[-_]', '/TH[W,Q][-_]', '/TT[T,W,Z][T,W,Z][-_]', '/tZq[-_]', '/ttHToNonbb[-_]'],
+    'TTW':           ['/TTWJets'],
     'ttbar':         ['/TTJets_SingleLept', '/TTJets_DiLept', '/ST_[s,t]-channel', '/ST_tW[-_]'],
+    'ttbar1l':       ['/TTJets_SingleLept', '/ST_[s,t]-channel'],
     'TTW':           ['/TTWJets'],
     'wjets':         ['/W[1-4]JetsToLNu[-_]'],
     'diboson':       ['/[W,Z][W,Z]To', '/[W,Z][W,Z][W,Z][-_]'],
@@ -36,6 +38,17 @@ groups_1l = {
 groups_2l = {
     'tW_scattering': ['/tW_scattering[-_]'],
     'TTX':           ['/TTZToLLNuNu[-_]', '/ST_tWll[-_]', '/ST_tWnunu[-_]', '/TH[W,Q][-_]', '/TT[T,W,Z][T,W,Z][-_]', '/tZq[-_]', '/ttHToNonbb[-_]'],
+    'ttbar':         ['/TTJets_SingleLept', '/TTJets_DiLept', '/ST_[s,t]-channel', '/ST_tW[-_]'],
+    'TTW':           ['/TTWJets'],
+    'diboson':       ['/[W,Z][W,Z]To', '/[W,Z][W,Z][W,Z][-_]'],
+    'DY':            ['/DYJetsToLL']
+}
+
+groups_SS = {
+    'tW_scattering': ['/tW_scattering[-_]'],
+    'TTZ':           ['/TTZToLLNuNu[-_]', '/ST_tWll[-_]', '/ST_tWnunu[-_]', '/tZq[-_]', '/TT[W,Z][W,Z][-_]'],
+    'TTTT':          ['/TTTT[-_]'],
+    'TTH':           ['/TH[W,Q][-_]', '/ttHToNonbb[-_]'],
     'ttbar':         ['/TTJets_SingleLept', '/TTJets_DiLept', '/ST_[s,t]-channel', '/ST_tW[-_]'],
     'TTW':           ['/TTWJets'],
     'diboson':       ['/[W,Z][W,Z]To', '/[W,Z][W,Z][W,Z][-_]'],
@@ -94,6 +107,11 @@ for sample in samples:
         for process in groups_2l[group]:
             if re.search(process, sample):
                 fileset_2l[group] += glob.glob(sample+'/*.root')
+                
+    for group in groups_SS.keys():
+        for process in groups_SS[group]:
+            if re.search(process, sample):
+                fileset_SS[group] += glob.glob(sample+'/*.root')
                 
     for group in groups_2lOS.keys():
         for process in groups_2lOS[group]:

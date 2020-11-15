@@ -12,6 +12,10 @@ SCRAM_ARCH=$6
 
 VERSION=$7
 SUMWEIGHT=$8
+ISDATA=$9
+YEAR=${10}
+ERA=${11}
+ISFASTSIM=${12}
 
 OUTPUTNAME=$(echo $OUTPUTNAME | sed 's/\.root//')
 
@@ -79,14 +83,13 @@ eval `scramv1 runtime -sh`
 SAMPLE_NAME=$OUTPUTNAME
 NEVENTS=-1
 
+echo $VERSION
+
 # checkout the package
 git clone --branch $VERSION --depth 1  https://github.com/ksalyer/nanoAOD-tools.git PhysicsTools/NanoAODTools
 
 scram b
 
-
-echo "Running PhysicsTools/NanoAODTools/scripts/nano_postproc.py:"
-#echo "Running BabyMakera:"
 
 echo "Input:"
 echo $INPUTFILENAMES
