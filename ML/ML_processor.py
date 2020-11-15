@@ -43,30 +43,31 @@ class WHhadProcessor(processor.ProcessorABC):
         
         #Now, let's move to actually telling our processor what histograms we want to make.
         #Let's start out simple. 
-        self._accumulator = processor.dict_accumulator({
+        '''self._accumulator = processor.dict_accumulator({
             'ttbar':            processor.defaultdict_accumulator(int),
             'TTW/TTZ':          processor.defaultdict_accumulator(int),
             'WH':               processor.defaultdict_accumulator(int),
             #'totalEvents':      processor.defaultdict_accumulator(int),
             #'passedEvents':     processor.defaultdict_accumulator(int),
-        })
+        })'''
         
-        '''self._accumulator = processor.dict_accumulator({
-            "met":                          hist.Hist("Counts", dataset_axis, pt_axis),
-            "ht":                           hist.Hist("Counts", dataset_axis, pt_axis),
-            #"jet_pt":                       hist.Hist("Counts", dataset_axis, pt_axis),
-            "njets":                        hist.Hist("Counts", dataset_axis, multiplicity_axis),
-            "bjets":                        hist.Hist("Counts", dataset_axis, multiplicity_axis),
-            "min_dphi_met_j1":              hist.Hist("Counts", dataset_axis, phi_axis),
-            "min_dphi_met_j2":              hist.Hist("Counts", dataset_axis, phi_axis),
-            "min_dphi_met_j3":              hist.Hist("Counts", dataset_axis, phi_axis),
-            "min_dphi_met_j4":              hist.Hist("Counts", dataset_axis, phi_axis),
-            "dphi_j1_j2":                   hist.Hist("Counts", dataset_axis, phi_axis),
-            "dphi_fj1_fj2":                 hist.Hist("Counts", dataset_axis, phi_axis),
-            "dR_fj1_fj2":                   hist.Hist("Counts", dataset_axis, r_axis),
+        self._accumulator = processor.dict_accumulator({
+            "met":                          processor.column_accumulator(np.zeros(shape=(0,))),
+            "ht":                           processor.column_accumulator(np.zeros(shape=(0,))),
+            #"jet_pt":                       processor.column_accumulator(np.zeros(shape=(0,))),
+            "njets":                        processor.column_accumulator(np.zeros(shape=(0,))),
+            "bjets":                        processor.column_accumulator(np.zeros(shape=(0,))),
+            "min_dphi_met_j1":              processor.column_accumulator(np.zeros(shape=(0,))),
+            "min_dphi_met_j2":              processor.column_accumulator(np.zeros(shape=(0,))),
+            "min_dphi_met_j3":              processor.column_accumulator(np.zeros(shape=(0,))),
+            "min_dphi_met_j4":              processor.column_accumulator(np.zeros(shape=(0,))),
+            #"dphi_j1_j2":                   hist.Hist
+            #"dphi_fj1_fj2":                 hist.Hist
+            #"dR_fj1_fj2":                   hist.Hist("Counts", dataset_axis, r_axis),
             #"m_FatJet_softdrop":            hist.Hist("Counts", dataset_axis, mass_axis),
+            "signal":                       processor.column_accumulator(np.zeros(shape=(0,))),
 
-        }'''
+        })
 
     #Make sure to plug in the dataset axis and the properly binned axis you created above.
     #Cool. Now let's define some properties of the processor.
@@ -217,10 +218,10 @@ class WHhadProcessor(processor.ProcessorABC):
         #min_dphi_met_leadjs3 = dphi_met_leadjs3[sorted_dphi_met_leadjs3==0]
         #abs_min_dphi_met_leadjs3 = abs(min_dphi_met_leadjs3)
        
-        abs_min_dphi_met_leadjs1 = abs(np.arccos(np.cos(goodjets[:,:1].phi-metphi)).min())
-        abs_min_dphi_met_leadjs2 = abs(np.arccos(np.cos(goodjets[:,:2].phi-metphi)).min())
-        abs_min_dphi_met_leadjs3 = abs(np.arccos(np.cos(goodjets[:,:3].phi-metphi)).min())
-        abs_min_dphi_met_leadjs4 = abs(np.arccos(np.cos(goodjets[:,:4].phi-metphi)).min())
+        abs_min_dphi_met_leadjs1 = np.arccos(np.cos(goodjets[:,:1].phi-metphi)).min()
+        abs_min_dphi_met_leadjs2 = np.arccos(np.cos(goodjets[:,:2].phi-metphi)).min()
+        abs_min_dphi_met_leadjs3 = np.arccos(np.cos(goodjets[:,:3].phi-metphi)).min()
+        abs_min_dphi_met_leadjs4 = np.arccos(np.cos(goodjets[:,:4].phi-metphi)).min()
 
         abs_dphi_j1_j2           = abs(leadjet_subleadjet.i0.p4.delta_phi(leadjet_subleadjet.i1.p4))
         abs_dphi_fj1_fj2         = abs(lead_sublead_FatJets.i0.p4.delta_phi(lead_sublead_FatJets.i1.p4))
@@ -263,12 +264,25 @@ class WHhadProcessor(processor.ProcessorABC):
 
         
         sel = ht_ps & met_ps & njet_ps & bjet_ps & l_sel & h_sel & wmc_sel
-              
+
+        
+        nEventsBaseline = len(df['weight'][sel])
+        signal_label = np.ones(nEventsBaseline) if (df['dataset']=='WH') else np.zeros(nEventsBaseline)   
     
         #Let's make sure we weight our events properly.
         wght = df['weight'][sel] * 137        
 
-        df_out = pd.DataFrame({
+        output['met']               += processor.column_accumulator(metpt[sel].flatten())
+        output['ht']                += processor.column_accumulator(ht[sel].flatten())
+        output['njets']             += processor.column_accumulator(njets[sel].flatten())
+        output['bjets']             += processor.column_accumulator(nbjets[sel].flatten())
+        output['min_dphi_met_j1']   += processor.column_accumulator(abs_min_dphi_met_leadjs1[sel].flatten())
+        output['min_dphi_met_j2']   += processor.column_accumulator(abs_min_dphi_met_leadjs2[sel].flatten())
+        output['min_dphi_met_j3']   += processor.column_accumulator(abs_min_dphi_met_leadjs3[sel].flatten())
+        output['min_dphi_met_j4']   += processor.column_accumulator(abs_min_dphi_met_leadjs4[sel].flatten())
+        output['signal']            += processor.column_accumulator(signal_label)
+
+        '''df_out = pd.DataFrame({
             'met':              metpt[sel].flatten(),
             'ht':               ht[sel].flatten(),
             'njets':            njets[sel].flatten(),
@@ -283,7 +297,7 @@ class WHhadProcessor(processor.ProcessorABC):
             #'signal':           signal_label,
             #'weight':           df['weight'][sel]
         })
-        df_out.to_hdf('data/data_X.h5', key='df', format='table', mode='a', append=True)
+        df_out.to_hdf('data/data_X.h5', key='df', format='table', mode='a', append=True)'''
 
         return output
 
@@ -302,9 +316,9 @@ df_out = {
     'min_dphi_met_j1':    [],
     'min_dphi_met_j2':    [],
     'min_dphi_met_j3':    [],
-    'min_dphi_met_j4':    []#,
+    'min_dphi_met_j4':    [],
     #'weight':   [],
-    #'signal':   [],
+    'signal':   [],
 }
 #df_out = {'spectator_pt': []}
 
@@ -322,7 +336,7 @@ if small:
     workers = 4
 else:
     fileset = {'WH': fileset['WH'], 'TTW/TTZ': fileset['TTW/TTZ'], 'ttbar':fileset['ttbar']}
-    workers = 4
+    workers = 8
 
 if overwrite:
 
@@ -337,7 +351,24 @@ if overwrite:
                                       executor_args={'workers': workers, 'function_args': {'flatten': False}},
                                       chunksize=500000,
                                      )
-    
+    df_out = pd.DataFrame({
+            'met':              output['met'].value,
+            'ht':               output['ht'].value,
+            'njets':            output['njets'].value,
+            'bjets':            output['bjets'].value,
+            'min_dphi_met_j1':  output['min_dphi_met_j1'].value,
+            'min_dphi_met_j2':  output['min_dphi_met_j2'].value,
+            'min_dphi_met_j3':  output['min_dphi_met_j3'].value,
+            'min_dphi_met_j4':  output['min_dphi_met_j4'].value,
+            #'dphi_j1_j2':       abs_dphi_j1_j2[sel].flatten(),
+            #'dphi_fj1_fj2':     abs_dphi_fj1_fj2[sel].flatten(),
+            #'dR_fj1_fj2':       dR_fj1_fj2[sel].flatten(),
+            'signal':           output['signal'].value,
+            #'weight':           df['weight'][sel]
+        })
+
+    df_out.to_hdf('data/data_X.h5', key='df', format='table', mode='a', append=True)
+
     #check = output['passedEvents']['all'] == len(pd.read_hdf('data/data_X.h5'))
     #print ("Analyzed events:", output['totalEvents']['all'])
     #print ("Check passed:", check)

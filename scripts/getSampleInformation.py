@@ -109,15 +109,15 @@ def getBranches(files, local=True):
 
 def getMasses(branches):
     masses = []
-    for i in range(len(branches)):
-        mystr = branches[i]
+    for branch in branches:
+        mystr = branch
         iMass = mystr.index("TChiWH_")
         mass = mystr[iMass:][7:]
         masses.append(mass)
     masses = list(dict.fromkeys(masses))
     return masses
 
-def getScanNorm(files):
+def getScanNorm(files, local=True):
     import ROOT
 
     files = [ 'root://cmsxrootd.fnal.gov/'+f for f in files ] if not local else files
@@ -136,20 +136,20 @@ def getScanNorm(files):
             branches.append(b.GetName())
         branches.remove("run")
 
-        for m in range(len(masses)):
-            branchName = 'genEventCount_TChiWH_'+masses[m]
+        for mass in masses:
+            branchName = 'genEventCount_TChiWH_'+mass
             if branchName in branches:
-                nEvents = getattr(c, 'genEventCount_TChiWH_'+masses[m])
-                sumw = getattr(c, 'genEventSumw_TChiWH_'+masses[m])
-                sumw2 = getattr(c, 'genEventSumw2_TChiWH_'+masses[m])
+                nEvents = getattr(c, 'genEventCount_TChiWH_'+mass)
+                sumw = getattr(c, 'genEventSumw_TChiWH_'+mass)
+                sumw2 = getattr(c, 'genEventSumw2_TChiWH_'+mass)
 
                 for d in range(len(dictionaries)):
-                    if d["mass"] == masses[m]:
+                    if d["mass"] == mass:
                         d["nEvents"] += nEvents
                         d["sumw"] += sumw
                         d["sumw2"] += sumw2
                     else:
-                        dictionaries.append({"mass": masses[m],
+                        dictionaries.append({"mass": mass,
                                              "nEvents": nEvents,
                                              "sumw": sumw,
                                              "sumw2": sumw2})
@@ -198,7 +198,8 @@ def main():
         print (allFiles)
 
         if fastsim:
-
+            with open(data_path+'samplesTest.yaml', 'w') as f:
+                yaml.dump(getScanNorm(allFiles, local=local), f, Dumper=Dumper)
 
         else:
             sample_dict['files'] = allFiles
