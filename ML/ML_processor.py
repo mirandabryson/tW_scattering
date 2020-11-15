@@ -335,7 +335,7 @@ if small:
     fileset = {'WH': fileset['WH'][:2]}#, 'ttbar':fileset['ttbar'][:2]} # {'tW_scattering': fileset_small['tW_scattering']}
     workers = 4
 else:
-    fileset = {'WH': fileset['WH'], 'TTW/TTZ': fileset['TTW/TTZ'], 'ttbar':fileset['ttbar']}
+    fileset = {'WH': fileset['WH'], 'ttbar':fileset['ttbar']}#, 'TTW/TTZ': fileset['TTW/TTZ']}
     workers = 8
 
 if overwrite:
