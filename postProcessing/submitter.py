@@ -66,7 +66,7 @@ tag = version.replace('.','p')
 if args.newVersion or args.version:
     print ("Commiting and creating new tag: %s"%tag)
     import subprocess
-    subprocess.call("cd $CMSSW_BASE/src/PhysicsTools/NanoAODTools/; git commit -am 'latest'; git tag %s; git push origin --tags; cd"%tag, shell=True)
+    subprocess.call("cd $CMSSW_BASE/src/PhysicsTools/NanoAODTools/; git commit -am 'latest'; git tag %s; git push ownFork --tags; cd"%tag, shell=True)
     dumpConfig(cfg)
     
     # Dumpong the config

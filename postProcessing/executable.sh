@@ -98,7 +98,9 @@ OUTFILE=$(python -c "print('$INPUTFILENAMES'.split('/')[-1].split('.root')[0]+'_
 
 echo $OUTFILE
 
-python PhysicsTools/NanoAODTools/scripts/run_processor.py $INPUTFILENAMES $SUMWEIGHT
+echo "Running python PhysicsTools/NanoAODTools/scripts/run_processor.py $INPUTFILENAMES $SUMWEIGHT $ISDATA $YEAR $ERA $ISFASTSIM"
+
+python PhysicsTools/NanoAODTools/scripts/run_processor.py $INPUTFILENAMES $SUMWEIGHT $ISDATA $YEAR $ERA $ISFASTSIM
 
 mv tree.root ${OUTPUTNAME}_${IFILE}.root
 
