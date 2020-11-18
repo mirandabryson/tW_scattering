@@ -54,7 +54,10 @@ class WHhadProcessor(processor.ProcessorABC):
         self._accumulator = processor.dict_accumulator({
             "met":                          processor.column_accumulator(np.zeros(shape=(0,))),
             "ht":                           processor.column_accumulator(np.zeros(shape=(0,))),
-            #"jet_pt":                       processor.column_accumulator(np.zeros(shape=(0,))),
+            "lead_jet_pt":                  processor.column_accumulator(np.zeros(shape=(0,))),
+            "sublead_jet_pt":               processor.column_accumulator(np.zeros(shape=(0,))),
+            "lead_jet_eta":                 processor.column_accumulator(np.zeros(shape=(0,))),
+            "sublead_jet_eta":              processor.column_accumulator(np.zeros(shape=(0,))),
             "njets":                        processor.column_accumulator(np.zeros(shape=(0,))),
             "bjets":                        processor.column_accumulator(np.zeros(shape=(0,))),
             "min_dphi_met_j1":              processor.column_accumulator(np.zeros(shape=(0,))),
@@ -248,7 +251,7 @@ class WHhadProcessor(processor.ProcessorABC):
         #what I'm doing from here. 
 
         ht_ps = (ht > 300)
-        met_ps = (metpt>400)
+        met_ps = (metpt>250)
         njet_ps = (njets >= 2)
         bjet_ps = (nbjets >= 1)
 
@@ -263,7 +266,7 @@ class WHhadProcessor(processor.ProcessorABC):
         wmc_sel = (wtagged_mc.counts > 0) 
 
         
-        sel = ht_ps & met_ps & njet_ps & bjet_ps & l_sel & h_sel & wmc_sel
+        sel = met_ps & njet_ps & bjet_ps & l_sel #& wmc_sel & h_sel
 
         
         nEventsBaseline = len(df['weight'][sel])
@@ -274,6 +277,10 @@ class WHhadProcessor(processor.ProcessorABC):
 
         output['met']               += processor.column_accumulator(metpt[sel].flatten())
         output['ht']                += processor.column_accumulator(ht[sel].flatten())
+        output['lead_jet_pt']       += processor.column_accumulator(leadjet[sel].pt.flatten())
+        output['sublead_jet_pt']    += processor.column_accumulator(subleadjet[sel].pt.flatten())
+        output['lead_jet_eta']      += processor.column_accumulator(leadjet[sel].eta.flatten())
+        output['sublead_jet_eta']   += processor.column_accumulator(subleadjet[sel].eta.flatten())
         output['njets']             += processor.column_accumulator(njets[sel].flatten())
         output['bjets']             += processor.column_accumulator(nbjets[sel].flatten())
         output['min_dphi_met_j1']   += processor.column_accumulator(abs_min_dphi_met_leadjs1[sel].flatten())
@@ -311,6 +318,10 @@ class WHhadProcessor(processor.ProcessorABC):
 df_out = {
     'met':    [],
     'ht':   [],
+    'lead_jet_pt':   [],
+    'sublead_jet_pt':   [],
+    'lead_jet_eta':   [],
+    'sublead_jet_eta':   [],
     'njets':    [],
     'bjets':   [],
     'min_dphi_met_j1':    [],
@@ -335,7 +346,14 @@ if small:
     fileset = {'WH': fileset['WH'][:2]}#, 'ttbar':fileset['ttbar'][:2]} # {'tW_scattering': fileset_small['tW_scattering']}
     workers = 4
 else:
-    fileset = {'WH': fileset['WH'], 'ttbar':fileset['ttbar']}#, 'TTW/TTZ': fileset['TTW/TTZ']}
+    fileset = {'WH': fileset['WH'],
+               'ttbar': fileset['ttbar'],
+               'TTW/TTZ': fileset['TTW/TTZ'],
+               'QCD': fileset['QCD'],
+               'WJets': fileset['WJets'],
+               'ZJets': fileset['ZJets'],
+               'DY': fileset['DY'],
+               'diboson': fileset['diboson']}
     workers = 8
 
 if overwrite:
@@ -352,18 +370,22 @@ if overwrite:
                                       chunksize=500000,
                                      )
     df_out = pd.DataFrame({
-            'met':              output['met'].value,
-            'ht':               output['ht'].value,
-            'njets':            output['njets'].value,
-            'bjets':            output['bjets'].value,
-            'min_dphi_met_j1':  output['min_dphi_met_j1'].value,
-            'min_dphi_met_j2':  output['min_dphi_met_j2'].value,
-            'min_dphi_met_j3':  output['min_dphi_met_j3'].value,
-            'min_dphi_met_j4':  output['min_dphi_met_j4'].value,
+            'met':              output['met'].value.flatten(),
+            'ht':               output['ht'].value.flatten(),
+            'lead_jet_pt':      output['lead_jet_pt'].value.flatten(),
+            'sublead_jet_pt':   output['sublead_jet_pt'].value.flatten(),
+            'lead_jet_eta':     output['lead_jet_eta'].value.flatten(),
+            'sublead_jet_eta':  output['sublead_jet_eta'].value.flatten(),
+            'njets':            output['njets'].value.flatten(),
+            'bjets':            output['bjets'].value.flatten(),
+            'min_dphi_met_j1':  output['min_dphi_met_j1'].value.flatten(),
+            'min_dphi_met_j2':  output['min_dphi_met_j2'].value.flatten(),
+            'min_dphi_met_j3':  output['min_dphi_met_j3'].value.flatten(),
+            'min_dphi_met_j4':  output['min_dphi_met_j4'].value.flatten(),
             #'dphi_j1_j2':       abs_dphi_j1_j2[sel].flatten(),
             #'dphi_fj1_fj2':     abs_dphi_fj1_fj2[sel].flatten(),
             #'dR_fj1_fj2':       dR_fj1_fj2[sel].flatten(),
-            'signal':           output['signal'].value,
+            'signal':           output['signal'].value.flatten()
             #'weight':           df['weight'][sel]
         })
 
