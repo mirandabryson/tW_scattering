@@ -21,7 +21,7 @@ import copy
 
 from memory_profiler import profile
 
-from Tools.helpers import loadConfig, getCutFlowTable, mergeArray
+from Tools.helpers import loadConfig, getCutFlowTable, mergeArray, mt
 #from Tools.objects import Collections
 #from Tools.cutflow import Cutflow
 
@@ -43,31 +43,20 @@ class WHhadProcessor(processor.ProcessorABC):
         
         #Now, let's move to actually telling our processor what histograms we want to make.
         #Let's start out simple. 
-        '''self._accumulator = processor.dict_accumulator({
-            'ttbar':            processor.defaultdict_accumulator(int),
-            'TTW/TTZ':          processor.defaultdict_accumulator(int),
-            'WH':               processor.defaultdict_accumulator(int),
-            #'totalEvents':      processor.defaultdict_accumulator(int),
-            #'passedEvents':     processor.defaultdict_accumulator(int),
-        })'''
         
         self._accumulator = processor.dict_accumulator({
             "met":                          processor.column_accumulator(np.zeros(shape=(0,))),
             "ht":                           processor.column_accumulator(np.zeros(shape=(0,))),
             "lead_jet_pt":                  processor.column_accumulator(np.zeros(shape=(0,))),
             "sublead_jet_pt":               processor.column_accumulator(np.zeros(shape=(0,))),
-            "lead_jet_eta":                 processor.column_accumulator(np.zeros(shape=(0,))),
-            "sublead_jet_eta":              processor.column_accumulator(np.zeros(shape=(0,))),
             "njets":                        processor.column_accumulator(np.zeros(shape=(0,))),
             "bjets":                        processor.column_accumulator(np.zeros(shape=(0,))),
-            "min_dphi_met_j1":              processor.column_accumulator(np.zeros(shape=(0,))),
-            "min_dphi_met_j2":              processor.column_accumulator(np.zeros(shape=(0,))),
-            "min_dphi_met_j3":              processor.column_accumulator(np.zeros(shape=(0,))),
+            "nWs":                          processor.column_accumulator(np.zeros(shape=(0,))),
+            "nHs":                          processor.column_accumulator(np.zeros(shape=(0,))),
+            "nFatJets":                     processor.column_accumulator(np.zeros(shape=(0,))),
+            "met_significance":             processor.column_accumulator(np.zeros(shape=(0,))),
             "min_dphi_met_j4":              processor.column_accumulator(np.zeros(shape=(0,))),
-            #"dphi_j1_j2":                   hist.Hist
-            #"dphi_fj1_fj2":                 hist.Hist
-            #"dR_fj1_fj2":                   hist.Hist("Counts", dataset_axis, r_axis),
-            #"m_FatJet_softdrop":            hist.Hist("Counts", dataset_axis, mass_axis),
+            #"dR_fj1_fj2":                   processor.column_accumulator(np.zeros(shape=(0,))),
             "signal":                       processor.column_accumulator(np.zeros(shape=(0,))),
 
         })
@@ -81,28 +70,31 @@ class WHhadProcessor(processor.ProcessorABC):
     def accumulator(self):
         return self._accumulator
 
-    #Now comes the fun part. Here's where we tell our processor exactly what to do with the data.
     def process(self, df):
-     
-        #Make sure to declare your output, which stores everything you put into the histograms.
+        """
+        Processing function. This is where the actual analysis happens.
+        """
         output = self.accumulator.identity()
+        dataset = df["dataset"]
+        cfg = loadConfig()
         
-        #Load your data for the dataset axis.
-        dataset = df['dataset']
-
-        #Let's define some variables from our dataset, starting with MET.
-        metphi = df["MET_phi"]
-        metpt = df["MET_pt"]
-        #Here, I'm simply calling those nanoaod branches from the samples
-        #and storing them under easy to access variable names. 
+        ## MET -> can switch to puppi MET
+        met_pt  = df["MET_pt"]
+        met_phi = df["MET_phi"]
         
-      
+        ## Muons
+        muon = JaggedCandidateArray.candidatesfromcounts(
+            df['nMuon'],
+            pt = df['Muon_pt'].content,
+            eta = df['Muon_eta'].content,
+            phi = df['Muon_phi'].content,
+            mass = df['Muon_mass'].content,
+            miniPFRelIso_all=df['Muon_miniPFRelIso_all'].content,
+            looseId =df['Muon_looseId'].content
+            )
+        muon = muon[(muon.pt > 10) & (abs(muon.eta) < 2.4) & (muon.looseId) & (muon.miniPFRelIso_all < 0.2)]
+        #muon = Collections(df, "Muon", "tightTTH").get() # this needs a fix for DASK
         
-        #Let's define some 4 vector objects. For these I can call the branches whatever 
-        #I want. Just make sure to include the .content at the end. Also, by making these
-        #objects, we can call the branches in a pretty easy way. Shown below.
-        
-        #Leptons
         electrons = JaggedCandidateArray.candidatesfromcounts(
             df['nElectron'],
             pt=df['Electron_pt'].content, 
@@ -113,160 +105,125 @@ class WHhadProcessor(processor.ProcessorABC):
             mini_iso=df['Electron_miniPFRelIso_all'].content
         )
         
-
-        muons = JaggedCandidateArray.candidatesfromcounts(
-            df['nMuon'],
-            pt=df['Muon_pt'].content, 
-            eta=df['Muon_eta'].content, 
-            phi=df['Muon_phi'].content,
-            mass=df['Muon_mass'].content,
-            pdgid=df['Muon_pdgId'].content,
-            mini_iso=df['Muon_miniPFRelIso_all'].content, 
-            looseid =df['Muon_looseId'].content
-        )
+        ## Electrons
+        electron = JaggedCandidateArray.candidatesfromcounts(
+            df['nElectron'],
+            pt = df['Electron_pt'].content,
+            eta = df['Electron_eta'].content,
+            phi = df['Electron_phi'].content,
+            mass = df['Electron_mass'].content,
+            miniPFRelIso_all=df['Electron_miniPFRelIso_all'].content,
+            cutBased=df['Electron_cutBased'].content
+            )
+        electron = electron[(electron.pt>10) & (abs(electron.eta) < 2.4) & (electron.miniPFRelIso_all < 0.1) &  (electron.cutBased >= 1)]
+        #electron = Collections(df, "Electron", "tightTTH").get() # this needs a fix for DASK
         
-        taus = JaggedCandidateArray.candidatesfromcounts(
-            df['nTau'],
-            pt=df['Tau_pt'].content, 
-            eta=df['Tau_eta'].content, 
-            phi=df['Tau_phi'].content,
-            mass=df['Tau_mass'].content,
-            decaymode=df['Tau_idDecayMode'].content,
-            newid=df['Tau_idMVAnewDM2017v2'].content,
-        )
-        
-        #Here, since I don't have enough information to form a 4 vector with isotracks,
-        #I just use the JaggedArray format. I call branches in the same way as the
-        #JaggedCandidateArray, but I can't use some of the manipulations that come with the
-        #JCA format. :(
-        isotracks = awkward.JaggedArray.zip(
-            pt=df['IsoTrack_pt'], 
-            eta=df['IsoTrack_eta'], 
-            phi=df['IsoTrack_phi'], 
-            rel_iso=df['IsoTrack_pfRelIso03_all'], 
-        )
-        
-        #Jets
-        jets = JaggedCandidateArray.candidatesfromcounts(
-            df['nJet'],
-            pt=df['Jet_pt'].content, 
-            eta=df['Jet_eta'].content, 
-            phi=df['Jet_phi'].content,
-            btag=df['Jet_btagDeepB'].content, 
-            jetid=df['Jet_jetId'].content, 
-            mass=df['Jet_mass'].content,
-        )
-        fatjets = JaggedCandidateArray.candidatesfromcounts(
+        ## FatJets
+        fatjet = JaggedCandidateArray.candidatesfromcounts(
             df['nFatJet'],
-            pt=df['FatJet_pt'].content, 
-            eta=df['FatJet_eta'].content, 
-            phi=df['FatJet_phi'].content, 
-            mass=df['FatJet_mass'].content, 
-            softdrop=df["FatJet_msoftdrop"].content,  
-            fromH = df['FatJet_deepTagMD_HbbvsQCD'].content, 
-            fromW_MD = df['FatJet_deepTagMD_WvsQCD'].content, 
-            fromW_MC = df['FatJet_deepTag_WvsQCD'].content
+            pt = df['FatJet_pt'].content,
+            eta = df['FatJet_eta'].content,
+            phi = df['FatJet_phi'].content,
+            mass = df['FatJet_mass'].content,
+            msoftdrop = df["FatJet_msoftdrop"].content,  
+            deepTagMD_HbbvsQCD = df['FatJet_deepTagMD_HbbvsQCD'].content, 
+            deepTagMD_WvsQCD = df['FatJet_deepTagMD_WvsQCD'].content, 
+            deepTag_WvsQCD = df['FatJet_deepTag_WvsQCD'].content
+            
         )
-  
         
-        #Now let's deal with some good ol' ak4's baby. Let's define a "good jet".
-        #First, let's define what a good jet should be. Notice how I'm calling the branches
-        #of the jets. Super easy, right?
-        goodjcut = ((jets.pt>30) & (abs(jets.eta)<2.4) & (jets.jetid>0))
-        #Perfect, now let's apply this selection to the ak4's and create a new object.
-        goodjets = jets[goodjcut]
-        #LIT. Okay, now I want the number of good jets. 
-        njets = goodjets.counts
-        #Bro, you are on fire. Good job. I'm proud of you and really appreciate you.
+        leadingFatJets = fatjet[:,:2]
+        difatjet = leadingFatJets.choose(2)
+        dphiDiFatJet = np.arccos(np.cos(difatjet.i0.phi-difatjet.i1.phi))
+        
+        nfatjets = fatjet.counts
 
-        jetpt_sorted = goodjets.pt.argsort(ascending=False)
-        leadjet = goodjets[jetpt_sorted==0]
-        subleadjet = goodjets[jetpt_sorted==1]
-        leadjet_subleadjet = leadjet.cross(subleadjet)
-        #leadjets = goodjets[jetpt_sorted <= 1]
-        #leadjets3 = goodjets[jetpt_sorted <= 2]
-        #leadjets4 = goodjets[jetpt_sorted <= 4]
-      
-        #ak8's
-        goodfjcut = ((fatjets.pt > 200))
-        goodfatjets = fatjets[goodfjcut]
+        htag = fatjet[((fatjet.pt > 200) & (fatjet.deepTagMD_HbbvsQCD > 0.8365))]
+        htag_hard = fatjet[((fatjet.pt > 300) & (fatjet.deepTagMD_HbbvsQCD > 0.8365))]
         
-        htagcut = ((fatjets.pt > 200) & (fatjets.fromH > 0.8365))
-        htagged = fatjets[htagcut]
+        lead_htag = htag[htag.pt.argmax()]
         
-        wtagcut_mc = ((fatjets.pt > 200) & (fatjets.fromW_MC > 0.918) & (fatjets.fromH < 0.8365))
-        wtagcut_md = ((fatjets.pt > 200) & (fatjets.fromW_MD > 0.704) & (fatjets.fromH < 0.8365))
-        wtagged_mc = fatjets[wtagcut_mc]
-        wtagged_md = fatjets[wtagcut_md]
+        wtag = fatjet[((fatjet.pt > 200) & (fatjet.deepTagMD_HbbvsQCD < 0.8365) & (fatjet.deepTag_WvsQCD > 0.918))]
+        wtag_hard = fatjet[((fatjet.pt > 300) & (fatjet.deepTagMD_HbbvsQCD < 0.8365) & (fatjet.deepTag_WvsQCD > 0.918))]
+        
+        lead_wtag = wtag[wtag.pt.argmax()]
+        
+        wh = lead_htag.cross(lead_wtag)
+        #wh_deltaPhi = np.arccos(wh.i0.phi - wh.i1.phi)
+        wh_deltaR = wh.i0.p4.delta_r(wh.i1.p4)
+        
+        ## Jets
+        jet = JaggedCandidateArray.candidatesfromcounts(
+            df['nJet'],
+            pt = df['Jet_pt'].content,
+            eta = df['Jet_eta'].content,
+            phi = df['Jet_phi'].content,
+            mass = df['Jet_mass'].content,
+            jetId = df['Jet_jetId'].content, # https://twiki.cern.ch/twiki/bin/view/CMS/JetID
+            #puId = df['Jet_puId'].content, # https://twiki.cern.ch/twiki/bin/viewauth/CMS/PileupJetID
+            btagDeepB = df['Jet_btagDeepB'].content, # https://twiki.cern.ch/twiki/bin/viewauth/CMS/BtagRecommendation102X
+            #deepJet = df['Jet_'].content # not there yet?
+        )
+        
+        jet       = jet[(jet.pt>30) & (abs(jet.eta)<2.4) & (jet.jetId>0)]
+        jet       = jet[(jet.pt>30) & (jet.jetId>1) & (abs(jet.eta)<2.4)]
+        jet       = jet[~jet.match(muon, deltaRCut=0.4)] # remove jets that overlap with muons
+        jet       = jet[~jet.match(electron, deltaRCut=0.4)] # remove jets that overlap with electrons
+        jet       = jet[jet.pt.argsort(ascending=False)] # sort the jets
+        btag      = jet[(jet.btagDeepB>0.4184)]
+        light     = jet[(jet.btagDeepB<0.4184)]
+        
+        njets     = jet.counts
+        nbjets    = btag.counts
 
-        fatjet_sorted = goodfatjets.pt.argsort(ascending=False)
-        leadFatJet    = goodfatjets[fatjet_sorted==0]
-        subleadFatJet = goodfatjets[fatjet_sorted==1]
-        lead_sublead_FatJets = leadFatJet.cross(subleadFatJet)
+        ## Get the leading b-jets
+        high_score_btag = jet[jet.btagDeepB.argsort(ascending=False)][:,:2]
         
-        #m_lead_FatJet_softdrop = goodfatjets[goodfatjets.pt.argmax()]
-    
-        #Let's make some b-jets and find the number of b-jets.
-        bjcut = ((jets.pt>30) & (abs(jets.eta)<2.4) & (jets.jetid>0) & (jets.btag>0.4184))
-        bjets = jets[bjcut]
-        nbjets = bjets.counts
-        #Hell yeah. 
+        leadingJets = jet[:,:2]
+        dijet = leadingJets.choose(2)
+        dphiDiJet = np.arccos(np.cos(dijet.i0.phi-dijet.i1.phi))
         
-        #Let's go for HT now. 
-        ht = goodjets.pt.sum()
-        #Remember to put that () after the sum!
-          
-        #dphi_met_leadjs3 = abs((leadjets3.phi - metphi + np.pi) % (2 * np.pi) - np.pi)
-        #sorted_dphi_met_leadjs3 = dphi_met_leadjs3.argsort(ascending=True)
-        #min_dphi_met_leadjs3 = dphi_met_leadjs3[sorted_dphi_met_leadjs3==0]
-        #abs_min_dphi_met_leadjs3 = abs(min_dphi_met_leadjs3)
-       
-        abs_min_dphi_met_leadjs1 = np.arccos(np.cos(goodjets[:,:1].phi-metphi)).min()
-        abs_min_dphi_met_leadjs2 = np.arccos(np.cos(goodjets[:,:2].phi-metphi)).min()
-        abs_min_dphi_met_leadjs3 = np.arccos(np.cos(goodjets[:,:3].phi-metphi)).min()
-        abs_min_dphi_met_leadjs4 = np.arccos(np.cos(goodjets[:,:4].phi-metphi)).min()
+        leading_jet = leadingJets[leadingJets.pt.argmax()]
+        subleading_jet = leadingJets[leadingJets.pt.argmin()]
+        leading_b      = btag[btag.pt.argmax()]
 
-        abs_dphi_j1_j2           = abs(leadjet_subleadjet.i0.p4.delta_phi(leadjet_subleadjet.i1.p4))
-        abs_dphi_fj1_fj2         = abs(lead_sublead_FatJets.i0.p4.delta_phi(lead_sublead_FatJets.i1.p4))
+        bb = high_score_btag.choose(2)
+        bb_deltaPhi = np.arccos(np.cos(bb.i0.phi-bb.i1.phi))
+        bb_deltaR = bb.i0.p4.delta_r(bb.i1.p4)
+        
+        mtb = mt(btag.pt, btag.phi, met_pt, met_phi)
+        
+        ## other variables
+        ht = jet.pt.sum()
+        #met_sig = met_pt/np.sqrt(ht)
 
-        dR_fj1_fj2               = lead_sublead_FatJets.i0.p4.delta_r(lead_sublead_FatJets.i1.p4)
+        min_dphiJetMet4 = np.arccos(np.cos(jet[:,:4].phi-met_phi)).min()
+        #goodjcut = ((jets.pt>30) & (abs(jets.eta)<2.4) & (jets.jetid>0))
+        #goodjets = jets[goodjcut]
+        #abs_min_dphi_met_leadjs4 = abs(np.arccos(np.cos(goodjets[:,:4].phi-metphi)).min())
+        #print(min_dphiJetMet4.shape)
+        #print(self.means['min_dphi_met_j4'].shape)
 
-        #Let's define lepton vetos using the same method.
-        
-        veto_e_cut = (electrons.pt>5) & (abs(electrons.eta) < 2.4) & (electrons.mini_iso < 0.2)
-        veto_e = electrons[veto_e_cut]
-        
-        veto_m_cut = (muons.pt > 5) & (abs(muons.eta) < 2.4) & (muons.looseid) & (muons.mini_iso < 0.2)
-        veto_m = muons[veto_m_cut]
-        
-        veto_t_cut = (taus.pt > 20) & (abs(taus.eta) < 2.4) & (taus.decaymode) & (taus.newid >= 8)
-        veto_t = taus[veto_t_cut]
-        
-        veto_it_cut = (isotracks.pt > 10) & (abs(isotracks.eta) < 2.4) & ((isotracks.rel_iso < (0.1*isotracks.pt)) | (isotracks.rel_iso < 6))
-        veto_it = isotracks[veto_it_cut]
-        
-       
-       
-        #Now it's time to make some selections. I'm going to guess that you can follow
-        #what I'm doing from here. 
-
-        ht_ps = (ht > 300)
-        met_ps = (metpt>250)
+        ht_ps = (ht > 0)
+        met_ps = (met_pt>250)
         njet_ps = (njets >= 2)
         bjet_ps = (nbjets >= 1)
+        fatjet_sel = (nfatjets >=1)
 
 
-        e_sel = (veto_e.counts == 0)
-        m_sel = (veto_m.counts == 0)
-        it_sel = (veto_it.counts == 0)
-        t_sel = (veto_t.counts == 0)
-        l_sel = e_sel & m_sel & it_sel & t_sel
+        e_sel = (electron.counts == 0)
+        m_sel = (muon.counts == 0)
+        #it_sel = (veto_it.counts == 0)
+        #t_sel = (veto_t.counts == 0)
+        l_sel = e_sel & m_sel# & it_sel & t_sel
         
-        h_sel =(htagged.counts > 0) 
-        wmc_sel = (wtagged_mc.counts > 0) 
+        h_sel =(htag.counts > 0) 
+        wmc_sel = (wtag.counts > 0) 
 
         
-        sel = met_ps & njet_ps & bjet_ps & l_sel #& wmc_sel & h_sel
+        sel = ht_ps & met_ps & njet_ps & bjet_ps & l_sel & fatjet_sel & h_sel #& wmc_sel
+
+        met_sig = met_pt[sel]/np.sqrt(ht[sel])
 
         
         nEventsBaseline = len(df['weight'][sel])
@@ -275,36 +232,20 @@ class WHhadProcessor(processor.ProcessorABC):
         #Let's make sure we weight our events properly.
         wght = df['weight'][sel] * 137        
 
-        output['met']               += processor.column_accumulator(metpt[sel].flatten())
+        output['met']               += processor.column_accumulator(met_pt[sel].flatten())
         output['ht']                += processor.column_accumulator(ht[sel].flatten())
-        output['lead_jet_pt']       += processor.column_accumulator(leadjet[sel].pt.flatten())
-        output['sublead_jet_pt']    += processor.column_accumulator(subleadjet[sel].pt.flatten())
-        output['lead_jet_eta']      += processor.column_accumulator(leadjet[sel].eta.flatten())
-        output['sublead_jet_eta']   += processor.column_accumulator(subleadjet[sel].eta.flatten())
+        output['lead_jet_pt']       += processor.column_accumulator(leading_jet[sel].pt.flatten())
+        output['sublead_jet_pt']    += processor.column_accumulator(subleading_jet[sel].pt.flatten())
         output['njets']             += processor.column_accumulator(njets[sel].flatten())
         output['bjets']             += processor.column_accumulator(nbjets[sel].flatten())
-        output['min_dphi_met_j1']   += processor.column_accumulator(abs_min_dphi_met_leadjs1[sel].flatten())
-        output['min_dphi_met_j2']   += processor.column_accumulator(abs_min_dphi_met_leadjs2[sel].flatten())
-        output['min_dphi_met_j3']   += processor.column_accumulator(abs_min_dphi_met_leadjs3[sel].flatten())
-        output['min_dphi_met_j4']   += processor.column_accumulator(abs_min_dphi_met_leadjs4[sel].flatten())
+        output['nWs']               += processor.column_accumulator(wtag[sel].counts.flatten())
+        output['nHs']               += processor.column_accumulator(htag[sel].counts.flatten())
+        output['nFatJets']          += processor.column_accumulator(fatjet[sel].counts.flatten())
+        output['met_significance']  += processor.column_accumulator(met_sig.flatten())
+        output['min_dphi_met_j4']   += processor.column_accumulator(min_dphiJetMet4[sel].flatten())
+        #output['dR_fj1_fj2']        += processor.column_accumulator(dR_fj1_fj2[sel].flatten())
         output['signal']            += processor.column_accumulator(signal_label)
 
-        '''df_out = pd.DataFrame({
-            'met':              metpt[sel].flatten(),
-            'ht':               ht[sel].flatten(),
-            'njets':            njets[sel].flatten(),
-            'bjets':            nbjets[sel].flatten(),
-            'min_dphi_met_j1':  abs_min_dphi_met_leadjs1[sel].flatten(),
-            'min_dphi_met_j2':  abs_min_dphi_met_leadjs2[sel].flatten(),
-            'min_dphi_met_j3':  abs_min_dphi_met_leadjs3[sel].flatten(),
-            'min_dphi_met_j4':  abs_min_dphi_met_leadjs4[sel].flatten()#,
-            #'dphi_j1_j2':       abs_dphi_j1_j2[sel].flatten(),
-            #'dphi_fj1_fj2':     abs_dphi_fj1_fj2[sel].flatten(),
-            #'dR_fj1_fj2':       dR_fj1_fj2[sel].flatten(),
-            #'signal':           signal_label,
-            #'weight':           df['weight'][sel]
-        })
-        df_out.to_hdf('data/data_X.h5', key='df', format='table', mode='a', append=True)'''
 
         return output
 
@@ -320,14 +261,14 @@ df_out = {
     'ht':   [],
     'lead_jet_pt':   [],
     'sublead_jet_pt':   [],
-    'lead_jet_eta':   [],
-    'sublead_jet_eta':   [],
     'njets':    [],
     'bjets':   [],
-    'min_dphi_met_j1':    [],
-    'min_dphi_met_j2':    [],
-    'min_dphi_met_j3':    [],
+    'nWs':   [],
+    'nHs':   [],
+    'nFatJets':   [],
+    'met_significance':   [],
     'min_dphi_met_j4':    [],
+    #'dR_fj1_fj2':    [],
     #'weight':   [],
     'signal':   [],
 }
@@ -347,13 +288,20 @@ if small:
     workers = 4
 else:
     fileset = {'WH': fileset['WH'],
-               'ttbar': fileset['ttbar'],
-               'TTW/TTZ': fileset['TTW/TTZ'],
-               'QCD': fileset['QCD'],
+
+               #'QCD': fileset['QCD'],
+               #'DY': fileset['DY'],
+
                'WJets': fileset['WJets'],
+               'ttbar': fileset['ttbar'],
+               'ST': fileset['ST'],
+               'TTW': fileset['TTW'],
+               'WW': fileset['WW'],
+
                'ZJets': fileset['ZJets'],
-               'DY': fileset['DY'],
-               'diboson': fileset['diboson']}
+               'TTZ': fileset['TTZ'],
+               'ZZ/WZ': fileset['ZZ/WZ'],
+               }
     workers = 8
 
 if overwrite:
@@ -374,19 +322,15 @@ if overwrite:
             'ht':               output['ht'].value.flatten(),
             'lead_jet_pt':      output['lead_jet_pt'].value.flatten(),
             'sublead_jet_pt':   output['sublead_jet_pt'].value.flatten(),
-            'lead_jet_eta':     output['lead_jet_eta'].value.flatten(),
-            'sublead_jet_eta':  output['sublead_jet_eta'].value.flatten(),
             'njets':            output['njets'].value.flatten(),
             'bjets':            output['bjets'].value.flatten(),
-            'min_dphi_met_j1':  output['min_dphi_met_j1'].value.flatten(),
-            'min_dphi_met_j2':  output['min_dphi_met_j2'].value.flatten(),
-            'min_dphi_met_j3':  output['min_dphi_met_j3'].value.flatten(),
+            'nWs':              output['nWs'].value.flatten(),
+            'nHs':              output['nHs'].value.flatten(),
+            'nFatJets':         output['nFatJets'].value.flatten(),
+            'met_significance': output['met_significance'].value.flatten(),
             'min_dphi_met_j4':  output['min_dphi_met_j4'].value.flatten(),
-            #'dphi_j1_j2':       abs_dphi_j1_j2[sel].flatten(),
-            #'dphi_fj1_fj2':     abs_dphi_fj1_fj2[sel].flatten(),
-            #'dR_fj1_fj2':       dR_fj1_fj2[sel].flatten(),
-            'signal':           output['signal'].value.flatten()
-            #'weight':           df['weight'][sel]
+            #'dR_fj1_fj2':       output['dR_fj1_fj2'].value.flatten(),
+            'signal':           output['signal'].value.flatten(),
         })
 
     df_out.to_hdf('data/data_X.h5', key='df', format='table', mode='a', append=True)

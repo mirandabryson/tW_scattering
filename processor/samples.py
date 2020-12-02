@@ -78,8 +78,17 @@ groups_3l = {
 # WH All Had samples for DNN
 groups_WH = {
     'WH':            ['/WH[-_]'],
-    'TTW/TTZ':       ['/TTZToLLNuNu[-_]', '/TTWJets[-_]','/TT[T,W,Z][T,W,Z][-_]'],
+    'TTW':           ['/TTWJets[-_]','/TT[W][W][-_]'],
+    'TTZ':           ['/TTZToLLNuNu[-_]','/TT[Z][Z][-_]'],
     'ttbar':         ['/TTJets_SingleLept', '/TTJets_DiLept'],
+    'QCD':           ['/QCD_HT'],
+    'WJets':         ['/WJetsToLNu'],
+    'ZJets':         ['/ZJetsToNuNu'],
+    'DY':            ['/DYJetsToLL'],
+    'ST':            ['/ST[-_]'],
+    'WW':            ['/WW_'],
+    'ZZ/WZ':         ['ZZTo','/WZTo','/WZ_'],
+
 }
 
 

@@ -98,7 +98,7 @@ def dasWrapper(DASname, query='file'):
     return dbsOut
 
 def getSampleNorm(files, local=True):
-    files = [ 'root://cmsxrootd.fnal.gov/'+f for f in files ] if not local else files
+    files = [ 'root://xrootd.t2.ucsd.edu:2040/'+f for f in files ] if not local else files
     nEvents, sumw, sumw2 = 0,0,0
     for f in files:
         res = getMeta(f, local=local)
@@ -110,7 +110,7 @@ def getSampleNorm(files, local=True):
 def getBranches(files, local=True):
     import ROOT
 
-    files = [ 'root://cmsxrootd.fnal.gov/'+f for f in files ] if not local else files
+    files = [ 'root://xrootd.t2.ucsd.edu:2040/'+f for f in files ] if not local else files
     branches = []
 
     for f in files:
@@ -136,7 +136,7 @@ def getMasses(branches):
 def getScanNorm(files, local=True):
     import ROOT
 
-    files = [ 'root://cmsxrootd.fnal.gov/'+f for f in files ] if not local else files
+    files = [ 'root://xrootd.t2.ucsd.edu:2040/'+f for f in files ] if not local else files
 
     masses = getMasses(getBranches(files))
     dictionaries = []
@@ -199,16 +199,11 @@ def main():
         name = getName(sample[0])
         print (name)
 
-        isData, year, era, isFastSim = getYearFromDAS(sample[0])
+        year, era, isData, isFastSim = getYearFromDAS(sample[0])
 
         # local/private sample?
         local = (sample[0].count('hadoop') + sample[0].count('home'))
         print ("Is local?", local)
-        print (sample[0])
-
-        # scan (fastsim) sample?
-        fastsim = (sample[0].count('Fast'))
-        print ("Is fastsim?", fastsim)
         print (sample[0])
 
         if local:
@@ -217,16 +212,14 @@ def main():
         else:
             sample_dict['path'] = None
             allFiles = dasWrapper(sample[0], query='file')
+        # 
         print (allFiles)
+        sample_dict['files'] = allFiles
 
-        if fastsim:
-            with open(data_path+'samplesTest.yaml', 'w') as f:
-                yaml.dump(getScanNorm(allFiles, local=local), f, Dumper=Dumper)
-
-        else:
-            sample_dict['files'] = allFiles
-
+        if not isData:
             nEvents, sumw, sumw2 = getSampleNorm(allFiles, local=local)
+        else:
+            nEvents, sumw, sumw2 = 0,0,0
 
         sample_dict.update({'sumWeight': sumw, 'nEvents': nEvents, 'xsec': float(sample[1]), 'name':name})
         
@@ -257,6 +250,3 @@ def main():
 
 if __name__ == '__main__':
     samples = main()
-
-
-
