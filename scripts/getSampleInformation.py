@@ -71,7 +71,7 @@ def getYearFromDAS(DASname):
 #
 #    return sumWeight, nEvents
 
-def getMeta(file, local=True):
+def getMeta(file, DASname, local=True):
     '''
     for some reason, xrootd doesn't work in my environment with uproot. need to use pyroot for now...
     '''
@@ -83,7 +83,10 @@ def getMeta(file, local=True):
         if local:
             res = c.genEventCount, c.genEventSumw, c.genEventSumw2
         else:
-            res = c.genEventCount_, c.genEventSumw_, c.genEventSumw2_
+            if DASname.count('Autumn18') or DASname.count('Run2018') or  DASname.count('Summer16') or DASname.count('Run2016'):
+                res = c.genEventCount_, c.genEventSumw_, c.genEventSumw2_
+            else:
+                res = c.genEventCount, c.genEventSumw, c.genEventSumw2
         del c
         return res
     except:
@@ -97,11 +100,11 @@ def dasWrapper(DASname, query='file'):
     dbsOut = [ l.replace('\n','') for l in dbsOut ]
     return dbsOut
 
-def getSampleNorm(files, local=True):
+def getSampleNorm(files, DASname, local=True):
     files = [ 'root://xrootd.t2.ucsd.edu:2040/'+f for f in files ] if not local else files
     nEvents, sumw, sumw2 = 0,0,0
     for f in files:
-        res = getMeta(f, local=local)
+        res = getMeta(f,DASname, local=local)
         nEvents += res[0]
         sumw += res[1]
         sumw2 += res[2]
@@ -217,7 +220,7 @@ def main():
         sample_dict['files'] = allFiles
 
         if not isData:
-            nEvents, sumw, sumw2 = getSampleNorm(allFiles, local=local)
+            nEvents, sumw, sumw2 = getSampleNorm(allFiles, sample[0], local=local)
         else:
             nEvents, sumw, sumw2 = 0,0,0
 
