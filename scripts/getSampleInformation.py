@@ -53,7 +53,10 @@ def getMeta(file, local=True):
         if local:
             res = c.genEventCount, c.genEventSumw, c.genEventSumw2
         else:
-            res = c.genEventCount_, c.genEventSumw_, c.genEventSumw2_
+            try:
+                res = c.genEventCount_, c.genEventSumw_, c.genEventSumw2_
+            except:
+                res = c.genEventCount, c.genEventSumw, c.genEventSumw2
         del c
         return res
     except:
@@ -66,7 +69,10 @@ def getMetaUproot(file, local=True):
         if local:
             res = r.array('genEventCount')[0], r.array('genEventSumw')[0], r.array('genEventSumw2')[0]
         else:
-            res = r.array('genEventCount_')[0], r.array('genEventSumw_')[0], r.array('genEventSumw2_')[0]
+            try:
+                res = r.array('genEventCount_')[0], r.array('genEventSumw_')[0], r.array('genEventSumw2_')[0]
+            except:
+                res = r.array('genEventCount')[0], r.array('genEventSumw')[0], r.array('genEventSumw2')[0]
         return res
     except:
         return 0,0,0
