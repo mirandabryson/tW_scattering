@@ -11,27 +11,16 @@ TTWJetsToLNu_TuneCP5_13TeV-amcatnloFXFX-madspin-pythia8__RunIIAutumn18NanoAODv6-
 import yaml
 from yaml import Loader, Dumper
 
+import concurrent.futures
+
 import os
 
 import uproot
 import glob
-#from coffea.processor.dataframe import LazyDataFrame
 
 from Tools.config_helpers import *
 
 data_path = os.path.expandvars('$TWHOME/data/')
-
-#def loadConfig():
-#    with open(data_path+'config.yaml') as f:
-#        config = yaml.load(f, Loader=Loader)
-#    return config
-#
-#def getName( DAS ):
-#    split = DAS.split('/')
-#    if split[-1].count('AOD'):
-#        return '__'.join(DAS.split('/')[1:3])
-#    else:
-#        return'dummy'
 
 def readSampleNames( sampleFile ):
     with open( sampleFile ) as f:
@@ -51,29 +40,10 @@ def getYearFromDAS(DASname):
     else:
         return -1, era, isData, isFastSim
 
-#def readSumWeight( samplePath ):
-#    # for central nanoAOD
-#    sumWeight = 0.
-#    nEvents = 0
-#    files = glob.glob(samplePath + '/*.root')
-#    for f in files:
-#        rfile = uproot.open(f)
-#        try:
-#            tree = rfile['Runs']
-#            df = LazyDataFrame(tree)
-#            sumWeight += float(df['genEventSumw_'])
-#            nEvents += int(df['genEventCount_'])
-#        except KeyError:
-#            tree = rfile['Events']
-#            df = LazyDataFrame(tree)
-#            sumWeight += float(df['genWeight'].sum())
-#            nEvents += len(df['genWeight'])
-#
-#    return sumWeight, nEvents
-
-def getMeta(file, DASname, local=True):
+def getMeta(file, local=True):
     '''
     for some reason, xrootd doesn't work in my environment with uproot. need to use pyroot for now...
+    let's update to miniconda soon.
     '''
     import ROOT
     c = ROOT.TChain("Runs")
@@ -83,14 +53,24 @@ def getMeta(file, DASname, local=True):
         if local:
             res = c.genEventCount, c.genEventSumw, c.genEventSumw2
         else:
-            if DASname.count('Autumn18') or DASname.count('Run2018') or  DASname.count('Summer16') or DASname.count('Run2016'):
-                res = c.genEventCount_, c.genEventSumw_, c.genEventSumw2_
-            else:
-                res = c.genEventCount, c.genEventSumw, c.genEventSumw2
+            res = c.genEventCount_, c.genEventSumw_, c.genEventSumw2_
         del c
         return res
     except:
         return 0,0,0
+
+def getMetaUproot(file, local=True):
+    f = uproot.open(file)
+    r = f['Runs']
+    try:
+        if local:
+            res = r.array('genEventCount')[0], r.array('genEventSumw')[0], r.array('genEventSumw2')[0]
+        else:
+            res = r.array('genEventCount_')[0], r.array('genEventSumw_')[0], r.array('genEventSumw2_')[0]
+        return res
+    except:
+        return 0,0,0
+    
 
 def dasWrapper(DASname, query='file'):
     sampleName = DASname.rstrip('/')
@@ -100,100 +80,17 @@ def dasWrapper(DASname, query='file'):
     dbsOut = [ l.replace('\n','') for l in dbsOut ]
     return dbsOut
 
-def getSampleNorm(files, DASname, local=True):
-    files = [ 'root://xrootd.t2.ucsd.edu:2040/'+f for f in files ] if not local else files
+def getSampleNorm(files, local=True, redirector='root://xrootd.t2.ucsd.edu:2040/'):
+    files = [ redirector+f for f in files ] if not local else files
     nEvents, sumw, sumw2 = 0,0,0
     for f in files:
-        res = getMeta(f,DASname, local=local)
+        res = getMetaUproot(f, local=local)
         nEvents += res[0]
         sumw += res[1]
         sumw2 += res[2]
     return nEvents, sumw, sumw2
 
-def getBranches(files, local=True):
-    import ROOT
-
-    files = [ 'root://xrootd.t2.ucsd.edu:2040/'+f for f in files ] if not local else files
-    branches = []
-
-    for f in files:
-        c = ROOT.TChain("Runs")
-        c.Add(f)
-        c.GetEntry(0)
-    
-        for b in c.GetListOfBranches():
-            branches.append(b.GetName())
-        branches.remove("run")
-    return branches
-
-def getMasses(branches):
-    masses = []
-    for branch in branches:
-        mystr = branch
-        iMass = mystr.index("TChiWH_")
-        mass = mystr[iMass:][7:]
-        masses.append(mass)
-    masses = list(dict.fromkeys(masses))
-    return masses
-
-def getScanNorm(files, local=True):
-    import ROOT
-
-    files = [ 'root://xrootd.t2.ucsd.edu:2040/'+f for f in files ] if not local else files
-
-    masses = getMasses(getBranches(files))
-    dictionaries = []
-
-    for f in files:
-        c = ROOT.TChain("Runs")
-        c.Add(f)
-        c.GetEntry(0)
-    
-        branches = []
-
-        for b in c.GetListOfBranches():
-            branches.append(b.GetName())
-        branches.remove("run")
-
-        for mass in masses:
-            branchName = 'genEventCount_TChiWH_'+mass
-            if branchName in branches:
-                nEvents = getattr(c, 'genEventCount_TChiWH_'+mass)
-                sumw = getattr(c, 'genEventSumw_TChiWH_'+mass)
-                sumw2 = getattr(c, 'genEventSumw2_TChiWH_'+mass)
-
-                for d in range(len(dictionaries)):
-                    if d["mass"] == mass:
-                        d["nEvents"] += nEvents
-                        d["sumw"] += sumw
-                        d["sumw2"] += sumw2
-                    else:
-                        dictionaries.append({"mass": mass,
-                                             "nEvents": nEvents,
-                                             "sumw": sumw,
-                                             "sumw2": sumw2})
-            else:
-                continue
-    return dictionaries
-
-
-def main():
-
-    config = loadConfig()
-
-    # get list of samples
-    sampleList = readSampleNames( data_path+'samples.txt' )
-
-    with open(data_path+'samples.yaml') as f:
-        samples = yaml.load(f, Loader=Loader)
-
-    # initialize
-    if not samples:
-        samples = {}
-
-    for sample in sampleList:
-        print ("Checking if sample info for sample: %s is here already"%sample[0])
-        if sample[0] in samples.keys(): continue
+def getDict(sample):
         sample_dict = {}
 
         print ("Will get info now.")
@@ -220,36 +117,52 @@ def main():
         sample_dict['files'] = allFiles
 
         if not isData:
-            nEvents, sumw, sumw2 = getSampleNorm(allFiles, sample[0], local=local)
+            nEvents, sumw, sumw2 = getSampleNorm(allFiles, local=local, redirector='root://cmsxrootd.fnal.gov/')
         else:
             nEvents, sumw, sumw2 = 0,0,0
 
-        sample_dict.update({'sumWeight': sumw, 'nEvents': nEvents, 'xsec': float(sample[1]), 'name':name})
+        print (nEvents, sumw, sumw2)
+        sample_dict.update({'sumWeight': float(sumw), 'nEvents': int(nEvents), 'xsec': float(sample[1]), 'name':name})
         
-        samples.update({str(sample[0]): sample_dict})
+        return sample_dict
 
-        #print (sample[0], name)
-        #if not sample[0] in samples.keys():
-        #    samplePath = os.path.join(config['meta']['localNano'], getName(sample[0]) )
-        #    if os.path.isdir( samplePath ):
-        #        pass
-        #    elif os.path.isdir( sample[0] ):
-        #        samplePath = sample[0]
-        #    else:
-        #        raise NotImplementedError
-        #    sumWeight, nEvents = readSumWeight(samplePath)
-        #    samples.update({str(sample[0]): {'sumWeight': sumWeight, 'nEvents': nEvents, 'xsec': float(sample[1]), 'name':name, 'path':samplePath}})
-        #sample['sumWeight'] = sumWeight
-        #sample[
+
+def main():
+
+    config = loadConfig()
+
+    # get list of samples
+    sampleList = readSampleNames( data_path+'samples.txt' )
+
+    if os.path.isfile(data_path+'samples.yaml'):
+        with open(data_path+'samples.yaml') as f:
+            samples = yaml.load(f, Loader=Loader)
+    else:
+        samples = {}
+
+    sampleList_missing = []
+    # check which samples are already there
+    for sample in sampleList:
+        print ("Checking if sample info for sample: %s is here already"%sample[0])
+        if sample[0] in samples.keys(): continue
+        sampleList_missing.append(sample)
+    
+
+    workers = 12
+    # then, run over the missing ones
+    with concurrent.futures.ProcessPoolExecutor(max_workers=workers) as executor:
+        for sample, result in zip(sampleList_missing, executor.map(getDict, sampleList_missing)):
+            samples.update({str(sample[0]): result})
+
 
     with open(data_path+'samples.yaml', 'w') as f:
         yaml.dump(samples, f, Dumper=Dumper)
-    # check if they are in the yaml file
-    
-    
 
     return samples
 
 
 if __name__ == '__main__':
     samples = main()
+
+
+
