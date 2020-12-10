@@ -16,6 +16,8 @@ ISDATA=$9
 YEAR=${10}
 ERA=${11}
 ISFASTSIM=${12}
+SKIM=${13}
+GITHUBUSER=${14}
 
 OUTPUTNAME=$(echo $OUTPUTNAME | sed 's/\.root//')
 
@@ -86,7 +88,7 @@ NEVENTS=-1
 echo $VERSION
 
 # checkout the package
-git clone --branch $VERSION --depth 1  https://github.com/ksalyer/nanoAOD-tools.git PhysicsTools/NanoAODTools
+git clone --branch $VERSION --depth 1  https://github.com/$GITHUBUSER/nanoAOD-tools.git PhysicsTools/NanoAODTools
 
 scram b
 
@@ -100,7 +102,7 @@ echo $OUTFILE
 
 echo "Running python PhysicsTools/NanoAODTools/scripts/run_processor.py $INPUTFILENAMES $SUMWEIGHT $ISDATA $YEAR $ERA $ISFASTSIM"
 
-python PhysicsTools/NanoAODTools/scripts/run_processor.py $INPUTFILENAMES $SUMWEIGHT $ISDATA $YEAR $ERA $ISFASTSIM
+python PhysicsTools/NanoAODTools/scripts/run_processor.py $INPUTFILENAMES $SUMWEIGHT $ISDATA $YEAR $ERA $ISFASTSIM $SKIM
 
 mv tree.root ${OUTPUTNAME}_${IFILE}.root
 
@@ -144,24 +146,8 @@ COPY_DEST="gsiftp://gftp.t2.ucsd.edu${OUTPUTDIR}/${OUTPUTNAME}_${IFILE}.root"
 stageout $COPY_SRC $COPY_DEST
 
 
-if [[ $(hostname) == "uaf"* ]]; then
-    mkdir -p ${OUTPUTDIR}
-    echo cp ${OUTPUTNAME}_${IFILE}.root ${OUTPUTDIR}/${OUTPUTNAME}_${IFILE}.root
-    cp ${OUTPUTNAME}_${IFILE}.root ${OUTPUTDIR}/${OUTPUTNAME}_${IFILE}.root
-    if [ ! -z $EXTRAOUT ]; then
-        echo cp ${EXTRAOUT}_${IFILE}.root ${OUTPUTDIR}/${EXTRAOUT}/${EXTRAOUT}_${IFILE}.root
-        cp ${EXTRAOUT}_${IFILE}.root ${OUTPUTDIR}/${EXTRAOUT}/${EXTRAOUT}_${IFILE}.root
-    fi
-else
-    echo ${OUTPUTDIR}/${OUTPUTNAME}_${IFILE}.root
-    export LD_PRELOAD=/usr/lib64/gfal2-plugins//libgfal_plugin_xrootd.so # needed in cmssw versions later than 9_3_X
-    env -i X509_USER_PROXY=${X509_USER_PROXY} gfal-copy -p -f -t 4200 --verbose file://`pwd`/${OUTPUTNAME}_${IFILE}.root gsiftp://gftp.t2.ucsd.edu${OUTPUTDIR}/${OUTPUTNAME}_${IFILE}.root --checksum ADLER32
-    if [ ! -z $EXTRAOUT ]; then
-        env -i X509_USER_PROXY=${X509_USER_PROXY} gfal-copy -p -f -t 4200 --verbose file://`pwd`/${EXTRAOUT}_${IFILE}.root gsiftp://gftp.t2.ucsd.edu${OUTPUTDIR}/${EXTRAOUT}/${EXTRAOUT}_${IFILE}.root --checksum ADLER32
-    fi
-fi
-
-
 echo -e "\n--- cleaning up ---\n" #                             <----- section division
 cd ../../
 rm -r $CMSSW_VERSION/
+
+
