@@ -83,10 +83,7 @@ def getMeta(file, DASname, local=True):
         if local:
             res = c.genEventCount, c.genEventSumw, c.genEventSumw2
         else:
-            if DASname.count('Autumn18') or DASname.count('Run2018') or  DASname.count('Summer16') or DASname.count('Run2016'):
-                res = c.genEventCount_, c.genEventSumw_, c.genEventSumw2_
-            else:
-                res = c.genEventCount, c.genEventSumw, c.genEventSumw2
+            res = c.genEventCount_, c.genEventSumw_, c.genEventSumw2_
         del c
         return res
     except:
