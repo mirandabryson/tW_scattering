@@ -147,10 +147,10 @@ EOL
 
 echo -e "\n--- end running ---\n" #                             <----- section division
 
-# Copy back the output file
+# Copy back the output file. output should only start at /store/
 
 COPY_SRC="file://`pwd`/${OUTPUTNAME}_${IFILE}.root"
-COPY_DEST="gsiftp://gftp.t2.ucsd.edu${OUTPUTDIR}/${OUTPUTNAME}_${IFILE}.root"
+COPY_DEST=" davs://redirector.t2.ucsd.edu:1094/${OUTPUTDIR}/${OUTPUTNAME}_${IFILE}.root"
 stageout $COPY_SRC $COPY_DEST
 
 
