@@ -149,6 +149,15 @@ echo -e "\n--- end running ---\n" #                             <----- section d
 
 # Copy back the output file. output should only start at /store/
 
+echo "Local output dir"
+echo ${OUTPUTDIR}
+
+export REP="/store"
+OUTPUTDIR="${OUTPUTDIR/\/hadoop\/cms\/store/$REP}"
+
+echo "Final output path for xrootd:"
+echo ${OUTPUTDIR}
+
 COPY_SRC="file://`pwd`/${OUTPUTNAME}_${IFILE}.root"
 COPY_DEST=" davs://redirector.t2.ucsd.edu:1094/${OUTPUTDIR}/${OUTPUTNAME}_${IFILE}.root"
 stageout $COPY_SRC $COPY_DEST

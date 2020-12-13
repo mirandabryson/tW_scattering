@@ -80,7 +80,7 @@ sample = DirectorySample(dataset='TTWJetsToLNu_Autumn18v4', location='/hadoop/cm
 
 #outDir = os.path.join(version, tag)
 outDir = os.path.join(os.path.expandvars(cfg['meta']['localSkim']), tag)
-outDir = outDir.replace('/hadoop/cms','')
+#outDir = outDir.replace('/hadoop/cms','')
 
 print ("Output will be here: %s"%outDir)
 
