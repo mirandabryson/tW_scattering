@@ -161,9 +161,12 @@ def main():
         for sample, result in zip(sampleList_missing, executor.map(getDict, sampleList_missing)):
             samples.update({str(sample[0]): result})
 
+    print ("Done with the heavy lifting. Dumping results to yaml file now.")
 
     with open(data_path+'samples.yaml', 'w') as f:
         yaml.dump(samples, f, Dumper=Dumper)
+
+    print ("Done.")
 
     return samples
 
