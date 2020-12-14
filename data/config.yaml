@@ -18,6 +18,6 @@ meta:
   localNano: /hadoop/cms/store/user/dspitzba/nanoAOD/
   localSkim: /hadoop/cms/store/user/ksalyer/allHadTest
   plots: /home/users/$USER/public_html/tW_scattering/
-  version: 0.1.28
+  version: 0.1.32
 signalSelection:
   met: 50

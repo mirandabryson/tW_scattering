@@ -79,11 +79,19 @@ def getMeta(file, local=True):
     c = ROOT.TChain("Runs")
     c.Add(file)
     c.GetEntry(0)
+    #print("local = ", local)
     try:
         if local:
             res = c.genEventCount, c.genEventSumw, c.genEventSumw2
         else:
-            res = c.genEventCount_, c.genEventSumw_, c.genEventSumw2_
+            #print("no underscore: ", c.genEventSumw)
+            #print("underscore: ", c.genEventSumw_)
+            if c.genEventSumw > 0:
+                #print("entered the correct if statement")
+                res = c.genEventCount, c.genEventSumw, c.genEventSumw2
+                #print(res)
+            else:
+                res = c.genEventCount_, c.genEventSumw_, c.genEventSumw2_
         del c
         return res
     except:
@@ -105,6 +113,8 @@ def getSampleNorm(files, local=True):
         nEvents += res[0]
         sumw += res[1]
         sumw2 += res[2]
+        #print(res[0],res[1],res[2])
+    #print(nEvents,sumw,sumw2)
     return nEvents, sumw, sumw2
 
 def getBranches(files, local=True):
@@ -200,6 +210,7 @@ def main():
         print (name)
 
         year, era, isData, isFastSim = getYearFromDAS(sample[0])
+        #print(year, era, isData, isFastSim)
 
         # local/private sample?
         local = (sample[0].count('hadoop') + sample[0].count('home'))
@@ -220,6 +231,8 @@ def main():
             nEvents, sumw, sumw2 = getSampleNorm(allFiles, local=local)
         else:
             nEvents, sumw, sumw2 = 0,0,0
+        
+        #print(nEvents, sumw, sumw2)
 
         sample_dict.update({'sumWeight': sumw, 'nEvents': nEvents, 'xsec': float(sample[1]), 'name':name})
         
