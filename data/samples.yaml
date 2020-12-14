@@ -1,0 +1,623 @@
+? /DYJetsToLL_M-50_HT-100to200_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8_ext1-v1/NANOAODSIM
+: {files: 8, nEvents: 3950339, name: DYJetsToLL_M-50_HT-100to200_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8_ext1-v1,
+  path: null, sumWeight: 3944045.0, xsec: 186.876}
+? /DYJetsToLL_M-50_HT-100to200_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 12, nEvents: 11530510, name: DYJetsToLL_M-50_HT-100to200_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 11516745.853159329, xsec: 186.876}
+? /DYJetsToLL_M-50_HT-100to200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1/NANOAODSIM
+: {files: 9, nEvents: 8265899, name: DYJetsToLL_M-50_HT-100to200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1,
+  path: null, sumWeight: 8265899.0, xsec: 182.04}
+? /DYJetsToLL_M-50_HT-1200to2500_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 1, nEvents: 625517, name: DYJetsToLL_M-50_HT-1200to2500_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 616923.0, xsec: 0.18676}
+? /DYJetsToLL_M-50_HT-1200to2500_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 2, nEvents: 536416, name: DYJetsToLL_M-50_HT-1200to2500_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 531566.8627523624, xsec: 0.18676}
+? /DYJetsToLL_M-50_HT-1200to2500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/NANOAODSIM
+: {files: 1, nEvents: 596079, name: DYJetsToLL_M-50_HT-1200to2500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1,
+  path: null, sumWeight: 596079.0, xsec: 0.1676}
+? /DYJetsToLL_M-50_HT-200to400_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8_ext1-v1/NANOAODSIM
+: {files: 3, nEvents: 1200863, name: DYJetsToLL_M-50_HT-200to400_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8_ext1-v1,
+  path: null, sumWeight: 1197707.0, xsec: 56.3992}
+? /DYJetsToLL_M-50_HT-200to400_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 11, nEvents: 10860690, name: DYJetsToLL_M-50_HT-200to400_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 10840078.364005698, xsec: 56.3992}
+? /DYJetsToLL_M-50_HT-200to400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1/NANOAODSIM
+: {files: 11, nEvents: 8646942, name: DYJetsToLL_M-50_HT-200to400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1,
+  path: null, sumWeight: 8646942.0, xsec: 50.2209}
+? /DYJetsToLL_M-50_HT-2500toInf_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_new_pmx_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 3, nEvents: 419308, name: DYJetsToLL_M-50_HT-2500toInf_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_new_pmx_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 401334.0, xsec: 0.004079}
+? /DYJetsToLL_M-50_HT-2500toInf_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 2, nEvents: 427051, name: DYJetsToLL_M-50_HT-2500toInf_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 415517.0219344225, xsec: 0.00407856}
+? /DYJetsToLL_M-50_HT-2500toInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/NANOAODSIM
+: {files: 1, nEvents: 399492, name: DYJetsToLL_M-50_HT-2500toInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1,
+  path: null, sumWeight: 399492.0, xsec: 0.003995}
+? /DYJetsToLL_M-50_HT-400to600_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8_ext1-v1/NANOAODSIM
+: {files: 4, nEvents: 1124294, name: DYJetsToLL_M-50_HT-400to600_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8_ext1-v1,
+  path: null, sumWeight: 1119206.0, xsec: 7.997}
+? /DYJetsToLL_M-50_HT-400to600_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21_ext2-v1/NANOAODSIM
+: {files: 12, nEvents: 9262302, name: DYJetsToLL_M-50_HT-400to600_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21_ext2-v1,
+  path: null, sumWeight: 9234701.51950924, xsec: 7.99704}
+? /DYJetsToLL_M-50_HT-400to600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1/NANOAODSIM
+: {files: 13, nEvents: 8655207, name: DYJetsToLL_M-50_HT-400to600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1,
+  path: null, sumWeight: 8655207.0, xsec: 6.8437}
+? /DYJetsToLL_M-50_HT-600to800_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_new_pmx_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 10, nEvents: 8743640, name: DYJetsToLL_M-50_HT-600to800_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_new_pmx_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 8691608.0, xsec: 1.972}
+? /DYJetsToLL_M-50_HT-600to800_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 12, nEvents: 8862104, name: DYJetsToLL_M-50_HT-600to800_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 8826238.149146453, xsec: 1.972}
+? /DYJetsToLL_M-50_HT-600to800_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/NANOAODSIM
+: {files: 18, nEvents: 8292957, name: DYJetsToLL_M-50_HT-600to800_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1,
+  path: null, sumWeight: 8292957.0, xsec: 1.6482}
+? /DYJetsToLL_M-50_HT-800to1200_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_new_pmx_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 6, nEvents: 3114980, name: DYJetsToLL_M-50_HT-800to1200_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_new_pmx_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 3089712.0, xsec: 0.8475}
+? /DYJetsToLL_M-50_HT-800to1200_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 5, nEvents: 3138129, name: DYJetsToLL_M-50_HT-800to1200_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 3120982.106065329, xsec: 0.847496}
+? /DYJetsToLL_M-50_HT-800to1200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/NANOAODSIM
+: {files: 5, nEvents: 2673066, name: DYJetsToLL_M-50_HT-800to1200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1,
+  path: null, sumWeight: 2673066.0, xsec: 0.7211}
+? /DYJetsToLL_M-50_TuneCP5_13TeV-amcatnloFXFX-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8_ext3-v1/NANOAODSIM
+: {files: 147, nEvents: 186217773, name: DYJetsToLL_M-50_TuneCP5_13TeV-amcatnloFXFX-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8_ext3-v1,
+  path: null, sumWeight: 3323039532679.977, xsec: 6197.88}
+? /DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 57, nEvents: 100194597, name: DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 100108281.94794683, xsec: 6197.88}
+? /DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext2-v1/NANOAODSIM
+: {files: 70, nEvents: 93007332, name: DYJetsToLL_M-50_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext2-v1,
+  path: null, sumWeight: 93007332.0, xsec: 6020.85}
+/DoubleEG/Run2016B-02Apr2020_ver1-v1/NANOAOD: {files: 5, nEvents: 0, name: DoubleEG_Run2016B-02Apr2020_ver1-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/DoubleEG/Run2016B-02Apr2020_ver2-v1/NANOAOD: {files: 82, nEvents: 0, name: DoubleEG_Run2016B-02Apr2020_ver2-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/DoubleEG/Run2016C-02Apr2020-v1/NANOAOD: {files: 41, nEvents: 0, name: DoubleEG_Run2016C-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/DoubleEG/Run2016D-02Apr2020-v1/NANOAOD: {files: 42, nEvents: 0, name: DoubleEG_Run2016D-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/DoubleEG/Run2016E-02Apr2020-v1/NANOAOD: {files: 41, nEvents: 0, name: DoubleEG_Run2016E-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/DoubleEG/Run2016F-02Apr2020-v1/NANOAOD: {files: 29, nEvents: 0, name: DoubleEG_Run2016F-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/DoubleEG/Run2016G-02Apr2020-v1/NANOAOD: {files: 62, nEvents: 0, name: DoubleEG_Run2016G-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/DoubleEG/Run2016H-02Apr2020-v1/NANOAOD: {files: 82, nEvents: 0, name: DoubleEG_Run2016H-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/DoubleEG/Run2017B-02Apr2020-v1/NANOAOD: {files: 56, nEvents: 0, name: DoubleEG_Run2017B-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/DoubleEG/Run2017C-02Apr2020-v1/NANOAOD: {files: 67, nEvents: 0, name: DoubleEG_Run2017C-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/DoubleEG/Run2017D-02Apr2020-v1/NANOAOD: {files: 24, nEvents: 0, name: DoubleEG_Run2017D-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/DoubleEG/Run2017E-02Apr2020-v1/NANOAOD: {files: 46, nEvents: 0, name: DoubleEG_Run2017E-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/DoubleEG/Run2017F-02Apr2020-v1/NANOAOD: {files: 68, nEvents: 0, name: DoubleEG_Run2017F-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/DoubleMuon/Run2016B-02Apr2020_ver1-v1/NANOAOD: {files: 3, nEvents: 0, name: DoubleMuon_Run2016B-02Apr2020_ver1-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/DoubleMuon/Run2016B-02Apr2020_ver2-v1/NANOAOD: {files: 48, nEvents: 0, name: DoubleMuon_Run2016B-02Apr2020_ver2-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/DoubleMuon/Run2016C-02Apr2020-v1/NANOAOD: {files: 21, nEvents: 0, name: DoubleMuon_Run2016C-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/DoubleMuon/Run2016D-02Apr2020-v1/NANOAOD: {files: 23, nEvents: 0, name: DoubleMuon_Run2016D-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/DoubleMuon/Run2016E-02Apr2020-v1/NANOAOD: {files: 20, nEvents: 0, name: DoubleMuon_Run2016E-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/DoubleMuon/Run2016F-02Apr2020-v1/NANOAOD: {files: 17, nEvents: 0, name: DoubleMuon_Run2016F-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/DoubleMuon/Run2016G-02Apr2020-v1/NANOAOD: {files: 33, nEvents: 0, name: DoubleMuon_Run2016G-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/DoubleMuon/Run2016H-02Apr2020-v1/NANOAOD: {files: 48, nEvents: 0, name: DoubleMuon_Run2016H-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/DoubleMuon/Run2017B-02Apr2020-v1/NANOAOD: {files: 14, nEvents: 0, name: DoubleMuon_Run2017B-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/DoubleMuon/Run2017C-02Apr2020-v1/NANOAOD: {files: 44, nEvents: 0, name: DoubleMuon_Run2017C-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/DoubleMuon/Run2017D-02Apr2020-v1/NANOAOD: {files: 23, nEvents: 0, name: DoubleMuon_Run2017D-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/DoubleMuon/Run2017E-02Apr2020-v1/NANOAOD: {files: 57, nEvents: 0, name: DoubleMuon_Run2017E-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/DoubleMuon/Run2017F-02Apr2020-v1/NANOAOD: {files: 79, nEvents: 0, name: DoubleMuon_Run2017F-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/DoubleMuon/Run2018A-02Apr2020-v1/NANOAOD: {files: 85, nEvents: 0, name: DoubleMuon_Run2018A-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/DoubleMuon/Run2018B-02Apr2020-v1/NANOAOD: {files: 24, nEvents: 0, name: DoubleMuon_Run2018B-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/DoubleMuon/Run2018C-02Apr2020-v1/NANOAOD: {files: 29, nEvents: 0, name: DoubleMuon_Run2018C-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/DoubleMuon/Run2018D-02Apr2020-v1/NANOAOD: {files: 100, nEvents: 0, name: DoubleMuon_Run2018D-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/EGamma/Run2018A-02Apr2020-v1/NANOAOD: {files: 255, nEvents: 0, name: EGamma_Run2018A-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/EGamma/Run2018B-02Apr2020-v1/NANOAOD: {files: 100, nEvents: 0, name: EGamma_Run2018B-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/EGamma/Run2018C-02Apr2020-v1/NANOAOD: {files: 112, nEvents: 0, name: EGamma_Run2018C-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/EGamma/Run2018D-02Apr2020-v1/NANOAOD: {files: 479, nEvents: 0, name: EGamma_Run2018D-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+? /GJets_HT-100To200_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 9, nEvents: 9959190, name: GJets_HT-100To200_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 9957110.0, xsec: 9238.0}
+? /GJets_HT-100To200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1/NANOAODSIM
+: {files: 4, nEvents: 4972282, name: GJets_HT-100To200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1,
+  path: null, sumWeight: 4972282.0, xsec: 9238.0}
+? /GJets_HT-200To400_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 26, nEvents: 18870794, name: GJets_HT-200To400_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 18859674.099864557, xsec: 2305.0}
+? /GJets_HT-200To400_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_new_pmx_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 10, nEvents: 10231017, name: GJets_HT-200To400_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_new_pmx_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 10224007.0, xsec: 2305.0}
+? /GJets_HT-200To400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1/NANOAODSIM
+: {files: 9, nEvents: 10404907, name: GJets_HT-200To400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1,
+  path: null, sumWeight: 10404907.0, xsec: 2305.0}
+? /GJets_HT-400To600_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 29, nEvents: 4655985, name: GJets_HT-400To600_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 4650962.691182762, xsec: 274.4}
+? /GJets_HT-400To600_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 8, nEvents: 4646958, name: GJets_HT-400To600_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 4640128.0, xsec: 274.4}
+? /GJets_HT-400To600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1/NANOAODSIM
+: {files: 4, nEvents: 2530341, name: GJets_HT-400To600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1,
+  path: null, sumWeight: 2530341.0, xsec: 274.4}
+? /GJets_HT-40To100_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 15, nEvents: 9371355, name: GJets_HT-40To100_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 9370096.751511302, xsec: 20790.0}
+? /GJets_HT-40To100_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_new_pmx_102X_mc2017_realistic_v8_ext1-v1/NANOAODSIM
+: {files: 8, nEvents: 4639602, name: GJets_HT-40To100_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_new_pmx_102X_mc2017_realistic_v8_ext1-v1,
+  path: null, sumWeight: 4639480.0, xsec: 20790.0}
+? /GJets_HT-40To100_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1/NANOAODSIM
+: {files: 4, nEvents: 4858154, name: GJets_HT-40To100_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1,
+  path: null, sumWeight: 4858154.0, xsec: 20790.0}
+? /GJets_HT-600ToInf_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21_ext1-v1/NANOAODSIM
+: {files: 42, nEvents: 4981121, name: GJets_HT-600ToInf_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21_ext1-v1,
+  path: null, sumWeight: 4970069.563275841, xsec: 93.46}
+? /GJets_HT-600ToInf_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 3, nEvents: 3289629, name: GJets_HT-600ToInf_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 3278039.0, xsec: 93.46}
+? /GJets_HT-600ToInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1/NANOAODSIM
+: {files: 4, nEvents: 2616911, name: GJets_HT-600ToInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1,
+  path: null, sumWeight: 2616911.0, xsec: 93.46}
+/MET/Run2016B-02Apr2020_ver2-v1/NANOAOD: {files: 32, nEvents: 0, name: MET_Run2016B-02Apr2020_ver2-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MET/Run2016C-02Apr2020-v1/NANOAOD: {files: 17, nEvents: 0, name: MET_Run2016C-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MET/Run2016D-02Apr2020-v1/NANOAOD: {files: 21, nEvents: 0, name: MET_Run2016D-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MET/Run2016E-02Apr2020-v1/NANOAOD: {files: 21, nEvents: 0, name: MET_Run2016E-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MET/Run2016F-02Apr2020-v1/NANOAOD: {files: 13, nEvents: 0, name: MET_Run2016F-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MET/Run2016G-02Apr2020-v1/NANOAOD: {files: 36, nEvents: 0, name: MET_Run2016G-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MET/Run2016H-02Apr2020-v2/NANOAOD: {files: 39, nEvents: 0, name: MET_Run2016H-02Apr2020-v2,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MET/Run2017B-02Apr2020-v1/NANOAOD: {files: 37, nEvents: 0, name: MET_Run2017B-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MET/Run2017C-02Apr2020-v1/NANOAOD: {files: 87, nEvents: 0, name: MET_Run2017C-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MET/Run2017D-02Apr2020-v1/NANOAOD: {files: 16, nEvents: 0, name: MET_Run2017D-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MET/Run2017E-02Apr2020-v1/NANOAOD: {files: 62, nEvents: 0, name: MET_Run2017E-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MET/Run2017F-02Apr2020-v1/NANOAOD: {files: 127, nEvents: 0, name: MET_Run2017F-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MET/Run2018A-02Apr2020-v1/NANOAOD: {files: 70, nEvents: 0, name: MET_Run2018A-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MET/Run2018B-02Apr2020-v1/NANOAOD: {files: 30, nEvents: 0, name: MET_Run2018B-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MET/Run2018C-02Apr2020-v1/NANOAOD: {files: 44, nEvents: 0, name: MET_Run2018C-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MET/Run2018D-02Apr2020-v2/NANOAOD: {files: 113, nEvents: 0, name: MET_Run2018D-02Apr2020-v2,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MuonEG/Run2016B-02Apr2020_ver1-v1/NANOAOD: {files: 2, nEvents: 0, name: MuonEG_Run2016B-02Apr2020_ver1-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MuonEG/Run2016B-02Apr2020_ver2-v1/NANOAOD: {files: 23, nEvents: 0, name: MuonEG_Run2016B-02Apr2020_ver2-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MuonEG/Run2016C-02Apr2020-v1/NANOAOD: {files: 10, nEvents: 0, name: MuonEG_Run2016C-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MuonEG/Run2016D-02Apr2020-v1/NANOAOD: {files: 21, nEvents: 0, name: MuonEG_Run2016D-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MuonEG/Run2016E-02Apr2020-v2/NANOAOD: {files: 21, nEvents: 0, name: MuonEG_Run2016E-02Apr2020-v2,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MuonEG/Run2016F-02Apr2020-v1/NANOAOD: {files: 14, nEvents: 0, name: MuonEG_Run2016F-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MuonEG/Run2016G-02Apr2020-v1/NANOAOD: {files: 34, nEvents: 0, name: MuonEG_Run2016G-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MuonEG/Run2016H-02Apr2020-v1/NANOAOD: {files: 34, nEvents: 0, name: MuonEG_Run2016H-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MuonEG/Run2017B-02Apr2020-v1/NANOAOD: {files: 8, nEvents: 0, name: MuonEG_Run2017B-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MuonEG/Run2017C-02Apr2020-v1/NANOAOD: {files: 16, nEvents: 0, name: MuonEG_Run2017C-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MuonEG/Run2017D-02Apr2020-v1/NANOAOD: {files: 11, nEvents: 0, name: MuonEG_Run2017D-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MuonEG/Run2017E-02Apr2020-v1/NANOAOD: {files: 17, nEvents: 0, name: MuonEG_Run2017E-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MuonEG/Run2017F-02Apr2020-v1/NANOAOD: {files: 35, nEvents: 0, name: MuonEG_Run2017F-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MuonEG/Run2018A-02Apr2020-v1/NANOAOD: {files: 51, nEvents: 0, name: MuonEG_Run2018A-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MuonEG/Run2018B-02Apr2020-v1/NANOAOD: {files: 17, nEvents: 0, name: MuonEG_Run2018B-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MuonEG/Run2018C-02Apr2020-v1/NANOAOD: {files: 20, nEvents: 0, name: MuonEG_Run2018C-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+/MuonEG/Run2018D-02Apr2020-v1/NANOAOD: {files: 65, nEvents: 0, name: MuonEG_Run2018D-02Apr2020-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+? /QCD_HT1000to1500_TuneCP5_13TeV-madgraph-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 23, nEvents: 16595628, name: QCD_HT1000to1500_TuneCP5_13TeV-madgraph-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 16485296.0, xsec: 1098.0}
+? /QCD_HT1000to1500_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 61, nEvents: 15466225, name: QCD_HT1000to1500_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 15403521.916679002, xsec: 1098.0}
+? /QCD_HT1000to1500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1/NANOAODSIM
+: {files: 11, nEvents: 10360193, name: QCD_HT1000to1500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1,
+  path: null, sumWeight: 10360193.0, xsec: 1207.0}
+? /QCD_HT1500to2000_TuneCP5_13TeV-madgraph-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 13, nEvents: 11634434, name: QCD_HT1500to2000_TuneCP5_13TeV-madgraph-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 11508604.0, xsec: 98.9}
+? /QCD_HT1500to2000_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 54, nEvents: 10955087, name: QCD_HT1500to2000_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 10883854.579807283, xsec: 98.9}
+? /QCD_HT1500to2000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1/NANOAODSIM
+: {files: 11, nEvents: 7868538, name: QCD_HT1500to2000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1,
+  path: null, sumWeight: 7868538.0, xsec: 119.9}
+? /QCD_HT2000toInf_TuneCP5_13TeV-madgraph-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 7, nEvents: 5941306, name: QCD_HT2000toInf_TuneCP5_13TeV-madgraph-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 5825566.0, xsec: 20.26}
+? /QCD_HT2000toInf_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 43, nEvents: 5475677, name: QCD_HT2000toInf_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 5412264.53897776, xsec: 20.26}
+? /QCD_HT2000toInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1/NANOAODSIM
+: {files: 8, nEvents: 3812534, name: QCD_HT2000toInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1,
+  path: null, sumWeight: 3812534.0, xsec: 25.24}
+? /QCD_HT300to500_TuneCP5_13TeV-madgraph-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 39, nEvents: 60258921, name: QCD_HT300to500_TuneCP5_13TeV-madgraph-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 60148111.0, xsec: 323300.0}
+? /QCD_HT300to500_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 88, nEvents: 54661579, name: QCD_HT300to500_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 54594133.4846933, xsec: 323300.0}
+? /QCD_HT300to500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1/NANOAODSIM
+: {files: 34, nEvents: 37516961, name: QCD_HT300to500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1,
+  path: null, sumWeight: 37516961.0, xsec: 347700.0}
+? /QCD_HT500to700_TuneCP5_13TeV-madgraph-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 57, nEvents: 56207744, name: QCD_HT500to700_TuneCP5_13TeV-madgraph-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 56041018.0, xsec: 30000.0}
+? /QCD_HT500to700_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 42, nEvents: 55152960, name: QCD_HT500to700_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 55046821.836471915, xsec: 30000.0}
+? /QCD_HT500to700_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1/NANOAODSIM
+: {files: 36, nEvents: 44061488, name: QCD_HT500to700_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1,
+  path: null, sumWeight: 44061488.0, xsec: 32100.0}
+? /QCD_HT700to1000_TuneCP5_13TeV-madgraph-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 44, nEvents: 47610552, name: QCD_HT700to1000_TuneCP5_13TeV-madgraph-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 47405120.0, xsec: 6330.0}
+? /QCD_HT700to1000_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 55, nEvents: 48158738, name: QCD_HT700to1000_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 48028221.62550313, xsec: 6330.0}
+? /QCD_HT700to1000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1/NANOAODSIM
+: {files: 21, nEvents: 21604533, name: QCD_HT700to1000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1,
+  path: null, sumWeight: 21604533.0, xsec: 6831.0}
+? /SMS-TChiWH_TuneCP2_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-PUFall18Fast_Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 190, nEvents: 0, name: SMS-TChiWH_TuneCP2_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-PUFall18Fast_Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+? /SMS-TChiWH_TuneCP2_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv7-PUFall17Fast_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 101, nEvents: 0, name: SMS-TChiWH_TuneCP2_13TeV-madgraphMLM-pythia8_RunIIFall17NanoAODv7-PUFall17Fast_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+? /SMS-TChiWH_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUSummer16v3Fast_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/NANOAODSIM
+: {files: 58, nEvents: 0, name: SMS-TChiWH_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUSummer16v3Fast_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1,
+  path: null, sumWeight: 0.0, xsec: 1.0}
+? /ST_s-channel_4f_leptonDecays_13TeV-amcatnlo-pythia8_TuneCUETP8M1/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/NANOAODSIM
+: {files: 3, nEvents: 1000000, name: ST_s-channel_4f_leptonDecays_13TeV-amcatnlo-pythia8_TuneCUETP8M1_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1,
+  path: null, sumWeight: 3370668.5184029997, xsec: 3.682}
+? /ST_s-channel_4f_leptonDecays_TuneCP5_13TeV-madgraph-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21_ext2-v1/NANOAODSIM
+: {files: 16, nEvents: 19952000, name: ST_s-channel_4f_leptonDecays_TuneCP5_13TeV-madgraph-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21_ext2-v1,
+  path: null, sumWeight: 74567625.13430889, xsec: 3.74}
+? /ST_s-channel_4f_leptonDecays_TuneCP5_PSweights_13TeV-amcatnlo-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_new_pmx_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 9, nEvents: 9914948, name: ST_s-channel_4f_leptonDecays_TuneCP5_PSweights_13TeV-amcatnlo-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_new_pmx_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 37052021.594598435, xsec: 3.74}
+? /ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 61, nEvents: 79090800, name: ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 5125996535.388435, xsec: 80.95}
+? /ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_PSweights_13TeV-powheg-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 191, nEvents: 64761200, name: ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_PSweights_13TeV-powheg-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 64727641.63922795, xsec: 80.95}
+? /ST_t-channel_antitop_4f_inclusiveDecays_13TeV-powhegV2-madspin-pythia8_TuneCUETP8M1/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/NANOAODSIM
+: {files: 36, nEvents: 38811017, name: ST_t-channel_antitop_4f_inclusiveDecays_13TeV-powhegV2-madspin-pythia8_TuneCUETP8M1_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1,
+  path: null, sumWeight: 38811017.0, xsec: 80.95}
+? /ST_t-channel_top_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 103, nEvents: 154307600, name: ST_t-channel_top_4f_InclusiveDecays_TuneCP5_13TeV-powheg-madspin-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 16603455266.973835, xsec: 136.0}
+? /ST_t-channel_top_4f_InclusiveDecays_TuneCP5_PSweights_13TeV-powheg-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 225, nEvents: 122688200, name: ST_t-channel_top_4f_InclusiveDecays_TuneCP5_PSweights_13TeV-powheg-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 122641193.81610443, xsec: 136.0}
+? /ST_t-channel_top_4f_inclusiveDecays_13TeV-powhegV2-madspin-pythia8_TuneCUETP8M1/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v2/NANOAODSIM
+: {files: 44, nEvents: 58403420, name: ST_t-channel_top_4f_inclusiveDecays_13TeV-powhegV2-madspin-pythia8_TuneCUETP8M1_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v2,
+  path: null, sumWeight: 58403420.0, xsec: 136.0}
+? /ST_tW_antitop_5f_NoFullyHadronicDecays_13TeV-powheg_TuneCUETP8M1/RunIISummer16NanoAODv7-Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext2-v1/NANOAODSIM
+: {files: 3, nEvents: 2726603, name: ST_tW_antitop_5f_NoFullyHadronicDecays_13TeV-powheg_TuneCUETP8M1_RunIISummer16NanoAODv7-Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext2-v1,
+  path: null, sumWeight: 2726603.0, xsec: 19.559}
+? /ST_tW_antitop_5f_NoFullyHadronicDecays_TuneCP5_13TeV-powheg-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_EXT1_102X_upgrade2018_realistic_v21_ext1-v1/NANOAODSIM
+: {files: 15, nEvents: 5823328, name: ST_tW_antitop_5f_NoFullyHadronicDecays_TuneCP5_13TeV-powheg-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_EXT1_102X_upgrade2018_realistic_v21_ext1-v1,
+  path: null, sumWeight: 203553870.0718795, xsec: 18.5}
+? /ST_tW_antitop_5f_NoFullyHadronicDecays_TuneCP5_13TeV-powheg-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_new_pmx_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 8, nEvents: 5635539, name: ST_tW_antitop_5f_NoFullyHadronicDecays_TuneCP5_13TeV-powheg-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_new_pmx_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 197107160.73510006, xsec: 18.5}
+? /ST_tW_top_5f_NoFullyHadronicDecays_13TeV-powheg_TuneCUETP8M1/RunIISummer16NanoAODv7-Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext2-v1/NANOAODSIM
+: {files: 2, nEvents: 2715978, name: ST_tW_top_5f_NoFullyHadronicDecays_13TeV-powheg_TuneCUETP8M1_RunIISummer16NanoAODv7-Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext2-v1,
+  path: null, sumWeight: 2715978.0, xsec: 19.559}
+? /ST_tW_top_5f_NoFullyHadronicDecays_TuneCP5_13TeV-powheg-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_EXT1_102X_upgrade2018_realistic_v21_ext1-v1/NANOAODSIM
+: {files: 18, nEvents: 7636887, name: ST_tW_top_5f_NoFullyHadronicDecays_TuneCP5_13TeV-powheg-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_EXT1_102X_upgrade2018_realistic_v21_ext1-v1,
+  path: null, sumWeight: 266461860.6748265, xsec: 20.25}
+? /ST_tW_top_5f_NoFullyHadronicDecays_TuneCP5_13TeV-powheg-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_new_pmx_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 5, nEvents: 4955102, name: ST_tW_top_5f_NoFullyHadronicDecays_TuneCP5_13TeV-powheg-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_new_pmx_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 172980143.89199993, xsec: 20.25}
+? /ST_tWnunu_5f_LO_TuneCP5_PSweights_13TeV-madgraph-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 1, nEvents: 100000, name: ST_tWnunu_5f_LO_TuneCP5_PSweights_13TeV-madgraph-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 99910.52699700001, xsec: 0.02223}
+? /TTJets_DiLept_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 29, nEvents: 28701360, name: TTJets_DiLept_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 28663264.63204231, xsec: 91.04433}
+? /TTJets_DiLept_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 113, nEvents: 28380110, name: TTJets_DiLept_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 28349068.0, xsec: 91.044}
+? /TTJets_DiLept_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1/NANOAODSIM
+: {files: 20, nEvents: 24767666, name: TTJets_DiLept_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1,
+  path: null, sumWeight: 24767666.0, xsec: 87.315}
+? /TTJets_DiLept_genMET-150_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 80, nEvents: 8708805, name: TTJets_DiLept_genMET-150_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 8684221.0, xsec: 54.29}
+? /TTJets_DiLept_genMET-150_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/NANOAODSIM
+: {files: 13, nEvents: 9753471, name: TTJets_DiLept_genMET-150_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1,
+  path: null, sumWeight: 9753471.0, xsec: 57.35}
+? /TTJets_DiLept_genMET-80_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 164, nEvents: 58442000, name: TTJets_DiLept_genMET-80_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 58352185.469670884, xsec: 54.29}
+? /TTJets_SingleLeptFromT_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 171, nEvents: 57137426, name: TTJets_SingleLeptFromT_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 57060564.55335798, xsec: 182.9607}
+? /TTJets_SingleLeptFromT_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 74, nEvents: 61761347, name: TTJets_SingleLeptFromT_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 61692445.0, xsec: 182.9607}
+? /TTJets_SingleLeptFromT_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1/NANOAODSIM
+: {files: 46, nEvents: 49664175, name: TTJets_SingleLeptFromT_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1,
+  path: null, sumWeight: 49664175.0, xsec: 182.673}
+? /TTJets_SingleLeptFromT_genMET-150_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 74, nEvents: 14368494, name: TTJets_SingleLeptFromT_genMET-150_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 14334094.0, xsec: 109.1}
+? /TTJets_SingleLeptFromT_genMET-150_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/NANOAODSIM
+: {files: 20, nEvents: 17355657, name: TTJets_SingleLeptFromT_genMET-150_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1,
+  path: null, sumWeight: 17355657.0, xsec: 114.6}
+? /TTJets_SingleLeptFromT_genMET-80_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 74, nEvents: 84174141, name: TTJets_SingleLeptFromT_genMET-80_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 84041142.362977, xsec: 109.1}
+? /TTJets_SingleLeptFromTbar_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 141, nEvents: 59929205, name: TTJets_SingleLeptFromTbar_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 59848762.501212806, xsec: 182.9607}
+? /TTJets_SingleLeptFromTbar_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 182, nEvents: 56648453, name: TTJets_SingleLeptFromTbar_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 56586525.0, xsec: 182.9607}
+? /TTJets_SingleLeptFromTbar_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1/NANOAODSIM
+: {files: 49, nEvents: 48387865, name: TTJets_SingleLeptFromTbar_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1,
+  path: null, sumWeight: 48387865.0, xsec: 182.673}
+? /TTJets_SingleLeptFromTbar_genMET-150_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 44, nEvents: 8233477, name: TTJets_SingleLeptFromTbar_genMET-150_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 8213871.0, xsec: 109.1}
+? /TTJets_SingleLeptFromTbar_genMET-150_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/NANOAODSIM
+: {files: 22, nEvents: 17003930, name: TTJets_SingleLeptFromTbar_genMET-150_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1,
+  path: null, sumWeight: 17003930.0, xsec: 114.6}
+? /TTJets_SingleLeptFromTbar_genMET-80_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 103, nEvents: 79395770, name: TTJets_SingleLeptFromTbar_genMET-80_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 79270390.67736381, xsec: 109.1}
+? /TTWJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-madspin-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext2-v1/NANOAODSIM
+: {files: 4, nEvents: 3120397, name: TTWJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-madspin-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext2-v1,
+  path: null, sumWeight: 1054697.9480006401, xsec: 0.2043}
+? /TTZToLLNuNu_M-10_TuneCP5_13TeV-amcatnlo-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21_ext1-v1/NANOAODSIM
+: {files: 18, nEvents: 13280000, name: TTZToLLNuNu_M-10_TuneCP5_13TeV-amcatnlo-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21_ext1-v1,
+  path: null, sumWeight: 3226764.905738057, xsec: 0.25}
+? /TTZToLLNuNu_M-10_TuneCP5_13TeV-amcatnlo-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 14, nEvents: 7563490, name: TTZToLLNuNu_M-10_TuneCP5_13TeV-amcatnlo-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 1838397.2967408001, xsec: 0.25}
+? /TTZToLLNuNu_M-10_TuneCUETP8M1_13TeV-amcatnlo-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext3-v1/NANOAODSIM
+: {files: 9, nEvents: 5862409, name: TTZToLLNuNu_M-10_TuneCUETP8M1_13TeV-amcatnlo-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext3-v1,
+  path: null, sumWeight: 1480713.7269925606, xsec: 0.25}
+? /W1JetsToLNu_NuPt-200_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 53, nEvents: 6329604, name: W1JetsToLNu_NuPt-200_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 6316472.582869941, xsec: 2.36}
+? /W1JetsToLNu_NuPt-200_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 28, nEvents: 5149618, name: W1JetsToLNu_NuPt-200_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 5131372.0, xsec: 2.36}
+? /W1JetsToLNu_NuPt-200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/NANOAODSIM
+: {files: 4, nEvents: 4871871, name: W1JetsToLNu_NuPt-200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1,
+  path: null, sumWeight: 4871871.0, xsec: 2.36}
+? /W1JetsToLNu_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 30, nEvents: 51082776, name: W1JetsToLNu_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 51041402.23692221, xsec: 11752.0}
+? /W1JetsToLNu_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 34, nEvents: 54147812, name: W1JetsToLNu_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 54106926.0, xsec: 11752.0}
+? /W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/NANOAODSIM
+: {files: 29, nEvents: 45283121, name: W1JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1,
+  path: null, sumWeight: 45283121.0, xsec: 11752.0}
+? /W2JetsToLNu_NuPt-200_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 59, nEvents: 9930365, name: W2JetsToLNu_NuPt-200_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 9906444.120387357, xsec: 4.95}
+? /W2JetsToLNu_NuPt-200_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 50, nEvents: 12340614, name: W2JetsToLNu_NuPt-200_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 12288270.0, xsec: 4.95}
+? /W2JetsToLNu_NuPt-200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/NANOAODSIM
+: {files: 7, nEvents: 9588835, name: W2JetsToLNu_NuPt-200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1,
+  path: null, sumWeight: 9588835.0, xsec: 4.95}
+? /W2JetsToLNu_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 57, nEvents: 23290710, name: W2JetsToLNu_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 23268796.8161659, xsec: 3841.0}
+? /W2JetsToLNu_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 7, nEvents: 6577492, name: W2JetsToLNu_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 6570442.0, xsec: 3841.0}
+? /W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1/NANOAODSIM
+: {files: 25, nEvents: 30374504, name: W2JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1,
+  path: null, sumWeight: 30374504.0, xsec: 3841.0}
+? /W3JetsToLNu_NuPt-200_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 16, nEvents: 13376608, name: W3JetsToLNu_NuPt-200_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 13338875.180615356, xsec: 4.94}
+? /W3JetsToLNu_NuPt-200_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 54, nEvents: 14209214, name: W3JetsToLNu_NuPt-200_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 14138384.0, xsec: 4.94}
+? /W3JetsToLNu_NuPt-200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/NANOAODSIM
+: {files: 11, nEvents: 10106602, name: W3JetsToLNu_NuPt-200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1,
+  path: null, sumWeight: 10106602.0, xsec: 4.94}
+? /W3JetsToLNu_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 82, nEvents: 14508481, name: W3JetsToLNu_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 14489898.905917957, xsec: 1160.0}
+? /W3JetsToLNu_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 27, nEvents: 19700377, name: W3JetsToLNu_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 19669693.0, xsec: 1160.0}
+? /W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1/NANOAODSIM
+: {files: 33, nEvents: 39430082, name: W3JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1,
+  path: null, sumWeight: 39430082.0, xsec: 1160.0}
+? /W4JetsToLNu_NuPt-200_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 81, nEvents: 24501187, name: W4JetsToLNu_NuPt-200_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 24394648.200495746, xsec: 8.83}
+? /W4JetsToLNu_NuPt-200_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 84, nEvents: 21726349, name: W4JetsToLNu_NuPt-200_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 21580207.0, xsec: 8.83}
+? /W4JetsToLNu_NuPt-200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_backup_102X_mcRun2_asymptotic_v8-v1/NANOAODSIM
+: {files: 19, nEvents: 19809794, name: W4JetsToLNu_NuPt-200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_backup_102X_mcRun2_asymptotic_v8-v1,
+  path: null, sumWeight: 19809794.0, xsec: 8.83}
+? /W4JetsToLNu_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 68, nEvents: 10082747, name: W4JetsToLNu_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 10059700.494647194, xsec: 600.0}
+? /W4JetsToLNu_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_new_pmx_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 11, nEvents: 10757853, name: W4JetsToLNu_TuneCP5_13TeV-madgraphMLM-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_new_pmx_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 10729035.0, xsec: 600.0}
+? /W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext2-v1/NANOAODSIM
+: {files: 22, nEvents: 18751462, name: W4JetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext2-v1,
+  path: null, sumWeight: 18751462.0, xsec: 600.0}
+/WW_TuneCP5_13TeV-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM: {
+  files: 21, nEvents: 7850000, name: WW_TuneCP5_13TeV-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 7846135.953322033, xsec: 118.7028}
+/WW_TuneCP5_13TeV-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM: {
+  files: 6, nEvents: 7765828, name: WW_TuneCP5_13TeV-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 7765891.020262634, xsec: 75.8}
+? /WW_TuneCUETP8M1_13TeV-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1/NANOAODSIM
+: {files: 7, nEvents: 6988168, name: WW_TuneCUETP8M1_13TeV-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1,
+  path: null, sumWeight: 6988278.142671826, xsec: 118.708}
+? /WZTo1L3Nu_13TeV_amcatnloFXFX_madspin_pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 3, nEvents: 1690064, name: WZTo1L3Nu_13TeV_amcatnloFXFX_madspin_pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 9826530.74077005, xsec: 3.05}
+? /WZTo1L3Nu_13TeV_amcatnloFXFX_madspin_pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/NANOAODSIM
+: {files: 3, nEvents: 1703772, name: WZTo1L3Nu_13TeV_amcatnloFXFX_madspin_pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1,
+  path: null, sumWeight: 9357734.338112999, xsec: 3.05}
+? /WZTo1L3Nu_13TeV_amcatnloFXFX_madspin_pythia8_v2/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 43, nEvents: 4994395, name: WZTo1L3Nu_13TeV_amcatnloFXFX_madspin_pythia8_v2_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 29030866.250876, xsec: 3.05}
+/WZ_TuneCP5_13TeV-pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM: {
+  files: 6, nEvents: 3885000, name: WZ_TuneCP5_13TeV-pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 3884167.0047383844, xsec: 27.57}
+/WZ_TuneCP5_13TeV-pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM: {
+  files: 4, nEvents: 3928630, name: WZ_TuneCP5_13TeV-pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 3928630.0, xsec: 27.57}
+? /WZ_TuneCUETP8M1_13TeV-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1/NANOAODSIM
+: {files: 6, nEvents: 2997571, name: WZ_TuneCUETP8M1_13TeV-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1,
+  path: null, sumWeight: 2997571.0, xsec: 22.82}
+/ZJetsToNuNu_HT-100To200_13TeV-madgraph/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM: {
+  files: 19, nEvents: 23702894, name: ZJetsToNuNu_HT-100To200_13TeV-madgraph_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 23675936.02320955, xsec: 369.984}
+? /ZJetsToNuNu_HT-100To200_13TeV-madgraph/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 16, nEvents: 22737266, name: ZJetsToNuNu_HT-100To200_13TeV-madgraph_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 22702468.0, xsec: 369.98}
+? /ZJetsToNuNu_HT-100To200_13TeV-madgraph/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1/NANOAODSIM
+: {files: 10, nEvents: 19026540, name: ZJetsToNuNu_HT-100To200_13TeV-madgraph_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1,
+  path: null, sumWeight: 19026540.0, xsec: 360.39}
+? /ZJetsToNuNu_HT-1200To2500_13TeV-madgraph/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 3, nEvents: 343198, name: ZJetsToNuNu_HT-1200To2500_13TeV-madgraph_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 340171.00930426666, xsec: 0.369984}
+? /ZJetsToNuNu_HT-1200To2500_13TeV-madgraph/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 1, nEvents: 338948, name: ZJetsToNuNu_HT-1200To2500_13TeV-madgraph_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 334332.0, xsec: 0.36998}
+? /ZJetsToNuNu_HT-1200To2500_13TeV-madgraph/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1/NANOAODSIM
+: {files: 1, nEvents: 143957, name: ZJetsToNuNu_HT-1200To2500_13TeV-madgraph_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1,
+  path: null, sumWeight: 143957.0, xsec: 0.3316}
+/ZJetsToNuNu_HT-200To400_13TeV-madgraph/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM: {
+  files: 22, nEvents: 23276346, name: ZJetsToNuNu_HT-200To400_13TeV-madgraph_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 23232889.887358036, xsec: 111.684}
+? /ZJetsToNuNu_HT-200To400_13TeV-madgraph/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 20, nEvents: 21446397, name: ZJetsToNuNu_HT-200To400_13TeV-madgraph_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 21389579.0, xsec: 111.684}
+? /ZJetsToNuNu_HT-200To400_13TeV-madgraph/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1/NANOAODSIM
+: {files: 15, nEvents: 19625128, name: ZJetsToNuNu_HT-200To400_13TeV-madgraph_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1,
+  path: null, sumWeight: 19625128.0, xsec: 99.4455}
+/ZJetsToNuNu_HT-2500ToInf_13TeV-madgraph/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM: {
+  files: 3, nEvents: 359639, name: ZJetsToNuNu_HT-2500ToInf_13TeV-madgraph_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 350168.8629485784, xsec: 0.00807987}
+? /ZJetsToNuNu_HT-2500ToInf_13TeV-madgraph/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 1, nEvents: 6734, name: ZJetsToNuNu_HT-2500ToInf_13TeV-madgraph_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 6446.0, xsec: 0.0080799}
+? /ZJetsToNuNu_HT-2500ToInf_13TeV-madgraph/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/NANOAODSIM
+: {files: 1, nEvents: 405030, name: ZJetsToNuNu_HT-2500ToInf_13TeV-madgraph_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1,
+  path: null, sumWeight: 405030.0, xsec: 0.00781788}
+/ZJetsToNuNu_HT-400To600_13TeV-madgraph/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM: {
+  files: 10, nEvents: 9511100, name: ZJetsToNuNu_HT-400To600_13TeV-madgraph_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 9483323.05142726, xsec: 15.8424}
+? /ZJetsToNuNu_HT-400To600_13TeV-madgraph/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 10, nEvents: 9134120, name: ZJetsToNuNu_HT-400To600_13TeV-madgraph_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 9094890.0, xsec: 15.8424}
+? /ZJetsToNuNu_HT-400To600_13TeV-madgraph/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1/NANOAODSIM
+: {files: 10, nEvents: 8842560, name: ZJetsToNuNu_HT-400To600_13TeV-madgraph_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8_ext1-v1,
+  path: null, sumWeight: 8842560.0, xsec: 13.5546}
+/ZJetsToNuNu_HT-600To800_13TeV-madgraph/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM: {
+  files: 9, nEvents: 5748975, name: ZJetsToNuNu_HT-600To800_13TeV-madgraph_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 5726462.973848987, xsec: 3.90402}
+? /ZJetsToNuNu_HT-600To800_13TeV-madgraph/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 8, nEvents: 5697594, name: ZJetsToNuNu_HT-600To800_13TeV-madgraph_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 5664642.0, xsec: 3.904}
+? /ZJetsToNuNu_HT-600To800_13TeV-madgraph/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/NANOAODSIM
+: {files: 6, nEvents: 5693589, name: ZJetsToNuNu_HT-600To800_13TeV-madgraph_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1,
+  path: null, sumWeight: 5693589.0, xsec: 3.237}
+/ZJetsToNuNu_HT-800To1200_13TeV-madgraph/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM: {
+  files: 5, nEvents: 2066798, name: ZJetsToNuNu_HT-800To1200_13TeV-madgraph_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 2055725.5230469361, xsec: 1.67895}
+? /ZJetsToNuNu_HT-800To1200_13TeV-madgraph/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 4, nEvents: 2058077, name: ZJetsToNuNu_HT-800To1200_13TeV-madgraph_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 2041779.0, xsec: 1.679}
+? /ZJetsToNuNu_HT-800To1200_13TeV-madgraph/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/NANOAODSIM
+: {files: 4, nEvents: 2170137, name: ZJetsToNuNu_HT-800To1200_13TeV-madgraph_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1,
+  path: null, sumWeight: 2170137.0, xsec: 1.428}
+/ZZTo2L2Nu_13TeV_powheg_pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM: {
+  files: 14, nEvents: 8744768, name: ZZTo2L2Nu_13TeV_powheg_pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 5254421.928882, xsec: 0.564}
+/ZZTo2L2Nu_13TeV_powheg_pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/NANOAODSIM: {
+  files: 7, nEvents: 8931750, name: ZZTo2L2Nu_13TeV_powheg_pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1,
+  path: null, sumWeight: 8931750.0, xsec: 0.564}
+? /ZZTo2L2Nu_TuneCP5_13TeV_powheg_pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21_ext1-v1/NANOAODSIM
+: {files: 42, nEvents: 8382600, name: ZZTo2L2Nu_TuneCP5_13TeV_powheg_pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21_ext1-v1,
+  path: null, sumWeight: 5036332.623579639, xsec: 0.564}
+? /ZZTo2Q2Nu_13TeV_amcatnloFXFX_madspin_pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/NANOAODSIM
+: {files: 20, nEvents: 30493038, name: ZZTo2Q2Nu_13TeV_amcatnloFXFX_madspin_pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1,
+  path: null, sumWeight: 199025628.94924802, xsec: 4.73}
+? /ZZTo2Q2Nu_TuneCP5_13TeV_amcatnloFXFX_madspin_pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM
+: {files: 41, nEvents: 57633049, name: ZZTo2Q2Nu_TuneCP5_13TeV_amcatnloFXFX_madspin_pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21-v1,
+  path: null, sumWeight: 410907833.38345337, xsec: 4.73}
+? /ZZTo2Q2Nu_TuneCP5_13TeV_amcatnloFXFX_madspin_pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM
+: {files: 57, nEvents: 62115355, name: ZZTo2Q2Nu_TuneCP5_13TeV_amcatnloFXFX_madspin_pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8-v1,
+  path: null, sumWeight: 442726004.10117394, xsec: 4.73}
+/hadoop/cms/store/user/mbryson/WH_hadronic/WH_had_750_1/nanoAOD/: {files: 120, nEvents: 53114,
+  name: WH_had_750_1_nanoAOD, path: /hadoop/cms/store/user/mbryson/WH_hadronic/WH_had_750_1/nanoAOD/,
+  sumWeight: 53114.0, xsec: 0.00262}
+? /ttWJets_TuneCP5_13TeV_madgraphMLM_pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21_ext1-v1/NANOAODSIM
+: {files: 55, nEvents: 12816567, name: ttWJets_TuneCP5_13TeV_madgraphMLM_pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21_ext1-v1,
+  path: null, sumWeight: 12763411.87576108, xsec: 0.6105}
+? /ttWJets_TuneCP5_13TeV_madgraphMLM_pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8_ext1-v1/NANOAODSIM
+: {files: 58, nEvents: 9425384, name: ttWJets_TuneCP5_13TeV_madgraphMLM_pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8_ext1-v1,
+  path: null, sumWeight: 9384328.0, xsec: 0.6105}
+? /ttZJets_13TeV_madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/NANOAODSIM
+: {files: 15, nEvents: 9883364, name: ttZJets_13TeV_madgraphMLM-pythia8_RunIISummer16NanoAODv7-PUMoriond17_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1,
+  path: null, sumWeight: 9883364.0, xsec: 0.7826}
+? /ttZJets_TuneCP5_13TeV_madgraphMLM_pythia8/RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21_ext1-v1/NANOAODSIM
+: {files: 75, nEvents: 22646257, name: ttZJets_TuneCP5_13TeV_madgraphMLM_pythia8_RunIIAutumn18NanoAODv7-Nano02Apr2020_102X_upgrade2018_realistic_v21_ext1-v1,
+  path: null, sumWeight: 22594871.59365764, xsec: 0.7826}
+? /ttZJets_TuneCP5_13TeV_madgraphMLM_pythia8/RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8_ext1-v1/NANOAODSIM
+: {files: 47, nEvents: 8536618, name: ttZJets_TuneCP5_13TeV_madgraphMLM_pythia8_RunIIFall17NanoAODv7-PU2017_12Apr2018_Nano02Apr2020_102X_mc2017_realistic_v8_ext1-v1,
+  path: null, sumWeight: 8519074.0, xsec: 0.7826}
