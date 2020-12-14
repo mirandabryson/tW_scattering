@@ -174,3 +174,6 @@
 /MET/Run2018B-02Apr2020-v1/NANOAOD       1
 /MET/Run2018C-02Apr2020-v1/NANOAOD       1
 /MET/Run2018D-02Apr2020-v2/NANOAOD       1
+/SMS-TChiWH_TuneCP2_13TeV-madgraphMLM-pythia8/RunIIAutumn18NanoAODv7-PUFall18Fast_Nano02Apr2020_102X_upgrade2018_realistic_v21-v1/NANOAODSIM 1
+/SMS-TChiWH_TuneCP2_13TeV-madgraphMLM-pythia8/RunIIFall17NanoAODv7-PUFall17Fast_Nano02Apr2020_102X_mc2017_realistic_v8-v1/NANOAODSIM 1
+/SMS-TChiWH_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16NanoAODv7-PUSummer16v3Fast_Nano02Apr2020_102X_mcRun2_asymptotic_v8-v1/NANOAODSIM 1

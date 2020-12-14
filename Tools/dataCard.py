@@ -1,6 +1,15 @@
 import shutil
 import os
 
+quantile_dict = {
+    '0.025': '-2sig',
+    '0.16': '-1sig',
+    '0.5': 'expected',
+    '0.84': '+1sig',
+    '0.975': '+2sig',
+    '-1.0': 'observed'
+}
+
 class dataCard:
     def __init__(self):
         self.reset()
@@ -249,24 +258,21 @@ class dataCard:
         return resFile
 
     def readResFile(self, fname):
-        import ROOT
-        f = ROOT.TFile.Open(fname)
-        t = f.Get("limit")
-        l = t.GetLeaf("limit")
-        qE = t.GetLeaf("quantileExpected")
-        limit = {}
-        preFac = 1.
-        for i in range(t.GetEntries()):
-                t.GetEntry(i)
-                limit["{0:.3f}".format(round(qE.GetValue(),3))] = preFac*l.GetValue()
-        f.Close()
+        import uproot
+        f = uproot.open(fname)
+        t = f["limit"]
+        limits = t.array("limit")
+        quantiles = t.array("quantileExpected")
+        quantiles = quantiles.astype(str)
+        limit = { quantile_dict[q]:limits[i] for i,q in enumerate(quantiles) }
+        print (limit)
         return limit
 
-    def calcLimit(self, fname=None, options=""):
+    def calcLimit(self, fname=None, options="", verbose=False):
         import uuid, os
         ustr          = str(uuid.uuid4())
         uniqueDirname = os.path.join(self.releaseLocation, ustr)
-        print("Creating %s"%uniqueDirname)
+        if verbose: print("Creating %s"%uniqueDirname)
         os.makedirs(uniqueDirname)
 
         if fname is not None:  # Assume card is already written when fname is not none
@@ -279,21 +285,24 @@ class dataCard:
         assert os.path.exists(filename), "File not found: %s"%filename
         
         
-        combineCommand = "cd "+uniqueDirname+";combine --saveWorkspace -M AsymptoticLimits %s %s"%(options,filename)
-        print(combineCommand)
+        combineCommand = "cd "+uniqueDirname+";eval `scramv1 runtime -sh`;combine --saveWorkspace -M AsymptoticLimits %s %s"%(options,filename)
+        if verbose: print("Executing command:", combineCommand)
         os.system(combineCommand)
 
         tempResFile = uniqueDirname+"/higgsCombineTest.AsymptoticLimits.mH120.root"
 
+        #print (tempResFile)
+        
         try:
             res= self.readResFile(tempResFile)
+            res['card'] = fname
         except:
             res=None
-            print("[cardFileWrite] Did not succeed reeding result.")
+            print("[cardFileWrite] Did not succeed reading result.")
         if res:
             shutil.copyfile(tempResFile, resultFilename)
         
-        shutil.rmtree(uniqueDirname)
+        #shutil.rmtree(uniqueDirname)
         return res
 
     def readNLLFile(self, fname):
@@ -324,7 +333,7 @@ class dataCard:
           filename = fname if fname else os.path.join(uniqueDirname, ustr+".txt")
           self.writeToFile(filename)
 
-        combineCommand  = "cd "+uniqueDirname+";eval `scramv1 runtime -sh`;combine -M MultiDimFit -n Nominal --saveNLL --forceRecreateNLL --freezeParameters r %s %s"%(options,filename)
+        combineCommand  = "cd "+uniqueDirname+";eval `scramv1 runtime -sh`;combine -M MultiDimFit -n Nominal --saveNLL --forceRecreateNLL --X-rtd REMOVE_CONSTANT_ZERO_POINT=1 --freezeParameters r %s %s"%(options,filename)
         os.system(combineCommand)
         nll = self.readNLLFile(uniqueDirname+"/higgsCombineNominal.MultiDimFit.mH120.root")
         nll["bestfit"] = nll["nll"]
@@ -347,7 +356,7 @@ class dataCard:
           filename = fname if fname else os.path.join(uniqueDirname, ustr+".txt")
           self.writeToFile(filename)
 
-        combineCommand  = "cd "+uniqueDirname+";eval `scramv1 runtime -sh`;combine -M MultiDimFit --algo grid --rMin %s --rMax %s --points %s --alignEdges 1 --saveNLL --forceRecreateNLL %s %s"%(rmin, rmax, npoints, options,filename)
+        combineCommand  = "cd "+uniqueDirname+";eval `scramv1 runtime -sh`;combine -M MultiDimFit --algo grid --rMin %s --rMax %s --points %s --alignEdges 1 --X-rtd REMOVE_CONSTANT_ZERO_POINT=1 --saveNLL --forceRecreateNLL %s %s"%(rmin, rmax, npoints, options,filename)
         os.system(combineCommand)
         
         with uproot.open(uniqueDirname+"/higgsCombineTest.MultiDimFit.mH120.root") as f:
