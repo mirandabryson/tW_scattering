@@ -105,7 +105,7 @@ for s in sample_list:
         print ("The era is: %s"%era)
     # merge three files into one for all MC samples except ones where we expect a high efficiency of the skim
     mergeFactor = 1 if (isData or samples[s]['name'].count('TChiWH') or samples[s]['name'].count('ZJets') or samples[s]['name'].lower().count('genmet')) else 3,
-    print ("Merge factor:", mergeFactor)
+    print ("Merge factor: %s"%mergeFactor)
 
 
     #lumiWeightString = 1000*samples[s]['xsec']/samples[s]['sumWeight'] if not isData else 1
