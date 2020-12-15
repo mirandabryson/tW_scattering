@@ -13,7 +13,7 @@ caches:
   strong_tW_small: strong_tW_small
   triLep: triLep
   triLep_small: triLep_small
-lumi: 137
+lumi: 1
 meta:
   localNano: /hadoop/cms/store/user/dspitzba/nanoAOD/
   localSkim: /hadoop/cms/store/user/$USER/WH_hadronic/

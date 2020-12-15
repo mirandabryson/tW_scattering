@@ -57,13 +57,13 @@ def saveFig( fig, ax, rax, path, name, scale='linear', shape=False, y_max=-1 ):
 
 colors = {
     #'mC750_l1': '#FF595E',
+    'QCD': '#989C94',
+    'ZNuNu': '#6A0136',
+    'WW': '#FF5714',
+    'ttW': '#FFCA3A',
+    'ST': '#8AC926',
     'WJets': '#1982C4',
     'TTJets': '#F76F8E',
-    'ST': '#8AC926',
-    'TTW': '#FFCA3A',
-    'WW': '#FF5714',
-    'ZNuNu': '#6A0136',
-    'QCD': '#989C94',
 }
 
 
@@ -76,17 +76,17 @@ other colors (sets from coolers.com):
 
 my_labels = {
     'mC750_l1': 'mC750_l1',
+    'QCD': 'QCD',
+    'ZNuNu': 'ZNuNu',
+    'WW': 'WW',
+    'ttW': r'$t\bar{t}$W+jets',
+    'ST': 'ST',
     'WJets': 'W+jets',
     'TTJets': r'$t\bar{t}$+jets',
-    'ST': 'ST',
-    'TTW': r'$t\bar{t}$W+jets',
-    'WW': 'WW',
-    'ZNuNu': 'ZNuNu',
-    'QCD': 'QCD',
     #'TTTT': r'$t\bar{t}t\bar{t}$',
     #'DY': 'Drell-Yan',
-    #'pseudodata': 'Pseudo-data',
-    #'uncertainty': 'Uncertainty',
+    'pseudodata': 'Pseudo-data',
+    'uncertainty': 'Uncertainty',
 }
 
 data_err_opts = {

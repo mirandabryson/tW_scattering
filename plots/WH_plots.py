@@ -36,7 +36,7 @@ cache.load()
 
 histograms = cache.get('histograms')
 output = cache.get('simple_output')
-plotDir = os.path.expandvars(cfg['meta']['plots']) + '/plots_WH/'
+plotDir = os.path.expandvars(cfg['meta']['plots']) + '/WH_had/'
 finalizePlotDir(plotDir)
 
 if not histograms:
@@ -134,7 +134,9 @@ for name in bins:
             histogram.fill(dataset='pseudodata', norm=values)
 
     signal = 'mC750_l1'
-    processes = ['QCD', 'ZNuNu', 'LL']
+    #processes = ['QCD', 'ZNuNu', 'LL']
+    processes = [ 'TTJets','WJets', 'ST', 'WW', 'ttW', 'ZNuNu', 'QCD']
+
     import re
     notdata = re.compile('(?!pseudodata)')
     notsignal = re.compile('(?!%s)'%signal)

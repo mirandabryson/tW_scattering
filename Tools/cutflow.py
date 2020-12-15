@@ -11,7 +11,7 @@ class Cutflow:
             self.weight = weight
         else:
             self.weight = df['weight']
-        self.lumi = cfg['lumi'] if ( df['dataset'].count('Run201')==0 or df['dataset'].lower().count('data')==0 ) else 1
+        self.lumi = 1 if ( df['dataset'].count('Run201') or df['dataset'].lower().count('data') ) else cfg['lumi']
         self.cfg = cfg
         self.output = output
         self.processes = processes
