@@ -105,7 +105,7 @@ for s in sample_list:
     if isData:
         print ("The era is: %s"%era)
     # merge three files into one for all MC samples except ones where we expect a high efficiency of the skim
-    if (isData or samples[s]['name'].count('TChiWH') or samples[s]['name'].count('ZJets') or samples[s]['name'].lower().count('genmet')):
+    if (isData or samples[s]['name'].count('TChiWH') or samples[s]['name'].count('ZJets') or samples[s]['name'].lower().count('genmet') or samples[s]['name'].lower().count('nupt')):
         mergeFactor = 1
     else:
         mergeFactor = 3
