@@ -16,7 +16,7 @@ def getAllWarnings( client ):
     workers = getWorkers( client )
     for worker in workers:
         for log in logs[worker]:
-            if log[0] == 'WARNING':
+            if log[0] == 'WARNING' or log[0] == 'ERROR':
                 print ()
                 print (" ### Found warning for worker:", worker)
                 print (log[1])

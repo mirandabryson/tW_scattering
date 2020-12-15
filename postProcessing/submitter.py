@@ -99,23 +99,27 @@ for s in sample_list:
 
     year, era, isData, isFastSim = getYearFromDAS(s)
 
-    print ("Sample: %s"%s)
-    print ("The sample is %s, corresponding to year %s. %s simulation is used."%('Data' if isData else 'MC', year, 'Fast' if isFastSim else 'Full'  ) )
+    print ("Now working on sample: %s"%s)
+    print ("- has %s files"%len(sample.get_files()))
+    print ("- is %s, corresponding to year %s. %s simulation is used."%('Data' if isData else 'MC', year, 'Fast' if isFastSim else 'Full'  ) )
     if isData:
         print ("The era is: %s"%era)
     # merge three files into one for all MC samples except ones where we expect a high efficiency of the skim
-    mergeFactor = 1 if (isData or samples[s]['name'].count('TChiWH') or samples[s]['name'].count('ZJets') or samples[s]['name'].lower().count('genmet')) else 3,
-    print ("Merge factor:", mergeFactor)
-
+    if (isData or samples[s]['name'].count('TChiWH') or samples[s]['name'].count('ZJets') or samples[s]['name'].lower().count('genmet')):
+        mergeFactor = 1
+    else:
+        mergeFactor = 3
+    print ("- using merge factor: %s"%mergeFactor)
 
     #lumiWeightString = 1000*samples[s]['xsec']/samples[s]['sumWeight'] if not isData else 1
     lumiWeightString = 1 if (isData or samples[s]['name'].count('TChiWH')) else 1000*samples[s]['xsec']/samples[s]['sumWeight']
+    print ("- found sumWeight %s and x-sec %s"%(samples[s]['sumWeight'], samples[s]['xsec']) )
 
     maker_task = CondorTask(
         sample = sample,
         executable = "executable.sh",
         arguments = " ".join([ str(x) for x in [tag, lumiWeightString, 1 if isData else 0, year, era, 1 if isFastSim else 0, args.skim, args.user ]] ),
-        files_per_output = mergeFactor,
+        files_per_output = int(mergeFactor),
         output_dir = os.path.join(outDir, samples[s]['name']),
         output_name = "nanoSkim.root",
         output_is_tree = True,
