@@ -43,7 +43,7 @@ def saveFig( fig, ax, rax, path, name, scale='linear', shape=False, y_max=-1 ):
     if rax:
         plt.subplots_adjust(hspace=0)
         rax.set_ylabel('Obs./Pred.')
-        rax.set_ylim(0.5,1.5)
+        rax.set_ylim(0.0,2.0)
 
     ax.legend(title='',ncol=2,handles=handles, labels=new_labels, frameon=False)
 
@@ -57,6 +57,19 @@ def saveFig( fig, ax, rax, path, name, scale='linear', shape=False, y_max=-1 ):
 
 colors = {
     #'mC750_l1': '#FF595E',
+    'tW_scattering': '#FF595E',
+    #'tW_scattering': '#000000',
+    'TTW': '#8AC926',
+    'TTX': '#FFCA3A',
+    'TTZ': '#FFCA3A',
+    'TTH': '#34623F',
+    'TTTT': '#0F7173',
+    'ttbar': '#1982C4',
+    'wjets': '#6A4C93',
+    'diboson': '#525B76',
+    'DY': '#6A4C93',
+
+    'mC750_l1': '#FF595E',
     'QCD': '#989C94',
     'ZNuNu': '#6A0136',
     'WW': '#FF5714',
@@ -64,6 +77,7 @@ colors = {
     'ST': '#8AC926',
     'WJets': '#1982C4',
     'TTJets': '#F76F8E',
+
 }
 
 
@@ -75,7 +89,18 @@ other colors (sets from coolers.com):
 '''
 
 my_labels = {
-    'mC750_l1': 'mC750_l1',
+    #'mC750_l1': 'mC750_l1',
+    'tW_scattering': 'tW scattering',
+    'TTW': r'$t\bar{t}$W+jets',
+    'TTX': r'$t\bar{t}$Z/H',
+    'TTH': r'$t\bar{t}$H',
+    'TTZ': r'$t\bar{t}$Z',
+    'TTTT': r'$t\bar{t}t\bar{t}$',
+    'ttbar': r'$t\bar{t}$+jets',
+    'wjets': 'W+jets',
+    'DY': 'Drell-Yan',
+    'diboson': 'VV/VVV',
+
     'QCD': 'QCD',
     'ZNuNu': 'ZNuNu',
     'WW': 'WW',
@@ -85,6 +110,9 @@ my_labels = {
     'TTJets': r'$t\bar{t}$+jets',
     #'TTTT': r'$t\bar{t}t\bar{t}$',
     #'DY': 'Drell-Yan',
+    'mC750_l1': r'WH',
+
+    'Data': 'Observed',
     'pseudodata': 'Pseudo-data',
     'uncertainty': 'Uncertainty',
 }
