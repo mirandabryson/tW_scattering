@@ -1,3 +1,6 @@
+from coffea.processor.accumulator import AccumulatorABC
+from coffea.analysis_objects import JaggedCandidateArray
+import numpy as np
 ## happily borrowed from https://github.com/bu-cms/bucoffea/blob/master/bucoffea/helpers/helpers.py
 
 def mask_or(df, masks):
