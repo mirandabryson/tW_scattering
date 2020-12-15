@@ -162,7 +162,7 @@ def getFatJets(df):
             deepTag_WvsQCD = df['FatJet_deepTag_WvsQCD'].content
             
         )
-    return fatjet
+    return fatjet[(fatjet.pt>200) & (abs(fatjet.eta)<2.4)]
 
 def getJets(df):
     jet = JaggedCandidateArray.candidatesfromcounts(
@@ -174,4 +174,4 @@ def getJets(df):
             jetId = df['Jet_jetId'].content, # https://twiki.cern.ch/twiki/bin/view/CMS/JetID
             btagDeepB = df['Jet_btagDeepB'].content, # https://twiki.cern.ch/twiki/bin/viewauth/CMS/BtagRecommendation102X
         )
-    return jet
+    return jet[(jet.pt>30) & (abs(jet.eta)<2.4) & (jet.jetId>1)]
