@@ -56,18 +56,17 @@ def saveFig( fig, ax, rax, path, name, scale='linear', shape=False, y_max=-1 ):
     #ax.clear()
 
 colors = {
-    'tW_scattering': '#FF595E',
-    #'tW_scattering': '#000000',
-    'TTW': '#8AC926',
-    'TTX': '#FFCA3A',
-    'TTZ': '#FFCA3A',
-    'TTH': '#34623F',
-    'TTTT': '#0F7173',
-    'ttbar': '#1982C4',
-    'wjets': '#6A4C93',
-    'diboson': '#525B76',
-    'DY': '#6A4C93',
+    #'mC750_l1': '#FF595E',
+    'WJets': '#1982C4',
+    'TTJets': '#F76F8E',
+    'ST': '#8AC926',
+    'TTW': '#FFCA3A',
+    'WW': '#FF5714',
+    'ZNuNu': '#6A0136',
+    'QCD': '#989C94',
 }
+
+
 '''
 other colors (sets from coolers.com):
 #525B76 (gray)
@@ -76,18 +75,18 @@ other colors (sets from coolers.com):
 '''
 
 my_labels = {
-    'tW_scattering': 'tW scattering',
+    'mC750_l1': 'mC750_l1',
+    'WJets': 'W+jets',
+    'TTJets': r'$t\bar{t}$+jets',
+    'ST': 'ST',
     'TTW': r'$t\bar{t}$W+jets',
-    'TTX': r'$t\bar{t}$Z/H',
-    'TTH': r'$t\bar{t}$H',
-    'TTZ': r'$t\bar{t}$Z',
-    'TTTT': r'$t\bar{t}t\bar{t}$',
-    'ttbar': r'$t\bar{t}$+jets',
-    'wjets': 'W+jets',
-    'DY': 'Drell-Yan',
-    'diboson': 'VV/VVV',
-    'pseudodata': 'Pseudo-data',
-    'uncertainty': 'Uncertainty',
+    'WW': 'WW',
+    'ZNuNu': 'ZNuNu',
+    'QCD': 'QCD',
+    #'TTTT': r'$t\bar{t}t\bar{t}$',
+    #'DY': 'Drell-Yan',
+    #'pseudodata': 'Pseudo-data',
+    #'uncertainty': 'Uncertainty',
 }
 
 data_err_opts = {
@@ -133,5 +132,10 @@ signal_fill_opts = {
     'edgecolor': (1,1,1,0.0),
     'facecolor': 'none',
     'alpha': 0.1
+}
+
+fillopts2 = {
+    'edgecolor': (0,0,0,0.3),
+    'facecolor': [('#1982C4'),('#F76F8E'),('#8AC926'),('#FFCA3A'),('#FF5714'),('#6A0136'),('#989C94')]  
 }
 
