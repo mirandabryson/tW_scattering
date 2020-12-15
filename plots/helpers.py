@@ -43,7 +43,7 @@ def saveFig( fig, ax, rax, path, name, scale='linear', shape=False, y_max=-1 ):
     if rax:
         plt.subplots_adjust(hspace=0)
         rax.set_ylabel('Obs./Pred.')
-        rax.set_ylim(0.5,1.5)
+        rax.set_ylim(0.0,2.0)
 
     ax.legend(title='',ncol=2,handles=handles, labels=new_labels, frameon=False)
 
@@ -67,6 +67,16 @@ colors = {
     'wjets': '#6A4C93',
     'diboson': '#525B76',
     'DY': '#6A4C93',
+
+    'mC750_l1': '#FF595E',
+    'QCD': '#989C94',
+    'ZNuNu': '#6A0136',
+    'WW': '#FF5714',
+    'ttW': '#FFCA3A',
+    'ST': '#8AC926',
+    'WJets': '#1982C4',
+    'TTJets': '#F76F8E',
+
 }
 '''
 other colors (sets from coolers.com):
@@ -86,6 +96,17 @@ my_labels = {
     'wjets': 'W+jets',
     'DY': 'Drell-Yan',
     'diboson': 'VV/VVV',
+
+    'QCD': 'QCD',
+    'ZNuNu': 'ZNuNu',
+    'WW': 'WW',
+    'ttW': r'$t\bar{t}$W+jets',
+    'ST': 'ST',
+    'WJets': 'W+jets',
+    'TTJets': r'$t\bar{t}$+jets',
+    'mC750_l1': r'WH',
+
+    'Data': 'Observed',
     'pseudodata': 'Pseudo-data',
     'uncertainty': 'Uncertainty',
 }
