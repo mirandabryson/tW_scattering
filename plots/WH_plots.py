@@ -29,8 +29,17 @@ from helpers import *
 # load the configuration
 cfg = loadConfig()
 
+year = 2016
+
+if year == 2016:
+    lumi = 35.9
+elif year == 2017:
+    lumi = 41.5
+elif year == 2018:
+    lumi = 60.0
+
 # load the results
-cache = dir_archive(os.path.join(os.path.expandvars(cfg['caches']['base']), 'WH_LL'), serialized=True)
+cache = dir_archive(os.path.join(os.path.expandvars(cfg['caches']['base']), 'WH_LL_%s'%year), serialized=True)
 #cache = dir_archive(os.path.join(os.path.expandvars(cfg['caches']['base']), cfg['caches']['WH_small']), serialized=True)
 cache.load()
 
@@ -50,11 +59,17 @@ bins = {\
     'met_CR':   {'axis': 'pt',      'overflow':'over',  'bins': hist.Bin('pt', r'$p_{T}^{miss}\ (GeV)$', 20, 0, 800)},
     'met_W_CR':   {'axis': 'pt',      'overflow':'over',  'bins': hist.Bin('pt', r'$p_{T}^{miss}\ (GeV)$', 7, 0, 700)},
     'met_Higgs_CR':   {'axis': 'pt',      'overflow':'over',  'bins': hist.Bin('pt', r'$p_{T}^{miss}\ (GeV)$', 7, 0, 700)},
+    'met_Higgs_W_CR':   {'axis': 'pt',      'overflow':'over',  'bins': hist.Bin('pt', r'$p_{T}^{miss}\ (GeV)$', 7, 0, 700)},
     'N_AK4_baseline':   {'axis': 'multiplicity',      'overflow':'over',  'bins': hist.Bin('pt', r'$N_{AK4}$', 10, -0.5, 9.5)},
     #'N_AK4_extra_baseline':   {'axis': 'multiplicity',      'overflow':'over',  'bins': hist.Bin('pt', r'$N_{AK4} (cleaned)$', 10, -0.5, 9.5)},
     'N_AK8_baseline':   {'axis': 'multiplicity',      'overflow':'over',  'bins': hist.Bin('pt', r'$N_{AK8}$', 10, -0.5, 9.5)},
+    'N_AK8_CR':   {'axis': 'multiplicity',      'overflow':'over',  'bins': hist.Bin('pt', r'$N_{AK8}$', 10, -0.5, 9.5)},
+    'N_W_CR':   {'axis': 'multiplicity',      'overflow':'over',  'bins': hist.Bin('pt', r'$N_{W}$', 5, -0.5, 4.5)},
+    'N_H_CR':   {'axis': 'multiplicity',      'overflow':'over',  'bins': hist.Bin('pt', r'$N_{H}$', 5, -0.5, 4.5)},
     'min_dphiFatJetMet4':   {'axis': 'delta',      'overflow':'over',  'bins': hist.Bin('delta', r'$min \Delta \varphi(AK8, MET)$', 10, 0, 5)},
     'dphiDiFatJet':   {'axis': 'delta',      'overflow':'over',  'bins': hist.Bin('delta', r'$\Delta \varphi(AK8)$', 10, 0, 5)},
+    'W_pt_W_CR':   {'axis': 'pt',      'overflow':'over',  'bins': hist.Bin('pt', r'$p_{T} (W)\ (GeV)$', 7, 0, 700)},
+    'H_pt_Higgs_CR':   {'axis': 'pt',      'overflow':'over',  'bins': hist.Bin('pt', r'$p_{T} (H)\ (GeV)$', 7, 0, 700)},
     }
 
 separateSignal = False
@@ -117,7 +132,7 @@ for name in bins:
 
     for l in ['linear', 'log']:
         if useData:
-            saveFig(fig, ax, rax, plotDir, name, scale=l, shape=False, y_max=y_max)
+            saveFig(fig, ax, rax, plotDir, name, scale=l, shape=False, y_max=y_max, preliminary='Preliminary', lumi=lumi)
         else:
             saveFig(fig, ax, None, plotDir, name, scale=l, shape=False, y_max=y_max)
     fig.clear()
@@ -125,17 +140,17 @@ for name in bins:
         rax.clear()
     ax.clear()
 
-    
-    try:
-        fig, ax = plt.subplots(1,1,figsize=(7,7))
-        notdata = re.compile('(?!pseudodata|wjets|diboson)')
-        hist.plot1d(histogram[notdata],overlay="dataset", density=True, stack=False, overflow=bins[name]['overflow'], ax=ax) # make density plots because we don't care about x-sec differences
-        for l in ['linear', 'log']:
-            saveFig(fig, ax, None, plotDir, name+'_shape', scale=l, shape=True)
-        fig.clear()
-        ax.clear()
-    except ValueError:
-        print ("Can't make shape plot for a weird reason")
+    if False:
+        try:
+            fig, ax = plt.subplots(1,1,figsize=(7,7))
+            notdata = re.compile('(?!pseudodata|wjets|diboson)')
+            hist.plot1d(histogram[notdata],overlay="dataset", density=True, stack=False, overflow=bins[name]['overflow'], ax=ax) # make density plots because we don't care about x-sec differences
+            for l in ['linear', 'log']:
+                saveFig(fig, ax, None, plotDir, name+'_shape', scale=l, shape=True)
+            fig.clear()
+            ax.clear()
+        except ValueError:
+            print ("Can't make shape plot for a weird reason")
 
     fig.clear()
     ax.clear()
