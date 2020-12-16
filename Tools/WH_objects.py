@@ -142,6 +142,7 @@ def getElectrons(df, WP='veto'):
             df['nElectron'],
             pt = df['Electron_pt'].content,
             eta = df['Electron_eta'].content,
+            #etaSC = (df['Electron_eta']+df['Electron_deltaEtaSC']).content,
             phi = df['Electron_phi'].content,
             mass = df['Electron_mass'].content,
             miniPFRelIso_all=df['Electron_miniPFRelIso_all'].content,
