@@ -91,7 +91,7 @@ class LeptonSF:
             mu_sf_id        = self.evaluator["mu_2018_id"](mu.pt, abs(mu.eta))
             mu_sf_iso       = self.evaluator["mu_2018_iso"](mu.pt, abs(mu.eta))
 
-            sf = ele_sf_id.prod() * ele_sf_iso.prod() * ele_sf_reco.prod() * ele_sf_reco_low.prod() * mu_sf_id.prod() * mu_sf_iso.prod()
+            sf = ele_sf_id.prod() * ele_sf_iso.prod() * ele_sf_reco.prod() * mu_sf_id.prod() * mu_sf_iso.prod()
 
 
         return sf

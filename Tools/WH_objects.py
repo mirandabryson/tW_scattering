@@ -94,18 +94,16 @@ def getTriggers(df, year=2018, dataset='None'):
     
     if year == 2018:
         triggers = [\
-            "HLT_PFMET120_PFMHT120",
-            "HLT_PFMET120_PFMHT120_PFHT60",
-            "HLT_PFMETNoMu120_PFMHTNoMu120",
-            "HLT_PFMETNoMu120_PFMHTNoMu120_PFHT60",
+            "HLT_PFMET120_PFMHT120_IDTight",
+            "HLT_PFMET120_PFMHT120_IDTight_PFHT60",
+            "HLT_PFMETNoMu120_PFMHTNoMu120_IDTight",
+            "HLT_PFMETNoMu120_PFMHTNoMu120_IDTight_PFHT60",
         ]
         
     elif year == 2017:
         triggers = [\
-            "HLT_PFMET120_PFMHT120",
-            "HLT_PFMET120_PFMHT120_PFHT60",
-            "HLT_PFMETNoMu120_PFMHTNoMu120",
-            "HLT_PFMETNoMu120_PFMHTNoMu120_PFHT60",
+            "HLT_PFMET120_PFMHT120_IDTight",
+            "HLT_PFMETNoMu120_PFMHTNoMu120_IDTight",
         ]
         
     elif year == 2016:
@@ -179,3 +177,32 @@ def getJets(df):
             btagDeepB = df['Jet_btagDeepB'].content, # https://twiki.cern.ch/twiki/bin/viewauth/CMS/BtagRecommendation102X
         )
     return jet[(jet.pt>30) & (abs(jet.eta)<2.4) & (jet.jetId>1)]
+
+def getBTags(jet, year=2016):
+    if year == 2016:
+        return jet[(jet.btagDeepB>0.6321)] # https://twiki.cern.ch/twiki/bin/viewauth/CMS/BtagRecommendation2016Legacy
+    elif year == 2017:
+        return jet[(jet.btagDeepB>0.4941)] # https://twiki.cern.ch/twiki/bin/viewauth/CMS/BtagRecommendation94X
+    elif year == 2018:
+        return jet[(jet.btagDeepB>0.4184)] # https://twiki.cern.ch/twiki/bin/viewauth/CMS/BtagRecommendation102X
+
+def getHTags(fatjet, year=2016):
+    # 2.5% WP
+    # https://indico.cern.ch/event/853828/contributions/3723593/attachments/1977626/3292045/lg-btv-deepak8v2-sf-20200127.pdf#page=4
+    if year == 2016:
+        return fatjet[(fatjet.deepTagMD_HbbvsQCD > 0.8945)] 
+    elif year == 2017:
+        return fatjet[(fatjet.deepTagMD_HbbvsQCD > 0.8695)] 
+    elif year == 2018:
+        return fatjet[(fatjet.deepTagMD_HbbvsQCD > 0.8365)] 
+
+def getWTags(fatjet, year=2016):
+    # 1% WP
+    # https://indico.cern.ch/event/853828/contributions/3723593/attachments/1977626/3292045/lg-btv-deepak8v2-sf-20200127.pdf#page=4
+    if year == 2016:
+        return fatjet[(fatjet.deepTag_WvsQCD > 0.918)] 
+    elif year == 2017:
+        return fatjet[(fatjet.deepTag_WvsQCD > 0.925)] 
+    elif year == 2018:
+        return fatjet[(fatjet.deepTag_WvsQCD > 0.918)] 
+
