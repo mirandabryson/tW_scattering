@@ -94,10 +94,10 @@ def getTriggers(df, year=2018, dataset='None'):
     
     if year == 2018:
         triggers = [\
-            "HLT_PFMET120_PFMHT120",
-            "HLT_PFMET120_PFMHT120_PFHT60",
-            "HLT_PFMETNoMu120_PFMHTNoMu120",
-            "HLT_PFMETNoMu120_PFMHTNoMu120_PFHT60",
+            "HLT_PFMET120_PFMHT120_IDTight",
+            "HLT_PFMET120_PFMHT120_IDTight_PFHT60",
+            "HLT_PFMETNoMu120_PFMHTNoMu120_IDTight",
+            "HLT_PFMETNoMu120_PFMHTNoMu120_IDTight_PFHT60",
         ]
         
     elif year == 2017:
