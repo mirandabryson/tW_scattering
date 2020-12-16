@@ -70,6 +70,20 @@ bins = {\
     'dphiDiFatJet':   {'axis': 'delta',      'overflow':'over',  'bins': hist.Bin('delta', r'$\Delta \varphi(AK8)$', 10, 0, 5)},
     'W_pt_W_CR':   {'axis': 'pt',      'overflow':'over',  'bins': hist.Bin('pt', r'$p_{T} (W)\ (GeV)$', 7, 0, 700)},
     'H_pt_Higgs_CR':   {'axis': 'pt',      'overflow':'over',  'bins': hist.Bin('pt', r'$p_{T} (H)\ (GeV)$', 7, 0, 700)},
+
+    'lead_AK8_pt':   {'axis': 'pt',      'overflow':'over',  'bins': hist.Bin('pt', r'$p_{T} (lead AK8)\ (GeV)$', 7, 0, 700)},
+    'lead_AK8_eta':   {'axis': 'eta',      'overflow':'over',  'bins': hist.Bin('eta', r'$\eta (lead AK8)\ (GeV)$', 15, -5.5, 5.5)},
+    'lead_AK8_mass':   {'axis': 'mass',      'overflow':'over',  'bins': hist.Bin('mass', r'$M (lead AK8)\ (GeV)$', 25, 0, 250)},
+    'lead_AK8_msoftdrop':   {'axis': 'mass',      'overflow':'over',  'bins': hist.Bin('mass', r'$M_{SD} (lead AK8)\ (GeV)$', 25, 0, 250)},
+    'lead_AK8_Hscore':   {'axis': 'score',      'overflow':'over',  'bins': hist.Bin('score', 'Hbb score (lead AK8)', 25, 0, 1)},
+    'lead_AK8_Wscore':   {'axis': 'score',      'overflow':'over',  'bins': hist.Bin('score', 'Wqq score (lead AK8)', 25, 0, 1)},
+
+    'sublead_AK8_pt':   {'axis': 'pt',      'overflow':'over',  'bins': hist.Bin('pt', r'$p_{T} (sublead AK8)\ (GeV)$', 7, 0, 700)},
+    'sublead_AK8_eta':   {'axis': 'eta',      'overflow':'over',  'bins': hist.Bin('eta', r'$\eta (sublead AK8)\ (GeV)$', 15, -5.5, 5.5)},
+    'sublead_AK8_mass':   {'axis': 'mass',      'overflow':'over',  'bins': hist.Bin('mass', r'$M (sublead AK8)\ (GeV)$', 25, 0, 250)},
+    'sublead_AK8_msoftdrop':   {'axis': 'mass',      'overflow':'over',  'bins': hist.Bin('mass', r'$M_{SD} (sublead AK8)\ (GeV)$', 25, 0, 250)},
+    'sublead_AK8_Hscore':   {'axis': 'score',      'overflow':'over',  'bins': hist.Bin('score', 'Hbb score (sublead AK8)', 25, 0, 1)},
+    'sublead_AK8_Wscore':   {'axis': 'score',      'overflow':'over',  'bins': hist.Bin('score', 'Wqq score (sublead AK8)', 25, 0, 1)},
     }
 
 separateSignal = False

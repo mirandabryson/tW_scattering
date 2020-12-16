@@ -206,3 +206,12 @@ def getWTags(fatjet, year=2016):
     elif year == 2018:
         return fatjet[(fatjet.deepTag_WvsQCD > 0.918)] # yes, really
 
+def getGenW(df):
+    GenW = JaggedCandidateArray.candidatesfromcounts(
+            df['nGenW'],
+            pt = df['GenW_pt'].content,
+            eta = df['GenW_eta'].content,
+            phi = df['GenW_phi'].content,
+            mass = ((df['GenW_pt']>0)*80).content,
+        )
+    return GenW
