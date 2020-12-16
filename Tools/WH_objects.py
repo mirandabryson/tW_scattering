@@ -198,11 +198,11 @@ def getHTags(fatjet, year=2016):
 
 def getWTags(fatjet, year=2016):
     # 1% WP
-    # https://indico.cern.ch/event/853828/contributions/3723593/attachments/1977626/3292045/lg-btv-deepak8v2-sf-20200127.pdf#page=4
+    # https://twiki.cern.ch/twiki/bin/viewauth/CMS/DeepAK8Tagging2018WPsSFs
     if year == 2016:
         return fatjet[(fatjet.deepTag_WvsQCD > 0.918)] 
     elif year == 2017:
         return fatjet[(fatjet.deepTag_WvsQCD > 0.925)] 
     elif year == 2018:
-        return fatjet[(fatjet.deepTag_WvsQCD > 0.918)] 
+        return fatjet[(fatjet.deepTag_WvsQCD > 0.918)] # yes, really
 
