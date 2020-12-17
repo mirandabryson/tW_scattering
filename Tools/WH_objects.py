@@ -150,7 +150,35 @@ def getElectrons(df, WP='veto'):
         return electron[(electron.pt>10) & (abs(electron.eta) < 2.4) & (electron.miniPFRelIso_all < 0.1) &  (electron.cutBased >= 1)]
     elif WP=='medium':
         return electron[(electron.pt>25) & (abs(electron.eta) < 2.4) & (electron.miniPFRelIso_all < 0.1) &  (electron.cutBased >= 3)]
+    elif WP=='tight':
+        return electron[(electron.pt>30) & (abs(electron.eta) < 2.4) & (electron.miniPFRelIso_all < 0.1) &  (electron.cutBased >= 4)]
 
+def getTaus(df, WP='veto'):
+    tau = JaggedCandidateArray.candidatesfromcounts(
+            df['nTau'],
+            pt=df['Tau_pt'].content, 
+            eta=df['Tau_eta'].content, 
+            phi=df['Tau_phi'].content,
+            mass=df['Tau_mass'].content,
+            decaymode=df['Tau_idDecayMode'].content,
+            newid=df['Tau_idMVAnewDM2017v2'].content,
+        )
+    if WP == 'veto':
+        return tau[(tau.pt > 20) & (abs(tau.eta) < 2.4) & (tau.decaymode) & (tau.newid >= 8)]
+
+def getIsoTracks(df, WP='veto'):
+    isotrack = JaggedCandidateArray.candidatesfromcounts(
+            df['nIsoTrack'],
+            pt=df['IsoTrack_pt'].content, 
+            eta=df['IsoTrack_eta'].content,
+            phi=df['IsoTrack_phi'].content, 
+            mass=((df['IsoTrack_pt']>0)*0.).content,
+            rel_iso=df['IsoTrack_pfRelIso03_all'].content, 
+        )
+    if WP == 'veto':
+        return isotrack[(isotrack.pt > 10) & (abs(isotrack.eta) < 2.4) & ((isotrack.rel_iso < 0.1) | ((isotrack.rel_iso*isotrack.pt) < 6))]
+ 
+    
 def getFatJets(df):
     fatjet = JaggedCandidateArray.candidatesfromcounts(
             df['nFatJet'],

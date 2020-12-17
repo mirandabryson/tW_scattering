@@ -2,7 +2,7 @@
 
 class Cutflow:
     
-    def __init__(self, output, df, cfg, processes, selection=None, weight=None ):
+    def __init__(self, output, df, cfg, processes, selection=None, weight=None, name='' ):
         '''
         If weight=None a branch called 'weight' in the dataframe is assumed
         '''
@@ -16,6 +16,7 @@ class Cutflow:
         self.output = output
         self.processes = processes
         self.selection = None
+        self.name=name
         self.addRow('entry', selection)
         
         
@@ -35,10 +36,10 @@ class Cutflow:
         
         for process in self.processes:
             if selection is not None:
-                self.output[process][name] += ( sum(self.weight[ (self.df['dataset']==process) & (selection) ].flatten() )*self.lumi )
-                self.output[process][name+'_w2'] += ( sum((self.weight[ (self.df['dataset']==process) & selection ]**2).flatten() )*self.lumi**2 )
+                self.output[process][name+self.name] += ( sum(self.weight[ (self.df['dataset']==process) & (selection) ].flatten() )*self.lumi )
+                self.output[process][name+self.name+'_w2'] += ( sum((self.weight[ (self.df['dataset']==process) & selection ]**2).flatten() )*self.lumi**2 )
             else:
-                self.output[process][name] += ( sum(self.weight[ (self.df['dataset']==process) ].flatten() )*self.lumi )
-                self.output[process][name+'_w2'] += ( sum((self.weight[ (self.df['dataset']==process) ]**2).flatten() )*self.lumi**2 )
+                self.output[process][name+self.name] += ( sum(self.weight[ (self.df['dataset']==process) ].flatten() )*self.lumi )
+                self.output[process][name+self.name+'_w2'] += ( sum((self.weight[ (self.df['dataset']==process) ]**2).flatten() )*self.lumi**2 )
   
         
