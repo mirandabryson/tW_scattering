@@ -29,7 +29,7 @@ from helpers import *
 # load the configuration
 cfg = loadConfig()
 
-year = 2016
+year = 2017
 
 if year == 2016:
     lumi = 35.9
