@@ -1,7 +1,7 @@
 import os
 import re
 import glob
-from Tools.helpers import *
+from Tools.config_helpers import *
 cfg = loadConfig()
 
 version = cfg['meta']['version']
@@ -16,6 +16,7 @@ data_path_2018 = os.path.join("/hadoop/cms/store/user/mbryson/WH_hadronic/", tag
 
 # WH All Had samples for DNN
 groups_WH_2016 = {
+    'signal':        ['/SMS-TChiWH.*Summer16NanoAODv7[-_]'],
     'TTW':           ['/TTWJets.*Summer16NanoAODv7[-_]','/TT[W][W][-_].*Summer16NanoAODv7[-_]'],
     'TTZ':           ['/TTZToLLNuNu[-_].*Summer16NanoAODv7[-_]','/TT[Z][Z][-_].*Summer16NanoAODv7[-_]'],
     'TTJets':        [ # default set
@@ -46,6 +47,7 @@ groups_WH_2016 = {
 }
 
 groups_WH_2017 = {
+    'signal':        ['/SMS-TChiWH.*Fall17NanoAODv7[-_]'],
     'TTW':           ['/ttWJet.*Fall17NanoAODv7[-_]','/TT[W][W][-_].*Fall17NanoAODv7[-_]'],
     'TTZ':           ['/TTZToLLNuNu[-_].*Fall17NanoAODv7[-_]','/TT[Z][Z][-_].*Fall17NanoAODv7[-_]'],
     'TTJets':        [ # default set
@@ -77,6 +79,7 @@ groups_WH_2017 = {
 
 
 groups_WH_2018 = {
+    'signal':        ['/SMS-TChiWH.*Autumn18NanoAODv7[-_]'],
     'TTW':           ['/ttWJet.*Autumn18NanoAODv7[-_]','/TT[W][W][-_].*Autumn18NanoAODv7[-_]'],
     'TTZ':           ['/TTZToLLNuNu[-_].*Autumn18NanoAODv7[-_]','/TT[Z][Z][-_].*Autumn18NanoAODv7[-_]'],
     'TTJets':        [ # default set
