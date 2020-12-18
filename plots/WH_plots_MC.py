@@ -29,14 +29,16 @@ from helpers import *
 # load the configuration
 cfg = loadConfig()
 
+year = 2018
+
 # load the results
-cache = dir_archive(os.path.join(os.path.expandvars(cfg['caches']['base']), cfg['caches']['WH']), serialized=True)
+cache = dir_archive(os.path.join(os.path.expandvars(cfg['caches']['base']), 'WH_%s'%year), serialized=True)
 #cache = dir_archive(os.path.join(os.path.expandvars(cfg['caches']['base']), cfg['caches']['WH_small']), serialized=True)
 cache.load()
 
 histograms = cache.get('histograms')
 output = cache.get('simple_output')
-plotDir = os.path.expandvars(cfg['meta']['plots']) + '/plots_WH/'
+plotDir = os.path.expandvars(cfg['meta']['plots']) + '/plots_WH_%s/'%year
 finalizePlotDir(plotDir)
 
 if not histograms:
@@ -77,6 +79,7 @@ bins = {\
     'H_eta':    {'axis': 'eta',     'overflow':'over',  'bins': hist.Bin('eta', r'$\eta (H-tag)$', 15, -5.5, 5.5)},
     'H_mass':     {'axis': 'mass',      'overflow':'over',  'bins': hist.Bin('pt', r'$M(H-tag)$', 20, 0, 200)},
     'H_msoftdrop':    {'axis': 'mass',     'overflow':'over',  'bins': hist.Bin('eta', r'$M_{SD}(H-tag)$', 20, 0, 200)},
+    'H_msoftdrop_incl':    {'axis': 'mass',     'overflow':'over',  'bins': hist.Bin('eta', r'$M_{SD}(H-tag)$', 20, 0, 200)},
 
     'dphiDiFatJet': {'axis': 'delta',          'overflow':'over',  'bins': hist.Bin('delta', r'$\Delta \phi (AK8)$', 30, 0, 3)},
     'dphiDiJet':    {'axis': 'delta',          'overflow':'over',  'bins': hist.Bin('delta', r'$\Delta \phi (AK4)$', 30, 0, 3)},
@@ -160,7 +163,7 @@ for name in bins:
     if separateSignal:
         hist.plot1d(histogram[notsignal],overlay="dataset", ax=ax, stack=True, overflow=bins[name]['overflow'], clear=False, line_opts=None, fill_opts=fill_opts, error_opts=error_opts, order=processes)
         #hist.plot1d(histogram[signal], overlay="dataset", ax=ax, overflow=bins[name]['overflow'], line_opts={'linewidth':3}, clear=False)
-        hist.plot1d(histogram['750_1_scan'], overlay="dataset", ax=ax, overflow=bins[name]['overflow'], line_opts={'linewidth':3}, clear=False)
+        #hist.plot1d(histogram['750_1_scan'], overlay="dataset", ax=ax, overflow=bins[name]['overflow'], line_opts={'linewidth':3}, clear=False)
         hist.plot1d(histogram['1000_1_scan'], overlay="dataset", ax=ax, overflow=bins[name]['overflow'], line_opts={'linewidth':3}, clear=False)
 
     if usePseudoData:
