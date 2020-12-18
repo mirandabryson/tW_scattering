@@ -45,11 +45,7 @@ cache.load()
 
 histograms = cache.get('histograms')
 output = cache.get('simple_output')
-<<<<<<< HEAD
-plotDir = os.path.expandvars(cfg['meta']['plots']) + '/WH_had/'
-=======
 plotDir = os.path.expandvars(cfg['meta']['plots']) + '/plots_WH_LL_SF_W_%s/'%year
->>>>>>> b506f3cbe746ab82b46be8f670bbf0568b34a7fb
 finalizePlotDir(plotDir)
 
 if not histograms:
