@@ -49,6 +49,7 @@ def getMeta(file, local=True):
     c = ROOT.TChain("Runs")
     c.Add(file)
     c.GetEntry(0)
+    #print("local = ", local)
     try:
         if local:
             res = c.genEventCount, c.genEventSumw, c.genEventSumw2
@@ -95,6 +96,8 @@ def getSampleNorm(files, local=True, redirector='root://xrootd.t2.ucsd.edu:2040/
         nEvents += res[0]
         sumw += res[1]
         sumw2 += res[2]
+        #print(res[0],res[1],res[2])
+    #print(nEvents,sumw,sumw2)
     return nEvents, sumw, sumw2
 
 def getDict(sample):
@@ -107,6 +110,7 @@ def getDict(sample):
         print ("Started with: %s"%name)
 
         year, era, isData, isFastSim = getYearFromDAS(sample[0])
+        #print(year, era, isData, isFastSim)
 
         # local/private sample?
         local = (sample[0].count('hadoop') + sample[0].count('home'))
@@ -127,6 +131,8 @@ def getDict(sample):
             nEvents, sumw, sumw2 = getSampleNorm(allFiles, local=local, redirector='root://cmsxrootd.fnal.gov/')
         else:
             nEvents, sumw, sumw2 = 0,0,0
+        
+        #print(nEvents, sumw, sumw2)
 
         #print (nEvents, sumw, sumw2)
         sample_dict.update({'sumWeight': float(sumw), 'nEvents': int(nEvents), 'xsec': float(sample[1]), 'name':name})
