@@ -56,17 +56,10 @@ def saveFig( fig, ax, rax, path, name, scale='linear', shape=False, y_max=-1 ):
     #ax.clear()
 
 colors = {
-    'tW_scattering': '#FF595E',
-    #'tW_scattering': '#000000',
-    'TTW': '#8AC926',
-    'TTX': '#FFCA3A',
-    'TTZ': '#FFCA3A',
-    'TTH': '#34623F',
-    'TTTT': '#0F7173',
-    'ttbar': '#1982C4',
-    'wjets': '#6A4C93',
-    'diboson': '#525B76',
-    'DY': '#6A4C93',
+    'ttW': '#8AC926',
+    'ttZ': '#FFCA3A',
+    'TTJets': '#1982C4',
+    'DYJets': '#6A4C93',
 }
 '''
 other colors (sets from coolers.com):
@@ -76,17 +69,10 @@ other colors (sets from coolers.com):
 '''
 
 my_labels = {
-    'tW_scattering': 'tW scattering',
-    'TTW': r'$t\bar{t}$W+jets',
-    'TTX': r'$t\bar{t}$Z/H',
-    'TTH': r'$t\bar{t}$H',
-    'TTZ': r'$t\bar{t}$Z',
-    'TTTT': r'$t\bar{t}t\bar{t}$',
-    'ttbar': r'$t\bar{t}$+jets',
-    'wjets': 'W+jets',
-    'DY': 'Drell-Yan',
-    'diboson': 'VV/VVV',
-    'pseudodata': 'Pseudo-data',
+    'ttW': r'$t\bar{t}$W+jets',
+    'ttZ': r'$t\bar{t}$Z',
+    'TTJets': r'$t\bar{t}$+jets',
+    'DYJets': 'Drell-Yan',
     'uncertainty': 'Uncertainty',
 }
 
