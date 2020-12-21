@@ -122,6 +122,7 @@ def getDimuonTriggers(df, year=2018, dataset='None'):
     
     if year == 2018:
         triggers = [\
+            "HLT_IsoMu27",
             "HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL",
             "HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ",
             "HLT_Mu50",
@@ -130,6 +131,7 @@ def getDimuonTriggers(df, year=2018, dataset='None'):
         
     elif year == 2017:
         triggers = [\
+            "HLT_IsoMu27",
             "HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL",
             "HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ",
             "HLT_Mu50",
