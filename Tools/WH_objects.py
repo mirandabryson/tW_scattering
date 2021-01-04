@@ -127,6 +127,15 @@ def getDimuonTriggers(df, year=2018, dataset='None'):
             "HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ",
             "HLT_Mu50",
             "HLT_Mu55",
+            "HLT_IsoMu24",
+            "HLT_Mu37_TkMu27",
+            "HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_Mass3p8",
+            "HLT_Mu18_Mu9",
+            "HLT_Mu18_Mu9_DZ",
+            "HLT_Mu19_TrkIsoVVL",
+            "HLT_Mu19_TrkIsoVVL_Mu9_TrkIsoVVL",
+            "HLT_Mu20_Mu10",
+            "HLT_Mu20_Mu10_DZ",
         ]
         
     elif year == 2017:
@@ -136,6 +145,17 @@ def getDimuonTriggers(df, year=2018, dataset='None'):
             "HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ",
             "HLT_Mu50",
             "HLT_Mu55",
+            "HLT_IsoMu24",
+            "HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_Mass8",
+            "HLT_Mu37_TkMu27",
+            "HLT_IsoMu27",
+            "HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_Mass3p8",
+            "HLT_Mu18_Mu9",
+            "HLT_Mu18_Mu9_DZ",
+            "HLT_Mu19_TrkIsoVVL",
+            "HLT_Mu19_TrkIsoVVL_Mu9_TrkIsoVVL",
+            "HLT_Mu20_Mu10",
+            "HLT_Mu20_Mu10_DZ",                    
         ]
     elif year == 2016:
         triggers = [\
@@ -143,11 +163,47 @@ def getDimuonTriggers(df, year=2018, dataset='None'):
             "HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ",
             "HLT_Mu50",
             "HLT_Mu55",
+            "HLT_IsoMu24",
+            "HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_Mass3p8",
+            "HLT_Mu18_Mu9",
+            "HLT_Mu18_Mu9_DZ",
+            "HLT_Mu19_TrkIsoVVL",
+            "HLT_Mu19_TrkIsoVVL_Mu9_TrkIsoVVL",
+            "HLT_Mu20_Mu10",
+            "HLT_Mu20_Mu10_DZ",                    
         ]  
     if dataset.lower().count('data') or dataset.lower().count('run201'):
         return mask_or(df, triggers)
     else:
         return (df['run']>0)
+    
+def getDielectronTriggers(df, year=2018, dataset='None'):
+    # these are the dimuon triggers from the MT2 analysis
+    
+    if year == 2018:
+        triggers = [\
+                    "HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ",
+                    "HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL",
+                    "HLT_DoubleEle33_CaloIdL_MW",
+                    "HLT_Photon200",            
+        ]
+        
+    elif year == 2017:
+        triggers = [\
+                    "HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ",
+                    "HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL",
+                    "HLT_DoubleEle33_CaloIdL_MW",
+                    "HLT_Photon200",                     
+        ]
+    elif year == 2016:
+        triggers = [\
+                    "HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ",
+                    "HLT_DoubleEle33_CaloIdL_GsfTrkIdVL_MW",          
+        ]  
+    if dataset.lower().count('data') or dataset.lower().count('run201'):
+        return mask_or(df, triggers)
+    else:
+        return (df['run']>0)    
 
     
 def getMuons(df, WP='veto'):
@@ -159,7 +215,8 @@ def getMuons(df, WP='veto'):
             mass = df['Muon_mass'].content,
             miniPFRelIso_all=df['Muon_miniPFRelIso_all'].content,
             looseId =df['Muon_looseId'].content,
-            mediumId =df['Muon_mediumId'].content
+            mediumId =df['Muon_mediumId'].content,
+            pdg=df['Muon_pdgId'].content
             )
     if WP=='veto':
         return muon[(muon.pt > 10) & (abs(muon.eta) < 2.4) & (muon.looseId) & (muon.miniPFRelIso_all < 0.2)]
@@ -176,7 +233,8 @@ def getElectrons(df, WP='veto'):
             phi = df['Electron_phi'].content,
             mass = df['Electron_mass'].content,
             miniPFRelIso_all=df['Electron_miniPFRelIso_all'].content,
-            cutBased=df['Electron_cutBased'].content
+            cutBased=df['Electron_cutBased'].content,
+            pdg=df['Electron_pdgId'].content
             )
     if WP=='veto':
         return electron[(electron.pt>10) & (abs(electron.eta) < 2.4) & (electron.miniPFRelIso_all < 0.1) &  (electron.cutBased >= 1)]
